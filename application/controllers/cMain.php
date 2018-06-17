@@ -3,17 +3,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * 
  */
-class CMain extends CI_Controller
+class CMain extends MY_Controller
 {
 	
-	// function __construct()
-	// {
-	// 	parent::__construct();
-	// }
+	public function __construct()
+	{
+		parent::__construct();
+	}
 
 	public function index() {
 
-		$this->load->view('Main/vMain');
+		$this->data['title']        = 'Dokumentasi Tugas Akhir';
+        $this->data['content']      = 'Main/vMain';
+        $this->template($this->data, 'vMain');
+
+    
 	}
 }
 
