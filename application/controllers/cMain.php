@@ -24,6 +24,7 @@ class CMain extends MY_Controller
 		$this->data['title']        = 'Dokumentasi Tugas Akhir';
         $this->data['content']      = 'Main/vMain';
         $this->template($this->data, 'vMain');
+    }
     
 
 	public function detilTA() {
