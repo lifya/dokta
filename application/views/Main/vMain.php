@@ -30,9 +30,9 @@
 
     <!-- About -->
     <section id="about">
-      <div class="container">
+      <div class="container container-custom-about">
         <h2 class="text-center ">About DOKTA</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -41,10 +41,43 @@
       </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Bidang Ilmu -->
     <section class="testimonials text-center bg-light">
       <div class="container">
-        
+        <h2 class="text-center">Konsentrasi Bidang Ilmu</h2>
+        <div class="row">
+          <div class="col-xl-4 mx-auto">
+            <h5>Kecerdasan Buatan</h5>
+            <div class="row">
+              <div class="col-xl-4 mx-auto">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                      <h6>Judul</h6>
+                      <p>nama penulis</p>
+                    </div>
+                    <div class="col-xl-9 mx-auto">
+                      <h6>Judul</h6>
+                      <p>nama penulis</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 mx-auto">
+            <h5>Sistem Basis Data</h5>
+          </div>
+          <div class="col-xl-4 mx-auto">
+            <h5>Sistem Basis Data</h5>
+          </div>
+        </div>
+
       </div>
+    </section>
+
+    <!-- Subjek -->
+    <section>
+      
     </section>
 

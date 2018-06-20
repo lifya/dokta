@@ -10,6 +10,27 @@
   	text-align: center;
 }
 
+#search {
+  background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-color: black;
+    padding-top: 0.8rem;
+    padding-bottom: 2rem;
+    margin-bottom: 0;
+}
+
+.container-custom {
+  padding-right: 0px!important;
+  padding-left: 0px!important;
+}
+
+.container-custom-about {
+  padding-right: 64px!important;
+  padding-left: 64px!important;
+}
+
 .btn-custom {
 	color: #ffff;
 	background-color: black;
@@ -28,6 +49,11 @@
     line-height: 1;
     border-radius: .1rem;
 
+}
+
+.icon-custom {
+  padding-left: 36px;
+  font-size: 0.8rem;
 }
 
 .margin-top-20 {
@@ -65,3 +91,32 @@
 	padding-top : 80px;
   	padding-bottom: 50px;
 }
+
+/*detilTA*/
+.container-tab-nav {
+  padding-left: 110px!important;
+  padding-right: 110px!important;
+  padding-top: 50px!important;
+}
+
+#abstrak {
+  padding-top: 30px;
+}
+
+.p-margin {
+  margin-bottom: 1px!important;
+}
+
+.icon-red {
+  color: red;
+  padding-top: 0px!important;
+}
+
+#penulis {
+  padding-top: 30px;
+}
+
+#dosenPembimbing {
+  padding-top: 30px;
+}
+

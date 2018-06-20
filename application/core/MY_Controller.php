@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class MY_Controller extends CI_Controller
 {
-  public $title = ' | Sentiment Analysis';
+  public $title = ' | Dokumentasi Tugas Akhir';
 	public function __construct()
 	{
 		parent::__construct();
@@ -12,10 +12,10 @@ class MY_Controller extends CI_Controller
 	public function template($data, $template = 'vMain')
 	{
 	    if ($template == 'vMain') {
-	      return $this->load->view('main/template/layout', $data);
+	      return $this->load->view('Main/template/layout', $data);
 	    }
 	    else if ($template == 'vAdmin') {
-	      return $this->load->view('home/template/layout', $data);
+	      return $this->load->view('Admin/template/layout', $data);
 	    }
 	    else if ($template == 'input') {
 	      return $this->load->view('templates/layout', $data);
