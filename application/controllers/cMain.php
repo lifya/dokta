@@ -25,12 +25,12 @@ class CMain extends MY_Controller
         $this->data['content']      = 'Main/vMain';
         $this->template($this->data, 'vMain');
     
-	}
 
 	public function detilTA() {
 		$this->data['title']        = 'Detil Tugas Akhir';
 		$this->data['content']      = 'Main/vDetilTA';
         $this->template($this->data, 'vMain');
+
 	}
 }
 
