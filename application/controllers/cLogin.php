@@ -17,7 +17,7 @@ class CLogin extends MY_Controller
 			redirect('Proses');
 			exit;
 		}
-		$this->load->model('User_m');
+		$this->load->model('mLogin');
 	}
 
 	public function index()
@@ -25,10 +25,10 @@ class CLogin extends MY_Controller
 		if ($this->POST('login-submit'))
 		{
 			
-			if (!$this->User_m->required_input(['username','password'])) 
+			if (!$this->mLogin->required_input(['username','password'])) 
 			{
 				$this->flashmsg('Data harus lengkap','warning');
-				redirect('login');
+				redirect('vLogin');
 				exit;
 			}
 			
@@ -37,15 +37,15 @@ class CLogin extends MY_Controller
 				'password'	=> md5($this->POST('password'))
 			];
 
-			$result = $this->User_m->login($this->data);
+			$result = $this->mLogin->login($this->data);
 			if (!isset($result)) 
 			{
 				$this->flashmsg('Username atau password salah','danger');
 			}
-			redirect('login');
+			redirect('vLogin');
 			exit;
 		}
 		$this->data['title'] = 'LOGIN'.$this->title;
-		$this->load->view('login',$this->data);
+		$this->load->view('Mahasiswa/vLogin',$this->data);
 	}
 }

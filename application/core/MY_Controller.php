@@ -17,8 +17,8 @@ class MY_Controller extends CI_Controller
 	    else if ($template == 'vAdmin') {
 	      return $this->load->view('Admin/template/layout', $data);
 	    }
-	    else if ($template == 'input') {
-	      return $this->load->view('templates/layout', $data);
+	    else if ($template == 'vMahasiswa') {
+	      return $this->load->view('Mahasiswa/template/layout', $data);
 	    }
 	}
 

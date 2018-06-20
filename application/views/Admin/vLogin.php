@@ -50,5 +50,3 @@
         </div>
       </div>
     </div>
-
-<?php $this->load->view('Include/Admin/vFooter'); ?>

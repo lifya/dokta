@@ -10,14 +10,7 @@ class CMain extends MY_Controller
 	{
 		parent::__construct();
 	}
-
-	// public function index() {
-
-	// 	$this->data['title']        = 'Dokumentasi Tugas Akhir';
- //        $this->data['content']      = 'Main/vMain';
- //        $this->template($this->data, 'vMain');
-    
-	// }
+	
 
 	public function index() {
 
