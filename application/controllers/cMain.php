@@ -17,7 +17,7 @@ class CMain extends MY_Controller
   //       $this->data['content']      = 'Main/vMain';
   //       $this->template($this->data, 'vMain');
     
-    	$this->load->view('Admin/vSidebar');
+    	$this->load->view('Mahasiswa/mLogin');
 	}
 }
 
