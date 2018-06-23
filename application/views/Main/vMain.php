@@ -1,38 +1,14 @@
-    <!-- Home -->
-    <section id="home">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-xl-9 mx-auto">
-              <h1>Dokumentasi Tugas Akhir</h1>
-              <h9>Fakultas Ilmu Komputer | Teknik Informatika | Referensi Tugas Akhir | Dokumentasi</h9>
-            </div>
-            <div class="col-xl-9 mx-auto margin-top-20">
-              <button type="submit" class="btn btn-size btn-custom">Publikasikan Tugas Akhir Kamu</button>
-            </div>
-            <div class="col-md-12 col-lg-10 col-xl-9 mx-auto">
-              <div class="container box color padding-32">
-                <form>
-                  <div class="form-row">
-                    <div class="col-12 col-md-9 mb-2 mb-md-0">
-                      <input type="text" class="form-control form-control-custom" placeholder="Judul Tugas Akhir, Nama Mahasiswa(Penulis)">
-                    </div>
-                    <div class="col-12 col-md-3">
-                      <button type="submit" class="btn btn-block btn-size btn-custom">Cari</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-    </section>
-    
-
     <!-- About -->
-    <section id="about">
+    <section id="about" class="bg-light text-center">
       <div class="container container-custom-about">
-        <h2 class="text-center ">About DOKTA</h2>
+        <h4>About <span style="color: #07294e;">DOKTA</span></h4>
+        <br><br>
         <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -41,38 +17,41 @@
       </div>
     </section>
 
+    
+
     <!-- Bidang Ilmu -->
-    <section class="testimonials text-center bg-light">
+    <section id="konsentrasi" >
       <div class="container">
-        <h2 class="text-center">Konsentrasi Bidang Ilmu</h2>
-        <div class="row">
-          <div class="col-xl-4 mx-auto">
-            <h5>Kecerdasan Buatan</h5>
-            <div class="row">
-              <div class="col-xl-4 mx-auto">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-xl-9 mx-auto">
-                      <h6>Judul</h6>
-                      <p>nama penulis</p>
-                    </div>
-                    <div class="col-xl-9 mx-auto">
-                      <h6>Judul</h6>
-                      <p>nama penulis</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <h4 class="text-center">Konsentrasi <span style="color: #07294e;">Bidang Ilmu</span></h4>  
+        <br><br>       
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-4">
+              <h6 class="bg-heading text-center"><strong>Kecerdasan Buatan</strong></h6>
+              <br>
+              <h6 style="color: #07294e;"><b>Judul Tugas Akhir</b></h6>
+              <p class="font-style-author">Nama Mahasiswa (Penulis)</p>
+              <p class="font-style-detil">Tanggal | Tahun | Bidang</p>
+              <button class="btn btn-navbar btn-custom"><b>Load All</b></button>
+            </div>
+            <div class="col-4">
+              <h6 class="bg-heading text-center"><strong>Basis Data</strong></h6>
+              <br>
+              <h6 style="color: #07294e;"><b>Judul Tugas Akhir</b></h6>
+              <p class="font-style-author">Nama Mahasiswa (Penulis)</p>
+              <p class="font-style-detil text-muted">Tanggal | Tahun | Bidang</p>
+              <button class="btn btn-navbar btn-custom"><b>Load All</b></button>
+            </div>
+            <div class="col-4">
+              <h6 class="bg-heading text-center"><strong>Jaringan Komputer</strong></h6>
+              <br>
+              <h6 style="color: #07294e;"><b>Judul Tugas Akhir</b></h6>
+              <p class="font-style-author">Nama Mahasiswa (Penulis)</p>
+              <p class="font-style-detil">Tanggal | Tahun | Bidang</p>
+              <button class="btn btn-navbar btn-custom"><b>Load All</b></button>
             </div>
           </div>
-          <div class="col-xl-4 mx-auto">
-            <h5>Sistem Basis Data</h5>
-          </div>
-          <div class="col-xl-4 mx-auto">
-            <h5>Sistem Basis Data</h5>
-          </div>
         </div>
-
       </div>
     </section>
 

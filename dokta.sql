@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 20 Jun 2018 pada 17.14
+-- Generation Time: 21 Jun 2018 pada 17.05
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -95,7 +95,7 @@ CREATE TABLE `subjek` (
 --
 
 CREATE TABLE `tandaterimata` (
-  `id` int(11) NOT NULL,
+  `idTTTA` int(11) NOT NULL,
   `nipus` varchar(15) NOT NULL,
   `tanggal` date NOT NULL,
   `namaMahasiswa` varchar(25) NOT NULL,
@@ -166,25 +166,32 @@ ALTER TABLE `mahasiswa`
 -- Indexes for table `subjek`
 --
 ALTER TABLE `subjek`
-  ADD PRIMARY KEY (`idSubjek`);
+  ADD PRIMARY KEY (`idSubjek`),
+  ADD KEY `bidang` (`idBidangIlmu`);
 
 --
 -- Indexes for table `tandaterimata`
 --
 ALTER TABLE `tandaterimata`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`idTTTA`),
+  ADD KEY `nip` (`nipus`);
 
 --
 -- Indexes for table `tugasakhir`
 --
 ALTER TABLE `tugasakhir`
-  ADD PRIMARY KEY (`idTA`);
+  ADD PRIMARY KEY (`idTA`),
+  ADD KEY `nim` (`nim`),
+  ADD KEY `bidangilmu` (`idbidangilmu`),
+  ADD KEY `dosenpembimbing1` (`dosenPembimbing1`),
+  ADD KEY `dosenpembimbing2` (`dosenPembimbing2`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`idUser`);
+  ADD PRIMARY KEY (`idUser`),
+  ADD KEY `nipus` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -194,7 +201,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `tandaterimata`
 --
 ALTER TABLE `tandaterimata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTTTA` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tugasakhir`
@@ -207,6 +214,38 @@ ALTER TABLE `tugasakhir`
 --
 ALTER TABLE `user`
   MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `subjek`
+--
+ALTER TABLE `subjek`
+  ADD CONSTRAINT `bidang` FOREIGN KEY (`idBidangIlmu`) REFERENCES `bidangilmu` (`idbidangilmu`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tandaterimata`
+--
+ALTER TABLE `tandaterimata`
+  ADD CONSTRAINT `nip` FOREIGN KEY (`nipus`) REFERENCES `admin` (`nipus`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tugasakhir`
+--
+ALTER TABLE `tugasakhir`
+  ADD CONSTRAINT `bidangilmu` FOREIGN KEY (`idbidangilmu`) REFERENCES `bidangilmu` (`idbidangilmu`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `dosenpembimbing1` FOREIGN KEY (`dosenPembimbing1`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `dosenpembimbing2` FOREIGN KEY (`dosenPembimbing2`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `nim` FOREIGN KEY (`nim`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `nipus` FOREIGN KEY (`username`) REFERENCES `admin` (`nipus`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `username` FOREIGN KEY (`username`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

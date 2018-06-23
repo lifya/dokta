@@ -8,8 +8,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <title><?= $title ?></title>
+
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url();?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
     <!-- Custom fonts for this template -->
     <link href="<?php echo base_url();?>assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

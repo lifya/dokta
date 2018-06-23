@@ -1,8 +1,8 @@
 <!-- detil tugas akhir -->
 
 <div class="container container-tab-nav">
-  <h4>Judul Tugas Akhir</h4>
-  <p>Bidang Ilmu</p>
+  <h4 style="color: #07294e;">Judul Tugas Akhir</h4>
+  <p><strong>Bidang Ilmu | Subjek</strong></p>
   <div id="content">
 	  <ul class="nav nav-tabs">
 	    <li class="nav-item">
@@ -26,7 +26,7 @@
 		  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		  <p>kata kunci : lorem, ipsum, ut, labore</p>
 		  <p class="p-margin"><strong>Tahun : </strong> 2017</p>
-		  <a href=""><i class="fa fa-file-pdf-o icon-red"></i> nama-file.pdf</a>
+		  <a href="" class="icon-red"><i class="fa fa-file-pdf-o "></i><b> Full Text PDF</b> </a>
 		  <p></p>
 		</div>
 		<div class="tab-pane" id="penulis">
@@ -39,11 +39,11 @@
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
-                        <td>NIM:</td>
+                        <td>NIM</td>
                         <td>09021181520023</td>
                       </tr>
                       <tr>
-                        <td>Jurusan:</td>
+                        <td>Jurusan</td>
                         <td>Teknik Informatika</td>
                       </tr>
                       <tr>
@@ -61,8 +61,60 @@
         
 		</div>
 		<div class="tab-pane" id="dosenPembimbing">
-		  <h6>Dosen Pembimbing</h6>
-		  <p>yellow yellow yellow yellow yellow</p>
+		  <div class="panel panel-info">
+            <div class="panel-heading">
+              <h6 class="panel-title">Dosen Pembimbing 1</h6>
+            </div>
+            <div class="panel-body">
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Nama</td>
+                        <td>Suherman</td>
+                      </tr>
+                      <tr>
+                        <td>NIP</td>
+                        <td>09021181520023</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td>info@support.com</td>
+                      </tr>
+                        <td>Alamat</td>
+                        <td>Simpang Alam</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div class="panel-heading">
+              <h6 class="panel-title">Dosen Pembimbing 2</h6>
+            </div>
+            <div class="panel-body">
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Nama</td>
+                        <td>Suherman</td>
+                      </tr>
+                      <tr>
+                        <td>NIP</td>
+                        <td>09021181520023</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td>info@support.com</td>
+                      </tr>
+                        <td>Alamat</td>
+                        <td>Simpang Alam</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+              </div>
 		</div>
 	  </div>
   </div>

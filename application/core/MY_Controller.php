@@ -20,6 +20,9 @@ class MY_Controller extends CI_Controller
 	    else if ($template == 'vMahasiswa') {
 	      return $this->load->view('Mahasiswa/template/layout', $data);
 	    }
+	    else if ($template == 'vDaftarTA') {
+	      return $this->load->view('Main/template/sub/layout', $data);
+	    }
 	}
 
 	public function POST($name)

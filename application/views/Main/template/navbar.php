@@ -1,35 +1,16 @@
-    <!-- Navigation -->
-    <nav class="navbar navbar-light static-top padding-0">
-      <div class="container-fluid container-custom"> 
-        <ul class="nav justify-content-start">
-          <li class="nav-item">
-            <i class="fa fa-envelope icon-custom"> achiaprilia.aa@gmail.com </i>
-          </li>
-          <li>
-            <i class="fa fa-phone icon-custom"> 089666878989 </i>
-          </li>
-        </ul>
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <button class="btn btn-navbar btn-custom">Publikasikan Tugas Akhir Kamu</button>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-light bg-light static-top">
+<!-- Navigation -->
+    <nav class="navbar navbar-light bg-light static-top bg-navbar">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">DOKTA</a>
+        <a class="navbar-brand font-style" href="<?= base_url('index.php/cMain') ?>"><strong>DOKTA</strong></a>
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
+            <a class="nav-link font-style-menu" href="<?= base_url('index.php/cMain') ?>"><strong>Home</strong></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link font-style-menu" href="<?= base_url('index.php/cMain#about') ?>"><strong>About</strong></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link font-style-menu" href="<?= base_url('index.php/cMain#konsentrasi') ?>"><strong>Bidang Ilmu</strong></a>
           </li>
         </ul>
       </div>
