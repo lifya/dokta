@@ -1,0 +1,33 @@
+<?php 
+
+class MBidangIlmu extends MY_Model 
+{
+	public function __construct()
+	{
+		parent::__construct();
+		$this->data['table_name'] 	= 'bidang_ilmu';
+		$this->data['primary_key']	= 'idBidangIlmu';
+	}
+
+	public function getDatabyNim($nim){
+		$this->db->where($this->data['primary_key'], $nim);
+		$query = $this->db->get($this->data['table_name']);
+		return $query->row();
+	}
+
+   	public function insertByNim($data, $nim){
+   		$this->db->where($this->data['primary_key'],$nim);
+		$query = $this->db->insert($this->data['table_name'], $data);
+		return $query;
+	}
+
+	public function insert($data){
+		$query = $this->db->insert($this->data['table_name'], $data);
+	}
+
+   	public function update($nim, $data){
+   		$this->db->where($this->data['primary_key'], $nim);
+   		$query = $this->db->update($this->data['table_name'], $data);
+   		return $query;
+   	}
+}
