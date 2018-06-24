@@ -9,15 +9,7 @@ class CAdmin extends MY_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->data['username']     = $this->session->userdata('username');
-        $this->data['role']         = $this->session->userdata('role');
-        
-        if (!isset($this->data['username'], $this->data['role']) or $this->data['role'] != "admin")
-        {
-            $this->session->sess_destroy();
-            redirect('index.php/clogin');
-            exit;
-        }
+		$this->load->model('mTandaTerimaTA');
 	}
 
 	public function index() {
@@ -34,6 +26,44 @@ class CAdmin extends MY_Controller
         $this->template($this->data, 'vAdmin');
 	}
 
+
+    //Tanda Terima TA
+
+    function data_TandaTerimaTA(){
+        $data=$this->mTandaTerimaTA->TandaTerimaTA_list();
+        echo json_encode($data);
+    }
+
+    function get_TandaTerimaTA(){
+        $nimTTTA=$this->input->get('id');
+        $data=$this->mTandaTerimaTA->get_TandaTerimaTA_by_kode($nimTTTA);
+        echo json_encode($data);
+    }
+
+    function simpan_TandaTerimaTA(){
+        $nimTTTA=$this->input->post('nimTTTA');
+        $namaTTTA=$this->input->post('namaTTTA');
+        $tglTTTA=$this->input->post('tglTTTA');
+        $data=$this->mTandaTerimaTA->simpan_TandaTerimaTA($nimTTTA,$namaTTTA,$tglTTTA);
+        echo json_encode($data);
+    }
+
+    function update_TandaTerimaTA(){
+        $nimTTTA=$this->input->post('nimTTTA');
+        $namaTTTA=$this->input->post('namaTTTA');
+        $tglTTTA=$this->input->post('tglTTTA');
+        $data=$this->mTandaTerimaTA->update_TandaTerimaTA($nimTTTA,$namaTTTA,$tglTTTA);
+        echo json_encode($data);
+    }
+
+    function hapus_TandaTerimaTA(){
+        $nimTTTA=$this->input->post('nimTTTA');
+        $data=$this->mTandaTerimaTA->hapus_TandaTerimaTA($nimTTTA);
+        echo json_encode($data);
+    }
+
+    // Tanda Terima TA
+
 	public function tugasAkhir() {
 		$this->data['title']        = 'Tugas Akhir';
 		$this->data['content']      = 'Admin/vTugasAkhir';
@@ -45,8 +75,10 @@ class CAdmin extends MY_Controller
 		$this->data['content']      = 'Admin/vDataDosen';
         $this->template($this->data, 'vAdmin');
 	}
-}
 
+
+	
+}
 
 
 ?>
