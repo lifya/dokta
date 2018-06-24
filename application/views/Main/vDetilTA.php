@@ -24,7 +24,7 @@
 		  <p align="justify" style="text-indent: 0.4in;"><?php echo $key->abstrak; ?></p>
 		  <p>kata kunci : lorem, ipsum, ut, labore</p>
 		  <p class="p-margin"><strong>Tahun : </strong> <?php echo $key->tahun; ?></p>
-		  <a href="" class="icon-red"><i class="fa fa-file-pdf-o "></i><b> Full Text PDF</b> </a>
+		  <a href="<?php echo base_url('index.php/cTugasAkhir/tampilPDF/'."$key->nim") ?>" class="icon-red"><i class="fa fa-file-pdf-o "></i><b> Full Text PDF</b> </a>
 		  <p></p>
 		</div>
 		<div class="tab-pane" id="penulis">

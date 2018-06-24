@@ -66,6 +66,40 @@ class CTugasAkhir extends MY_Controller
 
         $this->template($this->data, 'vDaftarTA');
 	}
+
+	public function tampilPDF($getNim)
+    {
+
+        if (file_exists('assets/dokumenTA/'.$getNim.'.pdf'))
+        {
+           if (isset($getNim) && !empty($getNim)) 
+           { 
+
+              $fileInfo = $this->mTugasAkhir->get_data($getNim);
+
+              $uploads_folder = 'assets/dokumenTA/';
+              $file_name = $getNim.'.pdf';
+              $file = '';
+              foreach ($fileInfo as $key => $value) 
+              {
+                  $value->url_pdf = base_url().$uploads_folder. $getNim .'pdf'; 
+                  $file = $uploads_folder.$file_name; 
+
+              }        
+                      $data['file'] = $file;
+                      $data['nim'] = $getNim;
+                    
+
+                      $this->load->view('tampil',$data);
+            } 
+        }
+        else
+        {
+              $this->flashmsg('File tidak ada !','danger');
+              redirect('mahasiswa/data_dokumen');  
+        }
+
+    }
 }
 
 
