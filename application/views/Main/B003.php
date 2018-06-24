@@ -2,7 +2,7 @@
 <section>
 	<div class="container container-add">
 		<?php 
-          foreach ($search as $key ) {
+          foreach ($B3 as $key ) {
         ?>
 		<div>
 			<a href="<?php echo base_url('index.php/CTugasAkhir/detilTA/'.$key->nim) ?>">

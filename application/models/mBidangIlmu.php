@@ -9,24 +9,25 @@ class MBidangIlmu extends MY_Model
 		$this->data['primary_key']	= 'idBidangIlmu';
 	}
 
-	public function getDatabyNim($nim){
-		$this->db->where($this->data['primary_key'], $nim);
+	public function getAll(){
+		$query = $this->db->get($this->data['table_name']);
+		return $query->result();
+	}
+
+	public function getDatabyNim($idBidangIlmu){
+		$this->db->where($this->data['primary_key'], $idSubjek);
 		$query = $this->db->get($this->data['table_name']);
 		return $query->row();
 	}
 
-   	public function insertByNim($data, $nim){
-   		$this->db->where($this->data['primary_key'],$nim);
+	public function insertAll($data, $idBidangIlmu){
+		$this->db->where($this->data['primary_key'],$idSubjek);
 		$query = $this->db->insert($this->data['table_name'], $data);
 		return $query;
 	}
 
-	public function insert($data){
-		$query = $this->db->insert($this->data['table_name'], $data);
-	}
-
-   	public function update($nim, $data){
-   		$this->db->where($this->data['primary_key'], $nim);
+	public function update($idSubjek, $data){
+   		$this->db->where($this->data['primary_key'], $idSubjek);
    		$query = $this->db->update($this->data['table_name'], $data);
    		return $query;
    	}
