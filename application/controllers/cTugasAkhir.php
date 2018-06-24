@@ -18,8 +18,8 @@ class CTugasAkhir extends MY_Controller
 	
 
 	public function index() {
-		$this->data['title']        = 'Daftar Tugas Akhir';
-		$this->data['content']      = 'Main/vDaftarTA';
+		    $this->data['title']        = 'Daftar Tugas Akhir';
+		    $this->data['content']      = 'Main/vDaftarTA';
         $this->template($this->data, 'vDaftarTA');
     }
 
@@ -96,7 +96,7 @@ class CTugasAkhir extends MY_Controller
         else
         {
               $this->flashmsg('File tidak ada !','danger');
-              redirect('mahasiswa/data_dokumen');  
+              redirect('index.php/cMain');  
         }
 
     }
