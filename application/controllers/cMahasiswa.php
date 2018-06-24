@@ -9,12 +9,22 @@ class CMahasiswa extends MY_Controller
 	public function __construct()
 	{
 		parent::__construct();
+        $this->data['username']     = $this->session->userdata('username');
+        $this->data['role']         = $this->session->userdata('role');
+        
+        if (!isset($this->data['username'], $this->data['role']) or $this->data['role'] != "mahasiswa")
+        {
+            $this->session->sess_destroy();
+            redirect('index.php/clogin');
+            exit;
+        }
 
         $this->load->model('mMahasiswa');
 	}
 	
 
 	public function index() {
+
 
 		$this->data['title']        = 'Publikasi Tugas Akhir'.$this->title;;
         $this->data['content']      = 'Mahasiswa/vMahasiswa';

@@ -9,6 +9,15 @@ class CAdmin extends MY_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->data['username']     = $this->session->userdata('username');
+        $this->data['role']         = $this->session->userdata('role');
+        
+        if (!isset($this->data['username'], $this->data['role']) or $this->data['role'] != "admin")
+        {
+            $this->session->sess_destroy();
+            redirect('index.php/clogin');
+            exit;
+        }
 	}
 
 	public function index() {
