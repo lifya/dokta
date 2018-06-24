@@ -30,47 +30,51 @@
                                     </div>
                                 </div>
                                 <div class="form-bottom" style="margin-left: -167px;">
-                                    <form role="form" action="" method="post" class="registration-form">
-                                        <form method="post" id="datadiri">
+                                    <?= form_open('index.php/cMahasiswa/dataDiri') ?>
+                                      <?php echo $this->session->flashdata('msg'); ?>
                                           <table>
-                                              <tr>
-                                                  <td width="500px" >Nama</td>
-                                                  <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="form-nama" placeholder="Nama..." class="form-nama form-control" id="  form-nama" style="margin-left: -150px;"></div>
-                                                  </td>
-                                              </tr>
                                               <tr>
                                                   <td>NIM</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="form-nim" placeholder="NIM..." class="form-nim form-control" id="  form-nim" style="margin-left: -150px;"></div></td>
+                                                  <input type="text" name="nim" placeholder="NIM..." class="form-nim form-control" id="  form-nim" style="margin-left: -150px;"></div></td>
                                               </tr>
+                                              
+                                              <tr>
+                                                  <td width="500px" >Nama</td>
+                                                  <td width="600px" height="50px"><div class="form-group">
+                                                  <input type="text" name="nama" placeholder="Nama..." class="form-nama form-control" id="  form-nama" style="margin-left: -150px;"></div>
+                                                  </td>
+                                              </tr>
+                                              
                                               <tr>
                                                   <td>Jurusan</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="form-jurusan" placeholder="Jurusan..." class="form-jurusan form-control" id="form-jurusan" style="margin-left: -150px;"></div></td>
+                                                  <input type="text" name="jurusan" placeholder="Jurusan..." class="form-jurusan form-control" id="form-jurusan" style="margin-left: -150px;"></div></td>
                                               </tr>
                                               <tr>
                                                   <td>Angkatan</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="form-angkatan" placeholder="Angkatan..." class="form-angkatan form-control" id="  form-angkatan" style="margin-left: -150px;"></div></td>
+                                                  <input type="text" name="angkatan" placeholder="Angkatan..." class="form-angkatan form-control" id="  form-angkatan" style="margin-left: -150px;"></div></td>
                                               </tr>
                                               <tr>
                                                   <td>Email</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="  form-email" style="margin-left: -150px;"></div></td>
+                                                  <input type="text" name="email" placeholder="Email..." class="form-email form-control" id="  form-email" style="margin-left: -150px;"></div></td>
                                               </tr>
                                               <tr>
                                                   <td>NoHP</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="form-nohp" placeholder="NoHP..." class="form-nohp form-control" id="  form-nohp" style="margin-left: -150px;"></div></td>
+                                                  <input type="text" name="nohp" placeholder="NoHP..." class="form-nohp form-control" id="  form-nohp" style="margin-left: -150px;"></div></td>
                                               </tr>
                                           </table>
-                                          </form>
-                                        <a href="<?= base_url('index.php/cMahasiswa/detilTA') ?>"><button type="submit" class="button" style=" margin-bottom:  370px; margin-top: 55px; margin-right:-100px;">Selanjutnya
-                                          </button>
-                                        </a>
                                         
-                                    </form>
+                                        <!-- <input type="submit" class="button" name="simpan" style=" margin-bottom:  370px; margin-top: 55px; margin-right:-100px;"> -->
+
+                                        <input type="submit" name="simpan" class="btn btn-info" value="Simpan">
+                                          
+                                        
+                                        
+                                  <?= form_close() ?>
                                 </div>
                             </div>
                             

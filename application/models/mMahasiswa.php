@@ -6,7 +6,12 @@ class MMahasiswa extends MY_Model
 	{
 		parent::__construct();
 		$this->data['table_name'] 	= 'mahasiswa';
-		$this->data['primary_key']	= 'nim';
+		$this->data['primary_key']	= 'NIM';
+	}
+
+	public function tambah_data($object)
+	{
+		return $this->db->insert('data_mahasiswa',$object);
 	}
 
 	public function getData(){

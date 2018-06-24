@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="<?php echo base_url();?>assets/css/form-elements.css">
+        <link rel="stylesheet" href="<?php echo base_url();?>assets/css/form-elements.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/css/style.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/img/bg-classroom.jpg">
 
@@ -25,22 +25,22 @@
 
     </head>
 
-    <body> 
+    <body> `
         <!-- Top content -->
         <div class="top-content">
-        	
+            
             <div class="inner-bg">
                 <div class="container">
-                	
+                    
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <h1 style="color: #07294E;">Publikasikan Tugas Akhir Kamu di Sini !!!</h1>
 <!--                             <div class="description">
-                            	<p>
-	                            	This is a free responsive <strong>"login and register forms"</strong> template made with Bootstrap. 
-	                            	Download it on <a href="http://azmind.com" target="_blank"><strong>AZMIND</strong></a>, 
-	                            	customize and use it as you like!
-                            	</p>
+                                <p>
+                                    This is a free responsive <strong>"login and register forms"</strong> template made with Bootstrap. 
+                                    Download it on <a href="http://azmind.com" target="_blank"><strong>AZMIND</strong></a>, 
+                                    customize and use it as you like!
+                                </p>
                             </div> -->
                         </div>
                     </div>
@@ -58,6 +58,10 @@
                                         <i class="fa fa-pencil"></i>
                                     </div>
                                 </div>
+                            <?= form_open_multipart('index.php/signup') ?>
+                            <div>
+                                <?= $this->session->flashdata('msg1') ?>
+                            </div>
                                 <div class="form-bottom" style="outline-color:#07294E; ">
                                     <form role="form" action="" method="post" class="registration-form">
                                         <div class="form-group">
@@ -85,8 +89,8 @@
                                             <textarea name="form-about-yourself" placeholder="About yourself..." 
                                                         class="form-about-yourself form-control" id="form-about-yourself"></textarea>
                                         </div> -->
-                                        <button type="submit" class="btn" style="background-color: #ffc600; color: #07294E;">Create Account</button>
-                                    </form>
+                                        <input name="login-signup" type="submit" class="btn btn-primary btn-lg btn-block" value="Create Account" style="background-color: #ffc600; color: #07294E;">
+                                    <?= form_close() ?>
                                 </div>
                             </div>
                             
@@ -94,7 +98,7 @@
                         
                         <div class="col-sm-1 middle-border"></div>
                         <div class="col-sm-1"></div>
-                        	
+                            
                           <div class="col-sm-5">
                             <div class="form-box">
                                 <div class="form-top" style="background-color: #07294E; color: #ffc600;">
@@ -107,17 +111,28 @@
                                     </div>
                                 </div>
                                 <div class="form-bottom">
-                                    <form role="form" action="" method="post" class="login-form">
+                                <?= form_open_multipart('index.php/cLogin') ?>
+                                    <div>
+                                        <?= $this->session->flashdata('msg') ?>
+                                    </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="form-email">Email</label>
-                                            <input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email">
+                                            <input type="numeric" name="username" placeholder="Email..." class="form-email form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="form-password">Password</label>
-                                            <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+                                            <input type="password" name="password" placeholder="Password..." class="form-password form-control" required>
                                         </div>
-                                        <button type="submit" class="btn" style="background-color: #ffc600; color: #07294E;">Login</button>
-                                    </form>
+                                        <div class="form-group">
+                                        <div style="text-align: left !important;"><h5>Sebagai :</h5></div>
+                                            <select name="role" class="form-control">
+                                            <option value="mahasiswa">Mahasiswa</option>
+                                            <option value="admin">Admin</option>
+                                            </select>
+                                            
+                                        </div>
+                                        <input name="login-signin" type="submit" class="btn btn-primary btn-lg btn-block" value="Login" style="background-color: #ffc600; color: #07294E;">
+                                    <?= form_close() ?>
                                 </div>
                             </div>
                         
@@ -132,16 +147,16 @@
 
         <!-- Footer -->
         <footer>
-        	<div class="container">
-        		<div class="row">
-        			
-        			<div class="col-sm-8 col-sm-offset-2">
-        				<div class="footer-border"></div>
-        				<p style="color: #07294E;"  >Copyright &reg; 2018<i class="fa fa-smile-o"></i></p>
-        			</div>
-        			
-        		</div>
-        	</div>
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="footer-border"></div>
+                        <p style="color: #07294E;"  >Copyright &reg; 2018<i class="fa fa-smile-o"></i></p>
+                    </div>
+                    
+                </div>
+            </div>
         </footer>
 
         <!-- Javascript -->
