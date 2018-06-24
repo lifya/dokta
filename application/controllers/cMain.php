@@ -28,42 +28,6 @@ class CMain extends MY_Controller
        
     }
 
-
-    public function tampil_pdf($getNim)
-    {
-
-        if (file_exists('assets/File_TugasAkhir/'.$getNim.'.pdf'))
-        {
-           if (isset($getNim) && !empty($getNim)) 
-           { 
-
-              $fileInfo = $this->tugas_akhir_m->get_data($getNim);
-
-              $uploads_folder = 'assets/File_TugasAkhir/';
-              $file_name = $getNim.'.pdf';
-              $file = '';
-              foreach ($fileInfo as $key => $value) 
-              {
-                  $value->url_pdf = base_url().$uploads_folder. $getNim .'pdf'; 
-                  $file = $uploads_folder.$file_name; 
-
-              }        
-                      $data['file'] = $file;
-                      $data['nim'] = $getNim;
-                    
-
-                      $this->load->view('tampil',$data);
-            } 
-        }
-        else
-        {
-              $this->flashmsg('File tidak ada !','danger');
-              redirect('mahasiswa/data_dokumen');  
-        }
-
-    }
-    
-
 }
 
 

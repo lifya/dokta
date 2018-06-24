@@ -11,7 +11,8 @@
         </ul>
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <button class="btn btn-navbar btn-custom"><b>Publikasikan Tugas Akhir Kamu</b></button>
+            <!-- <button class="btn btn-navbar btn-custom"><b>Publikasikan Tugas Akhir Kamu</b></button> -->
+            <a href="<?php echo base_url('index.php/cLogin') ?>" class="btn btn-navbar btn-custom"><b>Publikasikan Tugas Akhir Kamu</b></a> 
           </li>
         </ul>
       </div>
