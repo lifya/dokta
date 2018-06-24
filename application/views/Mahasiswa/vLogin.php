@@ -14,12 +14,14 @@
         <link rel="stylesheet" href="<?php echo base_url();?>assets/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="<?php echo base_url();?>assets/css/form-elements.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/css/style.css">
+        <link rel="stylesheet" href="<?php echo base_url();?>assets/img/bg-classroom.jpg">
 
         <link rel="shortcut icon" href="<?php echo base_url();?>assets/ico/favicon.png">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo base_url();?>assets/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url();?>assets/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url();?>assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="<?php echo base_url();?>assets/ico/apple-touch-icon-57-precomposed.png">
+
 
     </head>
 
@@ -32,7 +34,7 @@
                 	
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1>Publikasikan Tugas Akhir Kamu di Sini !!!</h1>
+                            <h1 style="color: #07294E;">Publikasikan Tugas Akhir Kamu di Sini !!!</h1>
 <!--                             <div class="description">
                             	<p>
 	                            	This is a free responsive <strong>"login and register forms"</strong> template made with Bootstrap. 
@@ -47,16 +49,16 @@
                         <div class="col-sm-5">
                             
                             <div class="form-box">
-                                <div class="form-top">
+                                <div class="form-top" style="background-color: #07294E; color: #ffc600;">
                                     <div class="form-top-left">
-                                        <h3>Sign up now</h3>
+                                        <h3 style="color: #ffc600">Sign up now</h3>
                                         <p>Fill in the form below to get instant access:</p>
                                     </div>
                                     <div class="form-top-right">
                                         <i class="fa fa-pencil"></i>
                                     </div>
                                 </div>
-                                <div class="form-bottom">
+                                <div class="form-bottom" style="outline-color:#07294E; ">
                                     <form role="form" action="" method="post" class="registration-form">
                                         <div class="form-group">
                                             <label class="sr-only" for="form-name">Name</label>
@@ -83,7 +85,7 @@
                                             <textarea name="form-about-yourself" placeholder="About yourself..." 
                                                         class="form-about-yourself form-control" id="form-about-yourself"></textarea>
                                         </div> -->
-                                        <button type="submit" class="btn">Create Account</button>
+                                        <button type="submit" class="btn" style="background-color: #ffc600; color: #07294E;">Create Account</button>
                                     </form>
                                 </div>
                             </div>
@@ -93,12 +95,11 @@
                         <div class="col-sm-1 middle-border"></div>
                         <div class="col-sm-1"></div>
                         	
-                                                <div class="col-sm-5">
-                            
+                          <div class="col-sm-5">
                             <div class="form-box">
-                                <div class="form-top">
+                                <div class="form-top" style="background-color: #07294E; color: #ffc600;">
                                     <div class="form-top-left">
-                                        <h3>Login to our site</h3>
+                                        <h3 style="color: #ffc600">Login to our site</h3>
                                         <p>Enter username and password to log on:</p>
                                     </div>
                                     <div class="form-top-right">
@@ -115,7 +116,7 @@
                                             <label class="sr-only" for="form-password">Password</label>
                                             <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
                                         </div>
-                                        <button type="submit" class="btn">Login</button>
+                                        <button type="submit" class="btn" style="background-color: #ffc600; color: #07294E;">Login</button>
                                     </form>
                                 </div>
                             </div>
@@ -136,7 +137,7 @@
         			
         			<div class="col-sm-8 col-sm-offset-2">
         				<div class="footer-border"></div>
-        				<p>Copyright &reg; 2018<i class="fa fa-smile-o"></i></p>
+        				<p style="color: #07294E;"  >Copyright &reg; 2018<i class="fa fa-smile-o"></i></p>
         			</div>
         			
         		</div>

@@ -1,10 +1,9 @@
 	  <section id="main-content">
 	  	  <section class="wrapper site-min-height">
-		    <h3><i class="fa fa-angle-right"></i> Tanggapan</h3>
-		    <div class="row mt">
-		      <div class="col-lg-12">
-		      	<p>Place your content here.</p>
-		      </div>
-		    </div>	
+	  	  	<h3>Tanggapan</h3>
+	  	  	<center>
+	  	  		<h1 style="margin-top: 120px;">Tugas Akhir Anda Sudah DiTerima </h1>
+	  	  	</center>
+		    
 		  </section>
 	  </section>
