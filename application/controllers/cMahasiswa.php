@@ -15,7 +15,7 @@ class CMahasiswa extends MY_Controller
         if (!isset($this->data['username'], $this->data['role']) or $this->data['role'] != "mahasiswa")
         {
             $this->session->sess_destroy();
-            redirect('index.php/clogin');
+            redirect('index.php/cLogin');
             exit;
         }
 
