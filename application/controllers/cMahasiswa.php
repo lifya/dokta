@@ -116,10 +116,35 @@ class CMahasiswa extends MY_Controller
     }
 
 
-    public function unggah() {
-        $this->data['title']        = 'Pratinjau';
-        $this->data['content']      = 'Mahasiswa/vUnggah';
-        $this->template($this->data, 'vMahasiswa');
+    public function unggah() 
+        {
+
+        if ($this->input->post('simpan')) {
+
+            $dokumenPDF = $this->input->post('dokumenPDF');
+
+
+            $object = array('dokumenPDF' => $dokumenPDF, 
+                        );
+
+            $query = $this->mMahasiswa->tambah_data_pdf($object);
+
+            if($query)
+                {
+                    $this->session->set_flashdata('msg','<div class="alert alert-success" style="text-align:center;">Data Berhasil Ditambahkan</div>');
+
+                    redirect('index.php/cMahasiswa/unggah');
+                }else
+                {
+                    echo "GAGAL";
+                }
+        }
+        else
+        {
+            $this->data['title']        = 'Pratinjau';
+            $this->data['content']      = 'Mahasiswa/vUnggah';
+            $this->template($this->data, 'vMahasiswa');
+        }
 
     }
     

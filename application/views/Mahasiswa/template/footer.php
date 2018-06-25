@@ -1,13 +1,3 @@
-    <!--footer start-->
-    <footer class="site-footer">
-          <div class="text-center">
-              <p>Copyright &reg; 2018</p>
-              <a href="index.html#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
-          </div>
-    </footer>
-    <!--footer end-->
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="<?php echo base_url();?>assets/theme/js/jquery.js"></script>

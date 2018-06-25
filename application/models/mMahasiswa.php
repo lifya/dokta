@@ -19,6 +19,11 @@ class MMahasiswa extends MY_Model
 		return $this->db->insert('data_tugas_akhir',$object);
 	}
 
+	public function tambah_data_pdf($object)
+	{
+		return $this->db->insert('data_tugas_akhir',$object);
+	}
+
 	public function getData(){
 		$query = $this->db->query('Select username, password From user Inner Join mahasiswa on mahasiswa.NIM = user.username; ');
 		return $query->result();
