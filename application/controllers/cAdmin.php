@@ -10,6 +10,7 @@ class CAdmin extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('mTandaTerimaTA');
+        $this->load->model('mDosen');
 	}
 
 	public function index() {
@@ -73,14 +74,32 @@ class CAdmin extends MY_Controller
 	}
 
 
+    // Data Dosen
 
 	public function dataDosen() {
 		$this->data['title']        = 'Data Dosen';
 		$this->data['content']      = 'Admin/vDataDosen';
+        $this->data['data_dosen'] = $this->mDosen->get_data_dosen();
         $this->template($this->data, 'vAdmin');
 	}
 
-    // Data Dosen
+    // Hapus Data Dosen
+    public function hapus_data_dosen($nip)
+    {
+        $query = $this->mDosen->hapus_dosen($nip);
+
+        if ($query) {
+            $this->session->set_flashdata('msg', '<div class="alert alert-success" style="text-align:center;">Data Berhasil Dihapus</div>');
+                
+            redirect('admin/vDataDosen');
+        }else{
+            $this->session->set_flashdata('msg', '<div class="alert alert-danger" style="text-align:center;">Data Gagal Dihapus</div>');
+                
+            redirect('admin/vDataDosen');
+        }
+    }
+
+    
 
     function data_Dosen(){
         $data=$this->mDosen->DataDosen_list();

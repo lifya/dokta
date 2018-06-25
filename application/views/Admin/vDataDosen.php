@@ -5,20 +5,34 @@
                     <div class="pull-right"><a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#ModalaAdd" style="background-color: #07294e"><span class="fa fa-plus"></span> Tambah </a></div>
                 </h3>
                 <hr style="width: 400px; margin-left: 5px">
-
+                <div>
+                    <?= $this->session->flashdata('msg') ?>
+                </div>
                  <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;" id="mydata">
                         <thead>
                             <tr >
-                            <th>NIP</th>
-                            <th>Nama</th>
-                            <th>Email</th>
-                            <th>Alamat</th>
-                            <th>Aksi</th>
+                                <th>NIP</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Alamat</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody id="show_data">
-                      
+                            <?php foreach ($data_dosen as $d) {
+                                
+                            ?>
+                            <tr>
+                                <td><?= $d->nip; ?></td>
+                                <td><?= $d->nama; ?></td>
+                                <td><?= $d->email; ?></td>
+                                <td><?= $d->alamat; ?></td>
+                                <td><?php echo anchor('index.php/cAdmin/edit/'.$d->nip, 'Edit', array('class' => 'btn btn-success')) ?>
+                                    <?php echo anchor('index.php/cAdmin/hapus_data_dosen/'.$d->nip, 'Hapus', array('class' => 'btn btn-danger')) ?>
+                                </td>
+                            </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
                 </div>

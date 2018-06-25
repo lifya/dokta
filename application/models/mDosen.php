@@ -93,4 +93,17 @@ class MDosen extends MY_Model
 	}
 
 	//Data Dosen
+
+	public function get_data_dosen()
+	{
+		$query = $this->db->query('SELECT * FROM dosen ORDER BY nip ASC');
+
+		return $query->result();
+	}
+
+	//Hapus Data Dosen
+	public function hapus_dosen($nip)
+	{
+		return $this->db->delete('dosen', array('nip' => $nip));
+	}
 }
