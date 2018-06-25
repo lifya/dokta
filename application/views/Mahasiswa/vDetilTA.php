@@ -21,48 +21,48 @@
                                               <tr>
                                                   <td width="500px" >Judul</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="form-judul" placeholder="Judul..." class="form-judul form-control" id="  form-judul" style="margin-left: -30px;"></div>
+                                                  <input type="text" name="judul" placeholder="Judul..." class="form-judul form-control" id="  form-judul" style="margin-left: -30px;"></div>
                                                   </td>
                                               </tr>
                                               <tr>
                                                   <td>Bidang Ilmu</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <select id="Bidang-ilmu" style="width: 200px; height: 40px; margin-left: -30px;">
-                                                  <option nama="agama">Basis Data</option>
-                                                  <option nama="agama" value="Kecerdasan Buatan">Kecerdasan Buatan</option>
-                                                  <option nama="Tingkat" value="Jaringan">Jaringan</option>
+                                                  <select id="Bidang-ilmu" name="bidangilmu" style="width: 200px; height: 40px; margin-left: -30px;">
+                                                  <option value="basis_data">Basis Data</option>
+                                                  <option value="kecerdasan_buatan">Kecerdasan Buatan</option>
+                                                  <option value="jaringan">Jaringan</option>
                                                   </select></div>
                                                   </td>
                                               </tr>
                                               <tr>
                                                   <td>Subjek</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <select id="subjek" style="width: 200px; height: 40px; margin-left: -30px;">
-                                                  <option nama="nlp">Pemrosesan Bahasa Alami</option>
-                                                  <option nama="citra" >Pengolahan Citra</option>
-                                                  <option nama="game">Oemrograman Game</option>
+                                                  <select id="subjek" name="subjek" style="width: 200px; height: 40px; margin-left: -30px;">
+                                                  <option value="nlp">Pemrosesan Bahasa Alami</option>
+                                                  <option value="citra" >Pengolahan Citra</option>
+                                                  <option value="game">Oemrograman Game</option>
                                                   </select></div>
                                                   </td>
                                               </tr>
                                               <tr>
                                                   <td>Tahun</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="form-tahun" placeholder="Tahun..." class="form-tahun form-control" id="form-tahun" style="margin-left: -30px;"></div></td>
+                                                  <input type="text" name="tahun" placeholder="Tahun..." class="form-tahun form-control" id="form-tahun" style="margin-left: -30px;"></div></td>
                                               </tr>
                                               <tr>
                                                   <td>Nama Pembimbing 1</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="form-nama-pembimbing" placeholder="nama Pembimbing1..." class="form-nama-pembimbing form-control" id="  form-nama-pembimbing" style="margin-left: -30px;"></div></td>
+                                                  <input type="text" name="dosenpembimbing1" placeholder="nama Pembimbing1..." class="form-nama-pembimbing form-control" id="  form-nama-pembimbing" style="margin-left: -30px;"></div></td>
                                               </tr>
                                               <tr>
                                                   <td>Nama Pembimbing 2</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="form-nama-pembimbing" placeholder="nama Pembimbing2..." class="form-nama-pembimbing form-control" id="  form-nama-pembimbing" style="margin-left: -30px;"></div></td>
+                                                  <input type="text" name="dosenpembimbing2" placeholder="nama Pembimbing2..." class="form-nama-pembimbing form-control" id="  form-nama-pembimbing" style="margin-left: -30px;"></div></td>
                                               </tr>
                                               <tr>
                                                   <td>Abstrak</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="form-abstrak" placeholder="Abstrak..." class="form-abstrak form-control" id="form-abstrak" style="margin-left: -30px;"></div></td>
+                                                  <input type="text" name="abstrak" placeholder="Abstrak..." class="form-abstrak form-control" id="form-abstrak" style="margin-left: -30px;"></div></td>
                                               </tr>
                                           </table>
                                        

@@ -81,8 +81,8 @@ class CMahasiswa extends MY_Controller
             $dosenpembimbing1 = $this->input->post('dosenpembimbing1'); 
             $dosenpembimbing2 = $this->input->post('dosenpembimbing2');
             $abstrak = $this->input->post('abstrak'); 
-            $dokumenPDF = $this->input->post('dokumenPDF'); 
-            $status = $this->input->post('status'); 
+            //$dokumenPDF = $this->input->post('dokumenPDF'); 
+            //$status = $this->input->post('status'); 
 
             $object = array('Subjek' => $subjek,
                         'bidangilmu' => $bidangilmu,
@@ -91,8 +91,8 @@ class CMahasiswa extends MY_Controller
                         'dosenpembimbing1' => $dosenpembimbing1,
                         'dosenpembimbing2' => $dosenpembimbing2,
                         'abstrak' => $abstrak,
-                        'dokumenPDF' => $dokumenPDF,
-                        'status' => $status,
+                        //'dokumenPDF' => $dokumenPDF,
+                        //'status' => $status,
                         );
 
             $query = $this->mMahasiswa->tambah_data_ta($object);

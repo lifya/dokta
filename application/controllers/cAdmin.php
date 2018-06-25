@@ -75,7 +75,6 @@ class CAdmin extends MY_Controller
 
 
     // Data Dosen
-
 	public function dataDosen() {
 		$this->data['title']        = 'Data Dosen';
 		$this->data['content']      = 'Admin/vDataDosen';
@@ -99,7 +98,14 @@ class CAdmin extends MY_Controller
         }
     }
 
-    
+    //Edit Data Dosen
+    public function edit_data_dosen()
+    {
+        $this->data['title']        = 'Edit Data Dosen';
+        $this->data['content']      = 'Admin/vEditDosen';
+       // $this->data['data_dosen'] = $this->mDosen->get_data_dosen();
+        $this->template($this->data, 'vAdmin');
+    }
 
     function data_Dosen(){
         $data=$this->mDosen->DataDosen_list();
