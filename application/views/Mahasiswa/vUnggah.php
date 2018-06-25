@@ -16,10 +16,16 @@
                                         <p style="margin-top: 30px;">Unggah file dalam format <strong>PDF</strong></p>
                                     </div>
                                 </div>
+
+                                <?= form_open('index.php/cMahasiswa/Unggah') ?>
+                                    <?php echo $this->session->flashdata('msg'); ?>
                                 <div class="form-group">
                                     <input type="file" name="upload_file" required>
                                 </div>
                                 <input type="submit" name="simpan" class="btn btn-info" value="Simpan" style="background: #07294e ; border-color: #ffc600;">
+
+                                <?= form_close() ?>
+
                                 </div>
                             </div>
                         </div>
