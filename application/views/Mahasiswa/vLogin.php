@@ -34,19 +34,12 @@
                     
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1 style="color: #07294E;">Publikasikan Tugas Akhir Kamu di Sini !!!</h1>
-<!--                             <div class="description">
-                                <p>
-                                    This is a free responsive <strong>"login and register forms"</strong> template made with Bootstrap. 
-                                    Download it on <a href="http://azmind.com" target="_blank"><strong>AZMIND</strong></a>, 
-                                    customize and use it as you like!
-                                </p>
-                            </div> -->
+                           <strong><h1 style="color: #07294E; margin-top: -70px;">Publikasikan Tugas Akhir Kamu di Sini !!!</h1></strong> 
                         </div>
                     </div>
                     
-                    <div class="row">
-                        <div class="col-sm-5">
+                    <div class="row" >
+                        <div class="col-sm-5" style="margin-top: -50px;">
                             
                             <div class="form-box">
                                 <div class="form-top" style="background-color: #07294E; color: #ffc600;">
@@ -116,8 +109,8 @@
                                         <?= $this->session->flashdata('msg') ?>
                                     </div>
                                         <div class="form-group">
-                                            <label class="sr-only" for="form-email">Email</label>
-                                            <input type="numeric" name="username" placeholder="Email..." class="form-email form-control" required>
+                                            <label class="sr-only" for="form-nim">NIM</label>
+                                            <input type="text" name="username" placeholder="NIM..." class="form-nim form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="form-password">Password</label>

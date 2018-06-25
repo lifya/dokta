@@ -6,7 +6,7 @@
   <h4 >Judul Tugas Akhir</h4>
   <p>Bidang Ilmu</p>
   <div id="content">
-	  <ul class="nav nav-tabs">
+	  <ul class="nav nav-tabs" style="margin-left: -10px;">
 	    <li class="nav-item">
 	      <a class="nav-link active" href="#abstrak" data-toggle="tab">Abstrak</a>
 	    </li>

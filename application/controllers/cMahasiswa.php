@@ -5,28 +5,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class CMahasiswa extends MY_Controller
 {
-	
-	public function __construct()
-	{
-		parent::__construct();
+    
+    public function __construct()
+    {
+        parent::__construct();
         $this->data['username']     = $this->session->userdata('username');
         $this->data['role']         = $this->session->userdata('role');
         
-        if (!isset($this->data['username'], $this->data['role']) or $this->data['role'] != "mahasiswa")
-        {
-            $this->session->sess_destroy();
-            redirect('index.php/clogin');
-            exit;
-        }
+        // if (!isset($this->data['username'], $this->data['role']) or $this->data['role'] != "mahasiswa")
+        // {
+        //     $this->session->sess_destroy();
+        //     redirect('index.php/cLogin');
+        //     exit;
+        // }
 
         $this->load->model('mMahasiswa');
-	}
-	
+    }
+    
 
-	public function index() {
+    public function index() {
 
 
-		$this->data['title']        = 'Publikasi Tugas Akhir'.$this->title;;
+        $this->data['title']        = 'Publikasi Tugas Akhir'.$this->title;;
         $this->data['content']      = 'Mahasiswa/vMahasiswa';
         $this->template($this->data, 'vMahasiswa');
     }
@@ -68,39 +68,78 @@ class CMahasiswa extends MY_Controller
             $this->data['content']      = 'Mahasiswa/vDataDiri';
             $this->template($this->data, 'vMahasiswa');
         }
-	}
+    }
 
-	public function detilTA() {
-		$this->data['title']        = 'Pratinjau';
-		$this->data['content']      = 'Mahasiswa/vDetilTA';
+    public function detilTA() {
+
+         if ($this->input->post('simpan')) {
+
+            $subjek = $this->input->post('subjek'); 
+            $bidangilmu = $this->input->post('bidangilmu'); 
+            $judul = $this->input->post('judul');    
+            $tahun = $this->input->post('tahun'); 
+            $dosenpembimbing1 = $this->input->post('dosenpembimbing1'); 
+            $dosenpembimbing2 = $this->input->post('dosenpembimbing2');
+            $abstrak = $this->input->post('abstrak'); 
+            $dokumenPDF = $this->input->post('dokumenPDF'); 
+            $status = $this->input->post('status'); 
+
+            $object = array('Subjek' => $subjek,
+                        'bidangilmu' => $bidangilmu,
+                        'judul' => $judul,
+                        'tahun' => $tahun,
+                        'dosenpembimbing1' => $dosenpembimbing1,
+                        'dosenpembimbing2' => $dosenpembimbing2,
+                        'abstrak' => $abstrak,
+                        'dokumenPDF' => $dokumenPDF,
+                        'status' => $status,
+                        );
+
+            $query = $this->mMahasiswa->tambah_data_ta($object);
+
+            if($query)
+                {
+                    $this->session->set_flashdata('msg','<div class="alert alert-success" style="text-align:center;">Data Berhasil Ditambahkan</div>');
+
+                    redirect('index.php/cMahasiswa/detilTA');
+                }else
+                {
+                    echo "GAGAL";
+                }
+        }
+        else
+        {
+            $this->data['title']        = 'Detil Tugas Akhir';
+            $this->data['content']      = 'Mahasiswa/vDetilTA';
+            $this->template($this->data, 'vMahasiswa');
+        }
+    }
+
+
+    public function unggah() {
+        $this->data['title']        = 'Pratinjau';
+        $this->data['content']      = 'Mahasiswa/vUnggah';
         $this->template($this->data, 'vMahasiswa');
 
-	}
-
-	public function unggah() {
-		$this->data['title']        = 'Pratinjau';
-		$this->data['content']      = 'Mahasiswa/vUnggah';
-        $this->template($this->data, 'vMahasiswa');
-
-	}
+    }
     
 
-	public function pratinjau() {
-		$this->data['title']        = 'Pratinjau';
-		$this->data['content']      = 'Mahasiswa/vPratinjau';
+    public function pratinjau() {
+        $this->data['title']        = 'Pratinjau';
+        $this->data['content']      = 'Mahasiswa/vPratinjau';
         $this->template($this->data, 'vMahasiswa');
 
-	}
+    }
 
-	public function tanggapan() {
-		$this->data['title']        = 'Tanggapan';
-		$this->data['content']      = 'Mahasiswa/vTanggapan';
+    public function tanggapan() {
+        $this->data['title']        = 'Tanggapan';
+        $this->data['content']      = 'Mahasiswa/vTanggapan';
         $this->template($this->data, 'vMahasiswa');
 
-	}
+    }
 
-	public function mengisiInformasiTA() {
-		$this->data['title']  = 'Mengunggah Dokumen'.$this->title;
+    public function mengisiInformasiTA() {
+        $this->data['title']  = 'Mengunggah Dokumen'.$this->title;
         $this->data['content']  = 'mahasiswa/mengunggah_dokumen';
         $this->data['ta'] = $this->tugas_akhir_m->getDatabyNim($this->data['username']);
         $this->data['individu'] = $this->Mahasiswa_m->getDatabyNim($this->data['username']);
@@ -162,7 +201,7 @@ class CMahasiswa extends MY_Controller
             //}
         }
         $this->template($this->data, 'mahasiswa');
-	}
+    }
 }
 
 

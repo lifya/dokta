@@ -4,7 +4,7 @@ class MTandaTerimaTA extends CI_Model{
 	public function __construct()
 	{
 		parent::__construct();
-		$this->data['table_name'] 	= 'tanda_terima_ta';
+		// $this->data['table_name'] 	= 'tanda_terima_ta';
 	}
 
 	function TandaTerimaTA_list(){
