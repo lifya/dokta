@@ -4,7 +4,7 @@
           <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
         </div>
           <!--logo start-->
-          <a href="index.html" class="logo"><b>DOKTA</b></a>
+          <a href="<?php echo base_url('index.php/cMain') ?>" class="logo"><b>DOKTA</b></a>
           <!--logo end-->
           <div class="top-menu">
             <ul class="nav pull-right top-menu">
@@ -23,7 +23,7 @@
                     <li class="mt">
                         <a href="<?= base_url('index.php/cMahasiswa') ?>">
                             <i class="fa fa-dashboard"></i>
-                            <span>Profil</span>
+                            <span>Home</span>
                         </a>
                     </li>
 

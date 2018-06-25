@@ -26,21 +26,21 @@ class CTugasAkhir extends MY_Controller
     public function B001() {
 		$this->data['title']        = 'Daftar Tugas Akhir';
 		$this->data['content']      = 'Main/B001';
-		$this->data['B1'] = $this->mTugasAkhir->get_bidang_ilmu('B001');
+		$this->data['B1'] = $this->mTugasAkhir->get_ta_all_bidang('B001');
         $this->template($this->data, 'vDaftarTA');
     }
 
     public function B002() {
 		$this->data['title']        = 'Daftar Tugas Akhir';
 		$this->data['content']      = 'Main/B002';
-        $this->data['B2'] = $this->mTugasAkhir->get_bidang_ilmu('B002');
+        $this->data['B2'] = $this->mTugasAkhir->get_ta_all_bidang('B002');
         $this->template($this->data, 'vDaftarTA');
     }
 
     public function B003() {
 		$this->data['title']        = 'Daftar Tugas Akhir';
 		$this->data['content']      = 'Main/B003';
-        $this->data['B3'] = $this->mTugasAkhir->get_bidang_ilmu('B003');
+        $this->data['B3'] = $this->mTugasAkhir->get_ta_all_bidang('B003');
         $this->template($this->data, 'vDaftarTA');
     }
 

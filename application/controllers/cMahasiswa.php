@@ -12,11 +12,8 @@ class CMahasiswa extends MY_Controller
         $this->data['username']     = $this->session->userdata('username');
         $this->data['role']         = $this->session->userdata('role');
         
-        // if (!isset($this->data['username'], $this->data['role']) or $this->data['role'] != "mahasiswa")
-        // {
-        //     $this->session->sess_destroy();
-        //     redirect('index.php/cLogin');
-        //     exit;
+        // if($this->session->userdata('status') != "login"){
+        //     redirect(base_url("index.php/CLogin"));
         // }
 
         $this->load->model('mMahasiswa');
