@@ -17,7 +17,7 @@
                             <th>Aksi</th>
                             </tr>
                         </thead>
-                        <tbody id="show_data2">
+                        <tbody id="show_data">
                       
                         </tbody>
                     </table>
@@ -38,28 +38,28 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3">NIP </label>
                         <div class="col-xs-9">
-                            <input name="nip_Dosen" id="nip_Dosen" class="form-control" type="text" placeholder="NIP" style="width:335px;" required>
+                            <input name="nipDosen" id="Dosen_nip" class="form-control" type="text" placeholder="NIP" style="width:335px;" required>
                         </div>
                     </div>   
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Nama </label>
                         <div class="col-xs-9">
-                            <input name="nama_Dosen" id="nama_Dosen" class="form-control" type="text" placeholder="Nama" style="width:335px;" required>
+                            <input name="namaDosen" id="Dosen_nama" class="form-control" type="text" placeholder="Nama" style="width:335px;" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Email </label>
                         <div class="col-xs-9">
-                            <input name="email_Dosen" id="email_Dosen" class="form-control" type="text" placeholder="Email" style="width:335px;" required>
+                            <input name="emailDosen" id="Dosen_email" class="form-control" type="text" placeholder="Email" style="width:335px;" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Alamat </label>
                         <div class="col-xs-9">
-                            <input name="alamat_Dosen" id="alamat_Dosen" class="form-control" type="text" placeholder="Alamat" style="width:335px;" required>
+                            <input name="alamatDosen" id="Dosen_alamat" class="form-control" type="text" placeholder="Alamat" style="width:335px;" required>
                         </div>
                     </div>
                 </div>
@@ -88,28 +88,28 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" >NIP </label>
                         <div class="col-xs-9">
-                            <input name="nipDosen_edit" id="nip_Dosen2" class="form-control" type="text" placeholder="NIP" style="width:335px;" required>
+                            <input name="nipDosen_edit" id="Dosen_nip2" class="form-control" type="text" placeholder="NIP" style="width:335px;" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Nama </label>
                         <div class="col-xs-9">
-                            <input name="namaDosen_edit" id="nama_Dosen2" class="form-control" type="text" placeholder="Nama" style="width:335px;" required>
+                            <input name="namaDosen_edit" id="Dosen_nama2" class="form-control" type="text" placeholder="Nama" style="width:335px;" required>
                         </div>
                     </div>
 
                      <div class="form-group">
                         <label class="control-label col-xs-3" >Email </label>
                         <div class="col-xs-9">
-                            <input name="email_edit" id="email_Dosen2" class="form-control" type="text" placeholder="Email" style="width:335px;" readonly>
+                            <input name="emailDosen_edit" id="Dosen_email2" class="form-control" type="text" placeholder="Email" style="width:335px;" readonly>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Alamat </label>
                         <div class="col-xs-9">
-                            <input name="tglTTTA_edit" id="tgl_TTTA2" class="form-control" type="text" placeholder="Tanggal" style="width:335px;" readonly>
+                            <input name="alamatDosen_edit" id="Dosen_alamat2" class="form-control" type="text" placeholder="Alamat" style="width:335px;" readonly>
                         </div>
                     </div>
                 </div>
@@ -154,15 +154,15 @@
 <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.dataTables.js'?>"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        tampil_data_TandaTerimaTA();   //pemanggilan fungsi tampil Tanda Terima TA.
+        tampil_data_Dosen();   //pemanggilan fungsi tampil Data dosen.
         
         $('#mydata').dataTable();
          
         //fungsi tampil TTTA
-        function tampil_data_TandaTerimaTA(){
+        function tampil_data_Dosen(){
             $.ajax({
                 type  : 'ajax',
-                url   : '<?php echo base_url()?>index.php/cAdmin/data_TandaTerimaTA',
+                url   : '<?php echo base_url()?>index.php/cAdmin/data_Dosen',
                 async : false,
                 dataType : 'json',
                 success : function(data){
@@ -170,12 +170,13 @@
                     var i;
                     for(i=0; i<data.length; i++){
                         html += '<tr>'+
-                                '<td>'+data[i].nim+'</td>'+
+                                '<td>'+data[i].nip+'</td>'+
                                 '<td>'+data[i].nama+'</td>'+
-                                '<td>'+data[i].tanggal+'</td>'+
+                                '<td>'+data[i].email+'</td>'+
+                                '<td>'+data[i].alamat+'</td>'+
                                 '<td style="text-align:right;">'+
-                                    '<a href="javascript:;" class="btn btn-info btn-xs item_edit" style="background-color : #07294e" data="'+data[i].nim+'">Edit</a>'+' '+
-                                    '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" style="background-color : #07294e" data="'+data[i].nim+'">Hapus</a>'+
+                                    '<a href="javascript:;" class="btn btn-info btn-xs item_edit" style="background-color : #07294e" data-toggle="modal" data-target="#ModalaEdit" data="'+data[i].nip+'">Edit</a>'+' '+
+                                    '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" style="background-color : #07294e" data-toggle="modal" data-target="#ModalHapus" data="'+data[i].nip+'">Hapus</a>'+
                                 '</td>'+
                                 '</tr>';
                     }
@@ -190,15 +191,16 @@
             var id=$(this).attr('data');
             $.ajax({
                 type : "GET",
-                url  : "<?php echo base_url('index.php/cAdmin/get_TandaTerimaTA')?>",
+                url  : "<?php echo base_url('index.php/cAdmin/get_DataDosen')?>",
                 dataType : "JSON",
                 data : {id:id},
                 success: function(data){
-                    $.each(data,function(nim, nama, tanggal){
+                    $.each(data,function(nip, nama, email, alamat){
                         $('#ModalaEdit').modal('show');
-                        $('[name="nimTTTA_edit"]').val(data.nim);
-                        $('[name="namaTTTA_edit"]').val(data.nama);
-                        $('[name="tglTTTA_edit"]').val(data.tanggal);
+                        $('[name="nipDosen_edit"]').val(data.nip);
+                        $('[name="namaDosen_edit"]').val(data.nama);
+                        $('[name="emailDosen_edit"]').val(data.email);
+                        $('[name="alamatDosen_edit"]').val(data.alamat);
                     });
                 }
             });
@@ -210,25 +212,27 @@
         $('#show_data').on('click','.item_hapus',function(){
             var id=$(this).attr('data');
             $('#ModalHapus').modal('show');
-            $('[name="nim_TTTA"]').val(id);
+            $('[name="nip"]').val(id);
         });
 
         //Simpan Barang
         $('#btn_simpan').on('click',function(){
-            var nim_TTTA=$('#nim_TTTA').val();
-            var nama_TTTA=$('#nama_TTTA').val();
-            var tgl_TTTA=$('#tgl_TTTA').val();
+            var nipDosen=$('#Dosen_nip').val();
+            var namaDosen=$('#Dosen_nama').val();
+            var emailDosen=$('#Dosen_email').val();
+            var alamatDosen=$('#Dosen_alamat').val();
             $.ajax({
                 type : "POST",
-                url  : "<?php echo base_url('index.php/cAdmin/simpan_TandaTerimaTA')?>",
+                url  : "<?php echo base_url('index.php/cAdmin/simpan_DataDosen')?>",
                 dataType : "JSON",
-                data : {nim_TTTA:nim_TTTA , nama_TTTA:nama_TTTA , tgl_TTTA:tgl_TTTA },
+                data : {nipDosen:nipDosen , namaDosen:namaDosen , emailDosen:emailDosen , alamatDosen:alamatDosen},
                 success: function(data){
-                    $('[name="nim_TTTA"]').val("");
-                    $('[name="nama_TTTA"]').val("");
-                    $('[name="tgl_TTTA"]').val("");
+                    $('[name="nipDosen"]').val("");
+                    $('[name="namaDosen]').val("");
+                    $('[name="emailDosen"]').val("");
+                    $('[name="alamatDosen"]').val("");
                     $('#ModalaAdd').modal('hide');
-                    tampil_data_TandaTerimaTA();
+                    tampil_data_Dosen();
                 }
             });
             return false;
@@ -236,20 +240,22 @@
 
         //Update Barang
         $('#btn_update').on('click',function(){
-            var nim_TTTA=$('#nim_TTTA2').val();
-            var nama_TTTA=$('#nama_TTTA2').val();
-            var tgl_TTTA=$('#tgl_TTTA2').val();
+            var nipDosen=$('#Dosen_nip2').val();
+            var namaDosen=$('#Dosen_nama2').val();
+            var emailDosen=$('#Dosen_email2').val();
+            var alamatDosen=$('#Dosen_alamat2').val();
             $.ajax({
                 type : "POST",
-                url  : "<?php echo base_url('index.php/cAdmin/update_TandaTerimaTA')?>",
+                url  : "<?php echo base_url('index.php/cAdmin/update_DataDosen')?>",
                 dataType : "JSON",
-                data : {nim_TTTA:nim_TTTA , nama_TTTA:nama_TTTA , tgl_TTTA:tgl_TTTA},
+                data : {nipDosen:nipDosen , namaDosen:namaDosen , emailDosen:emailDosen , alamatDosen:alamatDosen },
                 success: function(data){
-                    $('[name="nimTTTA_edit"]').val("");
-                    $('[name="namaTTTA_edit"]').val("");
-                    $('[name="tglTTTA_edit"]').val("");
+                    $('[name="nipDosen_edit"]').val("");
+                    $('[name="namaDosen_edit"]').val("");
+                    $('[name="emailDosen_edit"]').val("");
+                    $('[name="alamatDosen_edit"]').val("");
                     $('#ModalaEdit').modal('hide');
-                    tampil_data_TandaTerimaTA();
+                    tampil_data_Dosen();
                 }
             });
             return false;
@@ -257,15 +263,15 @@
 
         //Hapus Barang
         $('#btn_hapus').on('click',function(){
-            var nim_TTTA=$('#textkode').val();
+            var nipDosen=$('#textkode').val();
             $.ajax({
             type : "POST",
-            url  : "<?php echo base_url('index.php/cAdmin/hapus_TandaTerimaTA')?>",
+            url  : "<?php echo base_url('index.php/cAdmin/hapus_DataDosen')?>",
             dataType : "JSON",
-                    data : {nim_TTTA: nim_TTTA},
+                    data : {nipDosen: nipDosen},
                     success: function(data){
                             $('#ModalHapus').modal('hide');
-                            tampil_data_TandaTerimaTA();
+                            tampil_data_Dosen();
                     }
                 });
                 return false;

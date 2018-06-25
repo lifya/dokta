@@ -51,4 +51,46 @@ class MDosen extends MY_Model
    				');
    		return $query->row();
 	}
+
+	//Data Dosen
+
+	function DataDosen_list(){
+		$hasil=$this->db->query("SELECT * FROM dosen");
+		return $hasil->result();
+	}
+
+	function simpan_DataDosen($nipDosen,$namaDosen,$emailDosen,$alamatDosen){
+		$hasil=$this->db->query("INSERT INTO dosen (nip,nama,email,alamat)VALUES('$nipDosen','$namaDosen','$emailDosen','$alamatDosen')");
+		// $query = $this->db->insert($this->data['table_name'],$data);
+		// return $query;
+		return $hasil;
+	}
+
+	function get_DataDosen_by_kode($nipDosen){
+		$hsl=$this->db->query("SELECT * FROM dosen WHERE nip='$nipDosen'");
+		if($hsl->num_rows()>0){
+			foreach ($hsl->result() as $data) {
+				$hasil=array(
+					'nip' => $data->nip,
+					'nama' => $data->nama,
+					'email' => $data->email,
+					'alamat' => $data->alamat,
+					);
+			}
+		}
+		return $hasil;
+	}
+
+	function update_DataDosen($nipDosen,$namaDosen,$emailDosen,$alamatDosen){
+		// $this->db->WHERE('NIM', $nimTTA);
+		$hasil=$this->db->update("UPDATE dosen SET nama='$namaDosen', email='$emailDosen', alamat='$alamatDosen' WHERE nip='$nipDosen'");
+		return $hasil;
+	}
+
+	function hapus_DataDosen($nipDosen){
+		$hasil=$this->db->query("DELETE FROM dosen WHERE nip='$nipDosen'");
+		return $hasil;
+	}
+
+	//Data Dosen
 }

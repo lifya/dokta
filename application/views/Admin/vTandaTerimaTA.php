@@ -162,8 +162,8 @@
                                 '<td>'+data[i].nama+'</td>'+
                                 '<td>'+data[i].tanggal+'</td>'+
                                 '<td>'+
-                                    '<a href="javascript:;" class="btn btn-info btn-xs item_edit" style="background-color : #07294e" data="'+data[i].nim+'">Edit</a>'+' '+
-                                    '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" style="background-color : #07294e" data="'+data[i].nim+'">Hapus</a>'+
+                                    '<a href="javascript:;" class="btn btn-info btn-xs item_edit" style="background-color : #07294e" data-toggle="modal" data-target="#ModalaEdit" data="'+data[i].nim+'">Edit</a>'+' '+
+                                    '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" style="background-color : #07294e" data-toggle="modal" data-target="#ModalHapus" data="'+data[i].nim+'">Hapus</a>'+
                                 '</td>'+
                                 '</tr>';
                     }
@@ -198,7 +198,7 @@
         $('#show_data').on('click','.item_hapus',function(){
             var id=$(this).attr('data');
             $('#ModalHapus').modal('show');
-            $('[name="nimTTTA"]').val(id);
+            $('[name="nim"]').val(id);
         });
 
         //Simpan Barang
@@ -250,7 +250,7 @@
             type : "POST",
             url  : "<?php echo base_url('index.php/cAdmin/hapus_TandaTerimaTA')?>",
             dataType : "JSON",
-                    data : {nim_TTTA: nim_TTTA},
+                    data : {nimTTTA: nimTTTA},
                     success: function(data){
                             $('#ModalHapus').modal('hide');
                             tampil_data_TandaTerimaTA();
