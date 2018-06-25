@@ -58,8 +58,8 @@ class CLogin extends MY_Controller
 
 			$role = $this->POST('role');
 			
-			$this->load->model('mLogin');
-			$result = $this->mLogin->login($this->data);
+			$this->load->model('mUser');
+			$result = $this->mUser->login($this->data);
 			if (!isset($result)) {
 				$this->flashmsg('Username atau password salah','danger');
 			}
@@ -74,11 +74,11 @@ class CLogin extends MY_Controller
 		    	
 		    	if(count($cek_data) != 0){
 					$this->session->set_userdata('role', $role);
-					if($role == "mahasiswa"){
+					if($role == "Mahasiswa"){
 						redirect('index.php/cMahasiswa');
 						exit;
 					}
-					elseif($role == "admin"){
+					elseif($role == "Admin"){
 						redirect('index.php/cAdmin');
 						exit;
 					}
@@ -99,4 +99,35 @@ class CLogin extends MY_Controller
 		$this->data['title'] = 'Login'.$this->title;
 		$this->load->view('Mahasiswa/vLogin',$this->data);
 		}
+
+		public function tambah_user() {
+
+        if ($this->input->post('simpan')) {
+
+            $username = $this->input->post('username');
+            $password = $this->input->post('password'); 
+            $role= $this->input->post('role'); 
+
+
+            $object = array('username' => $username, 
+                        'password' => md5($password),
+                        'role' => 'Mahasiswa',
+                        );
+
+            $query = $this->mMahasiswa->tambah_data_user($object);
+
+             if($query)
+                {
+            
+                    $this->flashmsg('Data berhasil di tambahkan !','danger');
+                    redirect('index.php/cLogin');
+        
+		     }else
+        {
+		$this->data['title'] = 'Login'.$this->title;
+		$this->load->view('Mahasiswa/vLogin',$this->data);
+        }
+
+	}
+}
 }

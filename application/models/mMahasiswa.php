@@ -18,7 +18,10 @@ class MMahasiswa extends MY_Model
 	{
 		return $this->db->insert('data_tugas_akhir',$object);
 	}
-
+	public function tambah_data_user($object)
+	{
+		return $this->db->insert('user',$object);
+	}
 	public function tambah_data_pdf($object)
 	{
 		return $this->db->insert('data_tugas_akhir',$object);

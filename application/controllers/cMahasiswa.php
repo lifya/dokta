@@ -54,7 +54,7 @@ class CMahasiswa extends MY_Controller
 
             if($query)
                 {
-                    $this->session->set_flashdata('msg','<div class="alert alert-success" style="text-align:center;">Data Berhasil Ditambahkan</div>');
+                     $this->flashmsg('Data berhasil di tambahkan !','danger');
 
                     redirect('index.php/cMahasiswa/dataDiri');
                 }else
