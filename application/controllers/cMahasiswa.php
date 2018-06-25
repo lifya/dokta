@@ -21,10 +21,9 @@ class CMahasiswa extends MY_Controller
 
     public function index() {
 
-
-        $this->data['title']        = 'Publikasi Tugas Akhir'.$this->title;;
-        $this->data['content']      = 'Mahasiswa/vMahasiswa';
-        $this->template($this->data, 'vMahasiswa');
+            $this->data['title']        = 'Publikasi Tugas Akhir'.$this->title;;
+            $this->data['content']      = 'Mahasiswa/vMahasiswa';
+            $this->template($this->data, 'vMahasiswa'); 
     }
 
     public function dataDiri() {

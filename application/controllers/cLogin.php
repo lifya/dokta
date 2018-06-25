@@ -63,34 +63,41 @@ class CLogin extends MY_Controller
 			}
 	}
 
-		public function tambah_user() {
+	public function tambah_user() {
 
-        if ($this->input->post('simpan')) {
+	if ($this->input->post('signin')) {
 
-            $username = $this->input->post('username');
-            $password = $this->input->post('password'); 
-            $role= $this->input->post('role'); 
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		// $level = $this->input->post('$level');
 
+		
+		$data = array(
+		'username' => $username,
+		'password' => md5($password),
+		'role' => 'Mahasiswa'
+		// 'level' => $level
+		);
+		
+		$query = $this->mUser->tambah_data_user($data,'user');
 
-            $object = array('username' => $username, 
-                        'password' => md5($password),
-                        'role' => 'Mahasiswa',
-                        );
+		if($query)
+            {
+                // $this->flashmsg('Data berhasil di tambahkan !','danger');
 
-            $query = $this->mMahasiswa->tambah_data_user($object);
+                // redirect('index.php/cLogin');
 
-             if($query)
-                {
-            
-                    $this->flashmsg('Data berhasil di tambahkan !','danger');
-                    redirect('index.php/cLogin');
-        
-		     }else
-        {
-		$this->data['title'] = 'Login'.$this->title;
-		$this->load->view('Mahasiswa/vLogin',$this->data);
+                echo "<script>alert('Register berhasil');history.go(-1);</script>";
+            }else {
+                echo "<script>alert('Gagal');history.go(-1);</script>";
+            }
+
+        } else {
+			redirect('index.php/CLogin');
         }
+		
+		
 
+		
 	}
-}
 }

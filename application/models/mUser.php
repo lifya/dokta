@@ -20,9 +20,9 @@ class MUser extends MY_Model
 	 }
 
 
-	public function tambah_data_user($object)
-	{
-		return $this->db->insert('user',$object);
+	function tambah_data_user($data, $table){	
+
+		return $this->db->insert($table, $data);
 	}
 
 	function cek_login($table, $where){	

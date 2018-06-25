@@ -63,10 +63,10 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="form-password">Password</label>
-                                            <input type="text" name="password" placeholder="Password..." class="form-password form-control" id="form-password" >
+                                            <input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password" >
                                         </div>
-                                        <input name="login-signin" type="submit" class="btn btn-primary btn-lg btn-block" value="Register" style="background-color: #ffc600; color: #07294E;">
-                                    <?= form_close() ?>
+                                        <input name="signin" type="submit" class="btn btn-primary btn-lg btn-block" value="Register" style="background-color: #ffc600; color: #07294E;">
+                            <?= form_close() ?>
                                 </div>
                             </div>
                             
