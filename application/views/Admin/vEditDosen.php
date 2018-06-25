@@ -1,91 +1,50 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <h3 style="font-color : #07294e!important">Data Dosen
+                <h3 style="font-color : #07294e!important">Edit Data Dosen
                     <div class="pull-right"><a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#ModalaAdd" style="background-color: #07294e"><span class="fa fa-plus"></span> Tambah </a></div>
                 </h3>
                 <hr style="width: 400px; margin-left: 5px">
                 <div>
                     <?= $this->session->flashdata('msg') ?>
                 </div>
-                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;" id="mydata">
-                        <thead>
-                            <tr >
-                                <th>NIP</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Alamat</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="show_data">
-                            <?php foreach ($data_dosen as $d) {
-                                
-                            ?>
-                            <tr>
-                                <td><?= $d->nip; ?></td>
-                                <td><?= $d->nama; ?></td>
-                                <td><?= $d->email; ?></td>
-                                <td><?= $d->alamat; ?></td>
-                                <td><?php echo anchor('index.php/cAdmin/edit_data_dosen/'.$d->nip, 'Edit', array('class' => 'btn btn-success')) ?>
-                                    <?php echo anchor('index.php/cAdmin/hapus_data_dosen/'.$d->nip, 'Hapus', array('class' => 'btn btn-danger')) ?>
-                                </td>
-                            </tr>
-                        <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
 
-        <!-- MODAL ADD -->
-        <div class="modal fade" id="ModalaAdd" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 class="modal-title" id="myModalLabel" style="font-color : #07294e">Tambah Data Dosen</h3>
-            </div>
-            <form class="form-horizontal">
-                <div class="modal-body">
+               <?= form_open() ?>
+             
                     <div class="form-group">
                         <label class="control-label col-xs-3">NIP </label>
                         <div class="col-xs-9">
-                            <input name="nipDosen" id="Dosen_nip" class="form-control" type="text" placeholder="NIP" style="width:335px;" required>
+                            <input name="nipDosen" id="Dosen_nip" class="form-control" type="text" style="width:335px;" required>
                         </div>
                     </div>   
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Nama </label>
                         <div class="col-xs-9">
-                            <input name="namaDosen" id="Dosen_nama" class="form-control" type="text" placeholder="Nama" style="width:335px;" required>
+                            <input name="namaDosen" id="Dosen_nama" class="form-control" type="text" style="width:335px;" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Email </label>
                         <div class="col-xs-9">
-                            <input name="emailDosen" id="Dosen_email" class="form-control" type="text" placeholder="Email" style="width:335px;" required>
+                            <input name="emailDosen" id="Dosen_email" class="form-control" type="text" style="width:335px;" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Alamat </label>
                         <div class="col-xs-9">
-                            <input name="alamatDosen" id="Dosen_alamat" class="form-control" type="text" placeholder="Alamat" style="width:335px;" required>
+                            <input name="alamatDosen" id="Dosen_alamat" class="form-control" type="text" style="width:335px;" required>
                         </div>
                     </div>
-                </div>
 
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                    <button class="btn btn-info" id="btn_simpan">Simpan</button>
-                </div>
+                    <input type="submit" name="simpan" class="btn btn-info" value="Simpan" style="background: #07294e ; border-color: #ffc600; margin-left: 20%;">
             </form>
             </div>
-            </div>
         </div>
+
+ 
         <!--END MODAL ADD-->
 
         <!-- MODAL EDIT -->

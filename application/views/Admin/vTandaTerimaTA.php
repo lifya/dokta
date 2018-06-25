@@ -5,7 +5,9 @@
                     <div class="pull-right"><a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#ModalaAdd" style="background-color: #07294e"><span class="fa fa-plus"></span> Tambah</a></div>
                 </h3>
                 <hr style="width: 400px; margin-left: 5px">
-
+                <div>
+                    <?= $this->session->flashdata('msg') ?>
+                </div>
                  <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" id="mydata">
                         <thead>
@@ -17,7 +19,17 @@
                             </tr>
                         </thead>
                         <tbody id="show_data">
-                            
+                            <?php foreach ($dataTA as $key) {?>
+                                <tr>
+                                    <td><?= $key->nim ?></td>
+                                    <td><?= $key->nama ?></td>
+                                    <td><?= $key->tanggal ?></td>
+                                    <td>
+                                        <a href="<?= base_url('index.php/cAdmin/update_TandaTerimaTA/'."$key->nim") ?>" class="btn btn-success">Update</a>
+                                        <a href="<?= base_url('index.php/cAdmin/hapus_TandaTerimaTA/'."$key->nim") ?>" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                                <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -33,7 +45,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h3 class="modal-title" id="myModalLabel" style="font-color : #07294e">Tambah Tanda Terima TA</h3>
             </div>
-            <form class="form-horizontal">
+            <?= form_open_multipart('index.php/cAdmin/simpan_TandaTerimaTA') ?>
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="control-label col-xs-3">NIM </label>
@@ -52,7 +64,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Tanggal </label>
                         <div class="col-xs-9">
-                            <input name="tglTTTA" id="TTTA_tgl" class="form-control" type="text" placeholder="Tanggal" style="width:335px;" required>
+                            <input name="tglTTTA" id="TTTA_tgl" class="form-control" type="date" placeholder="Tanggal" style="width:335px;" required>
                         </div>
                     </div>
 
@@ -60,9 +72,9 @@
 
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                    <button class="btn btn-info" id="btn_simpan">Simpan</button>
+                    <input type="submit" class="btn btn-info" id="btn_simpan" value="Simpan" name="simpan">
                 </div>
-            </form>
+            <?= form_close() ?>
             </div>
             </div>
         </div>
@@ -162,8 +174,8 @@
                                 '<td>'+data[i].nama+'</td>'+
                                 '<td>'+data[i].tanggal+'</td>'+
                                 '<td>'+
-                                    '<a href="javascript:;" class="btn btn-info btn-xs item_edit" style="background-color : #07294e" data="'+data[i].nim+'">Edit</a>'+' '+
-                                    '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" style="background-color : #07294e" data="'+data[i].nim+'">Hapus</a>'+
+                                    '<a href="javascript:;" class="btn btn-info btn-xs item_edit" style="background-color : #07294e" data-toggle="modal" data-target="#ModalaEdit" data="'+data[i].nim+'">Edit</a>'+' '+
+                                    '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" style="background-color : #07294e" data-toggle="modal" data-target="#ModalHapus" data="'+data[i].nim+'">Hapus</a>'+
                                 '</td>'+
                                 '</tr>';
                     }
@@ -198,7 +210,7 @@
         $('#show_data').on('click','.item_hapus',function(){
             var id=$(this).attr('data');
             $('#ModalHapus').modal('show');
-            $('[name="nimTTTA"]').val(id);
+            $('[name="nim"]').val(id);
         });
 
         //Simpan Barang
@@ -250,7 +262,7 @@
             type : "POST",
             url  : "<?php echo base_url('index.php/cAdmin/hapus_TandaTerimaTA')?>",
             dataType : "JSON",
-                    data : {nim_TTTA: nim_TTTA},
+                    data : {nimTTTA: nimTTTA},
                     success: function(data){
                             $('#ModalHapus').modal('hide');
                             tampil_data_TandaTerimaTA();

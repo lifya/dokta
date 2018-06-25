@@ -19,16 +19,14 @@ class CMain extends MY_Controller
 
 	public function index() {
 
-        $data = array(
-            'title' => 'Dokumentasi Tugas Akhir'.$this->title,
-            'content' => 'Main/vMain',
-            'tugasAkhir' => $this->mTugasAkhir->get_ta()
-        );
-
-        $this->load->view('Main/template/layout',$data);
+        $this->data['title']  = 'Home'.$this->title;
+        $this->data['content']  = 'Main/vMain';
+        $this->data['B1'] = $this->mTugasAkhir->get_bidang_ilmu('B001');
+        $this->data['B2'] = $this->mTugasAkhir->get_bidang_ilmu('B002');
+        $this->data['B3'] = $this->mTugasAkhir->get_bidang_ilmu('B003');
+        $this->template($this->data, 'vMain');
        
     }
-    
 
 }
 

@@ -1,4 +1,4 @@
-mAdmin<?php 
+<?php 
 
 class MAdmin extends MY_Model 
 {

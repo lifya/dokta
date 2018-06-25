@@ -50,12 +50,13 @@ body {
 
 .font-style-author {
     color: #000!important;
-    font-size: 12px;
+    font-size: 14px;
+    margin-bottom: 5px!important;
 }
 
 .font-style-detil {
-    color: #000!important;
-    font-size: 11px;
+    color: #343a40!important;
+    font-size: 12px;
 }
 
 #search {
@@ -193,12 +194,14 @@ body {
 
 .font-style-author-dta {
     color: #000!important;
-    font-size: 14px;
+    font-size: 16px;
+    margin-bottom: 2px!important;
 }
 
 .font-style-detil-dta {
-    color: #807f7f!important;
-    font-size: 12px;
+    color: #343a40!important;
+    font-size: 14px;
+    margin-bottom: 2px!important;
 }
 
 .bg-heading {
