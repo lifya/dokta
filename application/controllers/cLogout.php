@@ -12,7 +12,7 @@ class CLogout extends MY_Controller
 		// $this->session->unset_userdata('username');
 		// $this->session->unset_userdata('id_role');
 		$this->session->sess_destroy();
-		redirect('index.php/cMain');
+		redirect('index.php/cLogin');
 		exit;
 	}
 }

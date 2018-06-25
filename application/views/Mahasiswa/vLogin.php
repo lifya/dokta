@@ -51,38 +51,21 @@
                                         <i class="fa fa-pencil"></i>
                                     </div>
                                 </div>
-                            <?= form_open_multipart('index.php/signup') ?>
+                            <?= form_open_multipart('index.php/cLogin/tambah_user') ?>
                             <div>
                                 <?= $this->session->flashdata('msg1') ?>
                             </div>
                                 <div class="form-bottom" style="outline-color:#07294E; ">
                                     <form role="form" action="" method="post" class="registration-form">
                                         <div class="form-group">
-                                            <label class="sr-only" for="form-name">Name</label>
-                                            <input type="text" name="form-name" placeholder="Name..." class="form-name form-control" id="form-name">
-                                        </div>
-                                        <div class="form-group">
                                             <label class="sr-only" for="form-nim">NIM</label>
-                                            <input type="text" name="form-nim" placeholder="NIM.." class="form-nim form-control" id="form-nim">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="form-email">Email</label>
-                                            <input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email">
+                                            <input type="text" name="username" placeholder="NIM.." class="form-nim form-control" id="form-nim" >
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="form-password">Password</label>
-                                            <input type="text" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+                                            <input type="text" name="password" placeholder="Password..." class="form-password form-control" id="form-password" >
                                         </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="form-confirm-password">Confirm Password</label>
-                                            <input type="text" name="form-confirm-password" placeholder="Confirm Password..." class="form-confirm-password form-control" id="form-confirm-password">
-                                        </div>
-<!--                                         <div class="form-group">
-                                            <label class="sr-only" for="form-about-yourself">About yourself</label>
-                                            <textarea name="form-about-yourself" placeholder="About yourself..." 
-                                                        class="form-about-yourself form-control" id="form-about-yourself"></textarea>
-                                        </div> -->
-                                        <input name="login-signup" type="submit" class="btn btn-primary btn-lg btn-block" value="Create Account" style="background-color: #ffc600; color: #07294E;">
+                                        <input name="login-signin" type="submit" class="btn btn-primary btn-lg btn-block" value="Register" style="background-color: #ffc600; color: #07294E;">
                                     <?= form_close() ?>
                                 </div>
                             </div>
@@ -104,7 +87,7 @@
                                     </div>
                                 </div>
                                 <div class="form-bottom">
-                                <?= form_open_multipart('index.php/cLogin') ?>
+                                <?= form_open_multipart('index.php/cLogin/aksi_login') ?>
                                     <div>
                                         <?= $this->session->flashdata('msg') ?>
                                     </div>
@@ -117,13 +100,6 @@
                                             <input type="password" name="password" placeholder="Password..." class="form-password form-control" required>
                                         </div>
                                         <div class="form-group">
-                                        <div style="text-align: left !important;"><h5>Sebagai :</h5></div>
-                                            <select name="role" class="form-control">
-                                            <option value="mahasiswa">Mahasiswa</option>
-                                            <option value="admin">Admin</option>
-                                            </select>
-                                            
-                                        </div>
                                         <input name="login-signin" type="submit" class="btn btn-primary btn-lg btn-block" value="Login" style="background-color: #ffc600; color: #07294E;">
                                     <?= form_close() ?>
                                 </div>

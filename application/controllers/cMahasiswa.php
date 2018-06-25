@@ -9,12 +9,11 @@ class CMahasiswa extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->data['username']     = $this->session->userdata('username');
-        $this->data['role']         = $this->session->userdata('role');
         
         // if($this->session->userdata('status') != "login"){
         //     redirect(base_url("index.php/CLogin"));
         // }
+
 
         $this->load->model('mMahasiswa');
     }
@@ -51,7 +50,7 @@ class CMahasiswa extends MY_Controller
 
             if($query)
                 {
-                    $this->session->set_flashdata('msg','<div class="alert alert-success" style="text-align:center;">Data Berhasil Ditambahkan</div>');
+                     $this->flashmsg('Data berhasil di tambahkan !','danger');
 
                     redirect('index.php/cMahasiswa/dataDiri');
                 }else
