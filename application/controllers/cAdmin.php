@@ -9,6 +9,7 @@ class CAdmin extends MY_Controller
 	public function __construct()
 	{
 		parent::__construct();
+        //$this->data['username']     = $this->session->userdata('username');
 		$this->load->model('mTandaTerimaTA');
         $this->load->model('mDosen');
 	}
@@ -24,6 +25,7 @@ class CAdmin extends MY_Controller
 	public function tandaTerimaTA() {
 		$this->data['title']        = 'Tanda Terima Tugas Akhir';
 		$this->data['content']      = 'Admin/vTandaTerimaTA';
+        $this->data['dataTA']       = $this->mTandaTerimaTA->getAll();
         $this->template($this->data, 'vAdmin');
 	}
 
@@ -43,26 +45,43 @@ class CAdmin extends MY_Controller
 
     function simpan_TandaTerimaTA(){
         if ($this->POST('simpan')) {
+            $nipus = $this->session->userdata('username');
             $nimTTTA=$this->input->post('nimTTTA');
             $namaTTTA=$this->input->post('namaTTTA');
             $tglTTTA=$this->input->post('tglTTTA');
+
+            $cekNim = $this->mTandaTerimaTA->getDataByNim($nimTTTA);
+            if(count($cekNim)>0){
+                $this->flashmsg('Nim telah ada', 'danger');
+                redirect('index.php/cAdmin/tandaTerimaTA');
+            }
+            else{
+                $data = array(
+                        'nim' => $nimTTTA,
+                        'nipus' => $nipus,
+                        'tanggal' => $tglTTTA,
+                        'nama'  => $namaTTTA
+                );
+                $this->mTandaTerimaTA->simpan_TandaTerimaTA($data);
+                $this->flashmsg('Berhasil','success');
+                redirect('index.php/cAdmin/tandaTerimaTA');
+            } 
         }
-        $data=$this->mTandaTerimaTA->simpan_TandaTerimaTA($nimTTTA,$namaTTTA,$tglTTTA);
-        echo json_encode($data);
     }
 
     function update_TandaTerimaTA(){
-        $nimTTTA=$this->input->post('nimTTTA');
-        $namaTTTA=$this->input->post('namaTTTA');
-        $tglTTTA=$this->input->post('tglTTTA');
-        $data=$this->mTandaTerimaTA->update_TandaTerimaTA($nimTTTA,$namaTTTA,$tglTTTA);
-        echo json_encode($data);
+        // $nimTTTA=$this->input->post('nimTTTA');
+        // $namaTTTA=$this->input->post('namaTTTA');
+        // $tglTTTA=$this->input->post('tglTTTA');
+        // $data=$this->mTandaTerimaTA->update_TandaTerimaTA($nimTTTA,$namaTTTA,$tglTTTA);
+        // echo json_encode($data);
     }
 
-    function hapus_TandaTerimaTA(){
-        $nimTTTA=$this->input->post('nimTTTA');
-        $data=$this->mTandaTerimaTA->hapus_TandaTerimaTA($nimTTTA);
-        echo json_encode($data);
+    function hapus_TandaTerimaTA($nim){
+        $this->mTandaTerimaTA->hapus_TandaTerima($nim);
+        $this->flashmsg('Data berhasil dihapus', 'success');
+        redirect('index.php/cAdmin/tandaTerimaTA');
+
     }
 
     // Tanda Terima TA

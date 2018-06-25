@@ -10,11 +10,30 @@ class MTandaTerimaTA extends CI_Model{
 		$hasil=$this->db->query("SELECT tanda_terima_ta.nim, tanda_terima_ta.nama, tanda_terima_ta.tanggal FROM tanda_terima_ta");
 		return $hasil->result();
 	}
+//---------------------------------------------------------------------------
+	public function getDatabyNim($nim){
+		$this->db->where('nim', $nim);
+		$query = $this->db->get('tanda_terima_ta');
+		return $query->row();
+	}
+
+	public function getAll(){
+		$query = $this->db->get('tanda_terima_ta');
+		return $query->result();
+	}
+
 	function simpan_TandaTerimaTA($data){
-		// $hasil=$this->db->query("INSERT INTO tanda_terima_ta (nim,nipus,nama,tanggal)VALUES('$nimTTTA','09021181520025','$namaTTTA','$tglTTTA')");
-		$query = $this->db->insert($this->data['table_name'],$data);
+		$query = $this->db->insert('tanda_terima_ta',$data);
 		return $query;
 	}
+
+	function hapus_TandaTerima($nim){
+		$this->db->where('nim',$nim);
+		$query = $this->db->delete('tanda_terima_ta');
+		return $query;
+	}
+//-----------------------------------------------------------------------------
+
 	function get_TandaTerimaTA_by_kode($nimTTTA){
 		$hsl=$this->db->query("SELECT tanda_terima_ta.nim, tanda_terima_ta.nama, tanda_terima_ta.tanggal FROM tanda_terima_ta WHERE nim='$nimTTTA'");
 		if($hsl->num_rows()>0){
@@ -31,10 +50,6 @@ class MTandaTerimaTA extends CI_Model{
 	function update_TandaTerimaTA($nimTTTA,$data){
 		$this->db->WHERE('NIM', $nimTTA);
 		$hasil=$this->db->update($this->data['table_name'], $data);
-		return $hasil;
-	}
-	function hapus_TandaTerimaTA($nimTTTA){
-		$hasil=$this->db->query("DELETE FROM tanda_terima_ta WHERE nim='$nimTTTA'");
 		return $hasil;
 	}
 	

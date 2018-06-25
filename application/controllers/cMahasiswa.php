@@ -19,6 +19,7 @@ class CMahasiswa extends MY_Controller
         //     exit;
         // }
 
+
         $this->load->model('mMahasiswa');
     }
     
