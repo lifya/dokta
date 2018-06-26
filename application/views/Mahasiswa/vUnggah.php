@@ -1,19 +1,22 @@
-      <section id="main-content">
-          <section class="wrapper site-min-height">
-
-        <div class="top-content">
-            
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Mengisi Detil Tugas Akhir</li>
+      </ol>
+      <div class="container-tab-nav">          
             <div class="inner-bg">
                 <div class="container">
                     
                     <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-sm-9">
                             
                             <div class="form-box">
                                 <div class="form-top">
                                     <div class="form-top-left">
-                                        <h3>Mengunggah Dokumen Tugas Akhir</h3>
-                                        <p style="margin-top: 30px;">Unggah file dalam format <strong>PDF</strong></p>
+                                        <p>Unggah file dalam format <strong>PDF</strong></p>
                                     </div>
                                 </div>
 
@@ -32,5 +35,5 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </section>
+      </div>
+    </div>

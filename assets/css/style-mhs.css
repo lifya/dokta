@@ -1,0 +1,49 @@
+.bg-yellow {
+	background-color: #ffc600!important;
+}
+
+.container-tab-nav {
+  padding-left: 20px!important;
+  padding-right: 20px!important;
+  padding-top: 20px!important;
+}
+
+#abstrak {
+  padding-top: 30px;
+}
+
+.p-margin {
+  margin-bottom: 1px!important;
+}
+
+.icon-red {
+  color: red;
+  padding-top: 0px!important;
+}
+
+#penulis {
+  padding-top: 30px;
+}
+
+#dosenPembimbing {
+  padding-top: 30px;
+}
+
+@media screen and (max-width: 780px) {
+  .container-tab-nav {
+      padding-left: 10px!important;
+      padding-right: 10px!important;
+      padding-top: 20px!important;
+  }
+  
+}
+
+
+@media screen and (max-width: 360px) {
+  .container-tab-nav {
+      padding-left: 5px!important;
+      padding-right: 5px!important;
+      padding-top: 20px!important;
+  }
+  
+}

@@ -1,9 +1,12 @@
-	  <section id="main-content">
-	  	  <section class="wrapper site-min-height">
-	  	  	<h3>Tanggapan</h3>
-	  	  	<center>
-	  	  		<h1 style="margin-top: 120px;">Tugas Akhir Anda Sudah DiTerima </h1>
-	  	  	</center>
-		    
-		  </section>
-	  </section>
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Tanggapan</li>
+      </ol>
+      <div class="container-tab-nav">
+      	<p>Tugas Akhir Kamu Sudah Dipublikasi</p>
+      </div>
+    </div>

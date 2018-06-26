@@ -4,15 +4,15 @@ body {
 }
 
 #home {
-	  background: url(../img/bg-classroom.jpg) no-repeat center center fixed;
-  	background-size: cover;
-  	-webkit-background-size: cover;
+    background: url(../img/bg-classroom.jpg) no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-  	padding-top: 8rem;
+    padding-top: 8rem;
     padding-bottom: 8rem;
-   	margin-bottom: 0;
-  	text-align: center;
+    margin-bottom: 0;
+    text-align: center;
 }
 
 .overlay {
@@ -81,8 +81,8 @@ body {
 }
 
 .btn-custom {
-	color: #07294e;
-	background: #ffc600;
+  color: #07294e;
+  background: #ffc600;
 }
 
 .btn-custom-big {
@@ -92,14 +92,14 @@ body {
 }
 
 .btn-size {
-	padding: .5rem 1rem;
+  padding: .5rem 1rem;
     font-size: 1rem;
     line-height: 1.25;
     border-radius: .1rem;
 }
 
 .btn-navbar {
-	padding: .5rem 1rem;
+  padding: .5rem 1rem;
     font-size: 0.7rem;
     line-height: 1;
     border-radius: .1rem;
@@ -112,38 +112,38 @@ body {
 }
 
 .margin-top-20 {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 .padding-32 {
-	padding: 32px!important;
+  padding: 32px!important;
 }
 
 .padding-0 {
-	padding: 0rem 0rem!important;
+  padding: 0rem 0rem!important;
 }
 
 .box {
-	/*opacity: 0.7;
-	filter:alpha(opacity=70); */
-	border-radius: 1px;
-	margin-top : 0px; 
+  /*opacity: 0.7;
+  filter:alpha(opacity=70); */
+  border-radius: 1px;
+  margin-top : 0px; 
 }
 
 .color {
-	color: #000!important;
+  color: #000!important;
     background-color: #07294e!important;
 }
 
 .form-control-custom {
-	padding: .5rem 1rem;
+  padding: .5rem 1rem;
     font-size: 1rem;
     line-height: 1;
     border-radius: .1rem;
 }
 
 #about {
-	padding-top : 50px;
+  padding-top : 50px;
   padding-bottom: 50px;
 }
 
@@ -208,6 +208,35 @@ body {
     background-color: #07294e;
     color: #fff!important;
     padding: 10px;
+}
+
+@media screen and (max-width: 780px) {
+  .container-tab-nav {
+      padding-left: 30px!important;
+      padding-right: 30px!important;
+      padding-top: 50px!important;
+  }
+  
+  .container-add {
+  padding-left: 30px!important;
+  padding-right: 30px!important;
+  padding-top: 50px!important;
+  }
+
+  .container-custom-about {
+  padding-right: 30px!important;
+  padding-left: 30px!important;
+  }
+  
+}
+
+@media screen and (max-width: 360px) {
+  .container-tab-nav {
+      padding-left: 28px!important;
+      padding-right: 28px!important;
+      padding-top: 50px!important;
+  }
+  
 }
 
 

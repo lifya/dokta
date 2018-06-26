@@ -26,7 +26,7 @@
         <br><br>       
         <div class="container-fluid">
           <div class="row">
-            <div class="col-4">
+            <div class="col-sm-4">
               <h6 class="bg-heading text-center"><strong>Kecerdasan Buatan</strong></h6>
               <br>
               <?php 
@@ -47,7 +47,7 @@
 
               <br/><br/>
             </div>
-            <div class="col-4">
+            <div class="col-sm-4">
               <h6 class="bg-heading text-center"><strong>Basis Data</strong></h6>
               <br>
               <?php 
@@ -64,8 +64,9 @@
                 }
               ?>
               <a href="<?php echo base_url('index.php/CTugasAkhir/B002') ?>" class="btn btn-navbar btn-custom"><strong>Load All</strong></a> 
+              <br/><br/>
             </div>
-            <div class="col-4">
+            <div class="col-sm-4">
               <h6 class="bg-heading text-center"><strong>Jaringan Komputer</strong></h6>
               <br>
               <?php 

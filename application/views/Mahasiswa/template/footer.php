@@ -1,59 +1,37 @@
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>&copy; Dokumentasi TA 2018. All Rights Reserved.</small>
+        </div>
+      </div>
+    </footer>
 
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="<?php echo base_url();?>assets/theme/js/jquery.js"></script>
-    <script src="<?php echo base_url();?>assets/theme/js/jquery-1.8.3.min.js"></script>
-    <script src="<?php echo base_url();?>assets/theme/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="<?php echo base_url();?>assets/theme/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="<?php echo base_url();?>assets/theme/js/jquery.scrollTo.min.js"></script>
-    <script src="<?php echo base_url();?>assets/theme/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="<?php echo base_url();?>assets/theme/js/jquery.sparkline.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="<?php echo base_url();?>assets/sbadmin/vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>assets/sbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="<?php echo base_url();?>assets/sbadmin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="<?php echo base_url();?>assets/sbadmin/js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <!-- Toggle between fixed and static navbar-->
+    <script>
+    $('#toggleNavPosition').click(function() {
+      $('body').toggleClass('fixed-nav');
+      $('nav').toggleClass('fixed-top static-top');
+    });
 
-
-    <!--common script for all pages-->
-    <script src="<?php echo base_url();?>assets/theme/js/common-scripts.js"></script>
-    
-    <script type="text/javascript" src="<?php echo base_url();?>assets/theme/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/theme/js/gritter-conf.js"></script>
-
-    <!--script for this page-->
-    <script src="<?php echo base_url();?>assets/theme/js/sparkline-chart.js"></script>    
-	<script src="<?php echo base_url();?>assets/theme/js/zabuto_calendar.js"></script>	
-	
-	<script type="application/javascript">
-        $(document).ready(function () {
-            $("#date-popover").popover({html: true, trigger: "manual"});
-            $("#date-popover").hide();
-            $("#date-popover").click(function (e) {
-                $(this).hide();
-            });
-        
-            $("#my-calendar").zabuto_calendar({
-                action: function () {
-                    return myDateFunction(this.id, false);
-                },
-                action_nav: function () {
-                    return myNavFunction(this.id);
-                },
-                ajax: {
-                    url: "show_data.php?action=1",
-                    modal: true
-                },
-                legend: [
-                    {type: "text", label: "Special event", badge: "00"},
-                    {type: "block", label: "Regular event", }
-                ]
-            });
-        });
-        
-        
-        function myNavFunction(id) {
-            $("#date-popover").hide();
-            var nav = $("#" + id).data("navigation");
-            var to = $("#" + id).data("to");
-            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-        }
     </script>
-  
+    <!-- Toggle between dark and light navbar-->
+    <script>
+    $('#toggleNavColor').click(function() {
+      $('nav').toggleClass('navbar-dark navbar-light');
+      $('nav').toggleClass('bg-dark bg-light');
+      $('body').toggleClass('bg-dark bg-light');
+    });
 
-  </body>
+    </script>
+  </div>
+</body>
+
 </html>
