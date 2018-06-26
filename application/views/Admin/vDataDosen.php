@@ -1,43 +1,49 @@
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Data Dosen</li>
+      </ol>
         <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <h3 style="font-color : #07294e!important">Data Dosen
-                    <div class="pull-right"><a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#ModalaAdd" style="background-color: #07294e"><span class="fa fa-plus"></span> Tambah </a></div>
-                </h3>
-                <hr style="width: 400px; margin-left: 5px">
-                <div>
-                    <?= $this->session->flashdata('msg') ?>
-                </div>
-                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;" id="mydata">
-                        <thead>
-                            <tr >
-                                <th>NIP</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Alamat</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="show_data">
-                            <?php foreach ($data_dosen as $d) {
+      <div class="pull-right">
+        <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#ModalaAdd" style="background-color: #07294e"><i class="fa fa-plus"></i> Tambah </a>
+      </div>
+      <div>
+        <?= $this->session->flashdata('msg') ?>
+      </div>
+      <br><br>
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;" id="mydata">
+          <thead>
+            <tr >
+              <th>NIP</th>
+              <th>Nama</th>
+              <th>Email</th>
+              <th>Alamat</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="show_data">
+            <?php foreach ($data_dosen as $d) {
                                 
-                            ?>
-                            <tr>
-                                <td><?= $d->nip; ?></td>
-                                <td><?= $d->nama; ?></td>
-                                <td><?= $d->email; ?></td>
-                                <td><?= $d->alamat; ?></td>
-                                <td><?php echo anchor('index.php/cAdmin/edit_data_dosen/'.$d->nip, 'Edit', array('class' => 'btn btn-success')) ?>
-                                    <?php echo anchor('index.php/cAdmin/hapus_data_dosen/'.$d->nip, 'Hapus', array('class' => 'btn btn-danger')) ?>
-                                </td>
-                            </tr>
-                        <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+            ?>
+            <tr>
+              <td><?= $d->nip; ?></td>
+              <td><?= $d->nama; ?></td>
+              <td><?= $d->email; ?></td>
+              <td><?= $d->alamat; ?></td>
+              <td>
+                <?php echo anchor('index.php/cAdmin/edit_data_dosen/'.$d->nip, 'Edit', array('class' => 'btn btn-success')) ?>
+                <?php echo anchor('index.php/cAdmin/hapus_data_dosen/'.$d->nip, 'Hapus', array('class' => 'btn btn-danger')) ?>
+              </td>
+            </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
         <!-- MODAL ADD -->
         <div class="modal fade" id="ModalaAdd" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
@@ -162,7 +168,7 @@
             </div>
         </div>
         <!--END MODAL HAPUS-->
-
+    </div>
 <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.js'?>"></script>
 <script type="text/javascript" src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
 <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.dataTables.js'?>"></script>

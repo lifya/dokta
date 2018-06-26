@@ -1,51 +1,60 @@
-<!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color: #ffc600">
-            <div class="navbar-header" >
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-yellow" id="mainNav">
+    <a class="navbar-brand" href="<?= base_url('index.php/cMain') ?>""><strong>DOKTA</strong></a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="<?=base_url('index.php/cAdmin')?>">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+          <a class="nav-link" href="<?=base_url('index.php/cAdmin/tandaTerimaTA')?>">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">Tanda Terima Tugas Akhir</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="<?=base_url('index.php/cAdmin/tugasAkhir')?>">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Tugas Akhir Mahasiswa</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="<?=base_url('index.php/cAdmin/dataDosen')?>">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Data Dosen</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Search for...">
+              <span class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fa fa-search"></i>
                 </button>
-                <a class="navbar-brand" href="<?=base_url('admin')?>">DOKTA</a>
+              </span>
             </div>
-            <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="<?=base_url('index.php/Clogout')?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
-
-            <div class="navbar-default sidebar" role="navigation" style="background-color: #07294e">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu" style="background-color: #07294e">
-                        <li>
-                            <a href="<?= base_url('index.php/cAdmin') ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('index.php/cAdmin/tandaTerimaTA') ?>"><i class="fa fa-user fa-fw"></i> Tanda Terima Tugas Akhir</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('index.php/cAdmin/tugasAkhir') ?>"><i class="fa fa-plug fa-fw"></i> Tugas Akhir Mahasiswa</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('index.php/cAdmin/dataDosen') ?>"><i class="fa fa-rocket fa-fw"></i> Data Dosen</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
-
-        <div id="page-wrapper">
+          </form>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper">

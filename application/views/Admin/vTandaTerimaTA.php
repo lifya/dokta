@@ -1,40 +1,48 @@
         <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <h3 style="font-color : #07294e!important">Tanda Terima Tugas Akhir
-                    <div class="pull-right"><a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#ModalaAdd" style="background-color: #07294e"><span class="fa fa-plus"></span> Tambah</a></div>
-                </h3>
-                <hr style="width: 400px; margin-left: 5px">
-                <div>
-                    <?= $this->session->flashdata('msg') ?>
-                </div>
-                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" id="mydata">
-                        <thead>
-                            <tr>
-                            <th>NIM</th>
-                            <th>Nama</th>
-                            <th>Tanggal</th>
-                            <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="show_data">
-                            <?php foreach ($dataTA as $key) {?>
-                                <tr>
-                                    <td><?= $key->nim ?></td>
-                                    <td><?= $key->nama ?></td>
-                                    <td><?= $key->tanggal ?></td>
-                                    <td>
-                                        <a href="<?= base_url('index.php/cAdmin/update_TandaTerimaTA/'."$key->nim") ?>" class="btn btn-success">Update</a>
-                                        <a href="<?= base_url('index.php/cAdmin/hapus_TandaTerimaTA/'."$key->nim") ?>" class="btn btn-danger">Delete</a>
-                                    </td>
-                                </tr>
-                                <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Tanda Terima Tugas Akhir</li>
+      </ol>
+        <!-- Page Content -->
+      <div class="pull-right">
+        <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#ModalaAdd" style="background-color: #07294e"><i class="fa fa-plus"></i> Tambah </a>
+      </div>
+      <br><br>
+      <div>
+        <?= $this->session->flashdata('msg') ?>
+      </div>
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" id="mydata">
+            <thead>
+              <tr>
+              <th>NIM</th>
+              <th>Nama</th>
+              <th>Tanggal</th>
+              <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="show_data">
+              <?php foreach ($dataTA as $key) {?>
+              <tr>
+              <td><?= $key->nim ?></td>
+              <td><?= $key->nama ?></td>
+              <td><?= $key->tanggal ?></td>
+              <td>
+                <a href="<?= base_url('index.php/cAdmin/update_TandaTerimaTA/'."$key->nim") ?>" class="btn btn-success">Update</a>
+                <a href="<?= base_url('index.php/cAdmin/hapus_TandaTerimaTA/'."$key->nim") ?>" class="btn btn-danger">Delete</a>
+              </td>
+              </tr>
+              <?php } ?>
+            </tbody>
+          </table>
         </div>
+    </div>
+
 
        
         <!-- MODAL ADD -->

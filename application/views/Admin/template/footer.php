@@ -1,20 +1,37 @@
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>&copy; Dokumentasi TA 2018. All Rights Reserved.</small>
+        </div>
+      </div>
+    </footer>
 
-    <!-- jQuery -->
-    <script src="<?= base_url('assets/sbadmin-2/vendor/jquery/jquery.min.js');?>"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="<?php echo base_url();?>assets/sbadmin/vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>assets/sbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="<?php echo base_url();?>assets/sbadmin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="<?php echo base_url();?>assets/sbadmin/js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <!-- Toggle between fixed and static navbar-->
+    <script>
+    $('#toggleNavPosition').click(function() {
+      $('body').toggleClass('fixed-nav');
+      $('nav').toggleClass('fixed-top static-top');
+    });
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<?= base_url('assets/sbadmin-2/vendor/bootstrap/js/bootstrap.min.js');?>"></script>
+    </script>
+    <!-- Toggle between dark and light navbar-->
+    <script>
+    $('#toggleNavColor').click(function() {
+      $('nav').toggleClass('navbar-dark navbar-light');
+      $('nav').toggleClass('bg-dark bg-light');
+      $('body').toggleClass('bg-dark bg-light');
+    });
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="<?= base_url('assets/sbadmin-2/vendor/metisMenu/metisMenu.min.js');?>"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="<?= base_url('assets/sbadmin-2/vendor/raphael/raphael.min.js');?>"></script>
-    <script src="<?= base_url('assets/sbadmin-2/vendor/morrisjs/morris.min.js');?>"></script>
-    <script src="<?= base_url('assets/sbadmin-2/data/morris-data.js');?>"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="<?= base_url('assets/sbadmin-2/dist/js/sb-admin-2.js');?>"></script>
-
+    </script>
+  </div>
 </body>
+
 </html>
