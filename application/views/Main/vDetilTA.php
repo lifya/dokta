@@ -28,34 +28,34 @@
   		  <p></p>
   		</div>
   		<div class="tab-pane" id="penulis">
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <h6 class="panel-title"><?php echo $key->nama; ?></h6>
-              </div>
-              <div class="panel-body">
-                  <div class=" col-md-9 col-lg-9 "> 
-                    <table class="table table-user-information">
-                      <tbody>
-                        <tr>
-                          <td>NIM</td>
-                          <td><?php echo $key->nim; ?></td>
-                        </tr>
-                        <tr>
-                          <td>Jurusan</td>
-                          <td><?php echo $key->jurusan; ?></td>
-                        </tr>
-                        <tr>
-                          <td>Angkatan</td>
-                          <td><a href="mailto:info@support.com"></a><?php echo $key->angkatan; ?></td>
-                        </tr>
-                          <td>Email</td>
-                          <td><?php echo $key->email; ?></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h6 class="panel-title"><?php echo $key->nama; ?></h6>
+          </div>
+          <div class="panel-body">
+            <div class=" col-md-9 col-lg-9 "> 
+              <table class="table table-user-information">
+                <tbody>
+                  <tr>
+                    <td>NIM</td>
+                    <td><?php echo $key->nim; ?></td>
+                  </tr>
+                  <tr>
+                    <td>Jurusan</td>
+                    <td><?php echo $key->jurusan; ?></td>
+                  </tr>
+                  <tr>
+                    <td>Angkatan</td>
+                    <td><a href="mailto:info@support.com"></a><?php echo $key->angkatan; ?></td>
+                  </tr>
+                    <td>Email</td>
+                    <td><?php echo $key->email; ?></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
   		</div>
   		<div class="tab-pane" id="dosenPembimbing">
   		  <div class="panel panel-info">
@@ -84,7 +84,7 @@
                       </tbody>
                     </table>
                   </div>
-            </div>
+          </div>
           <div class="panel-heading">
             <h6 class="panel-title">Dosen Pembimbing 2</h6>
           </div>
@@ -111,6 +111,7 @@
               </table>
             </div>
           </div>
+
   		  </div>
   	  </div>
     </div>

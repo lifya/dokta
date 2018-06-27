@@ -49,8 +49,8 @@ class CTugasAkhir extends MY_Controller
 
 		$this->data['title']        = 'Detil Tugas Akhir';
 		$this->data['content']      = 'Main/vDetilTA';
-        $this->data['detilTA'] = $this->mTugasAkhir->get_detail_ta($nim);
-        $this->template($this->data, 'vDaftarTA');
+    $this->data['detilTA'] = $this->mTugasAkhir->get_detail_ta($nim);
+    $this->template($this->data, 'vDaftarTA');
 	}
 
 	public function hasilPencarian() {

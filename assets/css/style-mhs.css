@@ -6,14 +6,20 @@
   color: #fff!important;
 }
 
-.font-color-log {
-  color: #000!important;
-}
 
 .container-tab-nav {
   padding-left: 20px!important;
   padding-right: 20px!important;
   padding-top: 20px!important;
+}
+
+.button-color {
+  background-color: #07294e!important;
+}
+
+.btn-color {
+  background-color: #ffc600!important;
+  color: #07294e!important;
 }
 
 #abstrak {

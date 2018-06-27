@@ -22,6 +22,7 @@ class CMahasiswa extends MY_Controller
 
 
         $this->load->model('mMahasiswa');
+        $this->load->model('mTugasAkhir');
     }
     
 
@@ -32,6 +33,7 @@ class CMahasiswa extends MY_Controller
             $this->template($this->data, 'vMahasiswa'); 
 
     }
+
 
     public function dataDiri() {
 
@@ -152,8 +154,28 @@ class CMahasiswa extends MY_Controller
     
 
     public function pratinjau() {
+        if($this->POST('status') && $this->POST('nim')){
+            $dokumen = $this->mTugasAkhir->get_row(['nim' => $this->POST('nim')]);
+
+            if (isset($dokumen)){
+                $nim = $this->POST('nim');
+
+                if ($dokumen->status == 'none'){
+                    $this->mTugasAkhir->update($nim, ['status' => 'delivered']);
+                    echo "<button class='btn btn-sm btn-success btn-color' onclick=\"changeStatus('".$nim."')\"><b>Terkirim</b></button>";
+                }
+                else {
+                    $this->mTugasAkhir->update($nim, ['status' => 'none']);
+                    echo "<button class='btn btn-sm btn-success button-color' onclick=\"changeStatus('".$nim."')\"><b>Kirim</b></button>";   
+                }
+            }
+            exit;
+        }
+
+        $nim = $this->data['username'];
         $this->data['title']        = 'Pratinjau';
         $this->data['content']      = 'Mahasiswa/vPratinjau';
+        $this->data['pratinjau'] = $this->mTugasAkhir->get_pratinjau_ta($nim);
         $this->template($this->data, 'vMahasiswa');
 
     }

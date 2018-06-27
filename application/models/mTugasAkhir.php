@@ -27,6 +27,26 @@ class MTugasAkhir extends MY_Model
 		return $query->result();
 	}
 
+	public function get_pratinjau_ta($nim)
+	{
+		$query = $this->db->query("SELECT tugas_akhir.judul, tugas_akhir.status, mahasiswa.nama, mahasiswa.nim, tugas_akhir.tahun, mahasiswa.jurusan, mahasiswa.angkatan, mahasiswa.email, bidang_ilmu.namaBidangIlmu, subjek.namaSubjek, tugas_akhir.abstrak FROM mahasiswa INNER JOIN tugas_akhir ON mahasiswa.nim = tugas_akhir.nim INNER JOIN subjek ON tugas_akhir.idSubjek = subjek.idSubjek INNER JOIN bidang_ilmu ON subjek.idBidangIlmu = bidang_ilmu.idBidangIlmu where tugas_akhir.nim = '$nim'
+			");
+			
+
+
+		return $query->result();
+	}
+
+	public function get_delivered_ta()
+	{
+		$query = $this->db->query("SELECT tugas_akhir.judul, tugas_akhir.status, mahasiswa.nama, mahasiswa.nim, tugas_akhir.tahun, mahasiswa.jurusan, mahasiswa.angkatan, mahasiswa.email, bidang_ilmu.namaBidangIlmu, subjek.namaSubjek, tugas_akhir.abstrak FROM mahasiswa INNER JOIN tugas_akhir ON mahasiswa.nim = tugas_akhir.nim INNER JOIN subjek ON tugas_akhir.idSubjek = subjek.idSubjek INNER JOIN bidang_ilmu ON subjek.idBidangIlmu = bidang_ilmu.idBidangIlmu where tugas_akhir.status = 'delivered'
+			");
+			
+
+
+		return $query->result();
+	}
+
 
 	public function get_bidang_ilmu($idBidangIlmu)
 	{

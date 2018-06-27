@@ -20,6 +20,7 @@ class CAdmin extends MY_Controller
         }
         
 		$this->load->model('mTandaTerimaTA');
+        $this->load->model('mTugasAkhir');
         $this->load->model('mDosen');
 	}
 
@@ -41,8 +42,27 @@ class CAdmin extends MY_Controller
     // Tanda Terima TA
 
     public function tugasAkhir() {
+        if($this->POST('status') && $this->POST('nim')){
+            $dokumen = $this->mTugasAkhir->get_row(['nim' => $this->POST('nim')]);
+
+            if (isset($dokumen)){
+                $nim = $this->POST('nim');
+
+                if ($dokumen->status == 'delivered'){
+                    $this->mTugasAkhir->update($nim, ['status' => 'confirmed']);
+                    echo "<button class='btn btn-sm btn-success btn-color' onclick=\"changeStatus('".$nim."')\"><b>Terkonfirmasi</b></button>";
+                }
+                else {
+                    $this->mTugasAkhir->update($nim, ['status' => 'delivered']);
+                    echo "<button class='btn btn-sm btn-success button-color' onclick=\"changeStatus('".$nim."')\"><b>Konfirmasi</b></button>";   
+                }
+            }
+            exit;
+        }
+
         $this->data['title']        = 'Tugas Akhir';
         $this->data['content']      = 'Admin/vTugasAkhir';
+        $this->data['dataTA'] = $this->mTugasAkhir->get_delivered_ta();
         $this->template($this->data, 'vAdmin');
     }
 
