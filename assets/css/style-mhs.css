@@ -2,6 +2,14 @@
 	background-color: #ffc600!important;
 }
 
+.font-color {
+  color: #fff!important;
+}
+
+.font-color-log {
+  color: #000!important;
+}
+
 .container-tab-nav {
   padding-left: 20px!important;
   padding-right: 20px!important;

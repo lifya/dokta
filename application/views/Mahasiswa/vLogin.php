@@ -53,9 +53,11 @@
                                 </div>
                             <?= form_open_multipart('index.php/cLogin/tambah_user') ?>
                             <div>
-                                <?= $this->session->flashdata('msg1') ?>
+                                
                             </div>
+
                                 <div class="form-bottom" style="outline-color:#07294E; ">
+                                    <?= $this->session->flashdata('msg') ?>
                                     <form role="form" action="" method="post" class="registration-form">
                                         <div class="form-group">
                                             <label class="sr-only" for="form-nim">NIM</label>
@@ -89,7 +91,7 @@
                                 <div class="form-bottom">
                                 <?= form_open_multipart('index.php/cLogin/aksi_login') ?>
                                     <div>
-                                        <?= $this->session->flashdata('msg') ?>
+                                        
                                     </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="form-nim">NIM</label>

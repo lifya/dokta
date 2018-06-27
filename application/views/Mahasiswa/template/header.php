@@ -10,6 +10,7 @@
   <title><?= $title ?></title>
   <!-- Bootstrap core CSS-->
   <link href="<?php echo base_url();?>assets/sbadmin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Custom fonts for this template-->
   <link href="<?php echo base_url();?>assets/sbadmin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->

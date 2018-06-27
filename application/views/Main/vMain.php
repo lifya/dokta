@@ -76,7 +76,7 @@
                 <h6 style="color: #07294e;"><b><?php echo $key->judul; ?></b></h6>
               </a>
               <p class="font-style-author"><b><?php echo $key->nama; ?></b></p>
-              <p class="font-style-detil">Tahun : <?php echo $key->tahun; ?></p>
+              <p class="font-style-author">Tahun : <?php echo $key->tahun; ?></p>
               <p class="font-style-detil"><?php echo $key->namaBidangIlmu; ?> | <?php echo $key->namaSubjek; ?></p>
               <hr>
               <?php 

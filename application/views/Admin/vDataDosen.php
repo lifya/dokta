@@ -54,6 +54,7 @@
                 <h3 class="modal-title" id="myModalLabel" style="font-color : #07294e">Tambah Data Dosen</h3>
             </div>
             <form class="form-horizontal">
+                <?= form_open_multipart('index.php/cAdmin/simpan_DataDosen') ?>
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="control-label col-xs-3">NIP </label>
@@ -86,8 +87,9 @@
 
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                    <button class="btn btn-info" id="btn_simpan">Simpan</button>
+                    <button class="btn btn-info" id="btn_simpan" name="save">Simpan</button>
                 </div>
+                <?= form_close() ?>
             </form>
             </div>
             </div>

@@ -19,6 +19,12 @@ class MUser extends MY_Model
 	  return $result;
 	 }
 
+	 public function getDatabyNim($nim){
+		$this->db->where('username', $nim);
+		$query = $this->db->get('user');
+		return $query->row();
+	}
+
 
 	function tambah_data_user($data, $table){	
 

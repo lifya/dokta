@@ -8,7 +8,7 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="<?=base_url('index.php/cMahasiswa')?>">
             <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Dashboard</span>
+            <span class="nav-link-text">Dashbord</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
@@ -24,7 +24,7 @@
               <a href="<?=base_url('index.php/cMahasiswa/detilTA')?>">Mengisi Detil Tugas Akhir</a>
             </li>
             <li>
-              <a href="<?=base_url('index.php/cMahasiswa/unggah')?>">Mengunggah Dokumen</a>
+              <a href="<?=base_url('index.php/cMahasiswa/unggah')?>">Mengunggah Dokumen PDF</a>
             </li>
           </ul>
         </li>
@@ -50,19 +50,14 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <form class="form-inline my-2 my-lg-0 mr-lg-2">
             <div class="input-group">
-              <input class="form-control" type="text" placeholder="Search for...">
-              <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
+              <span class="nav-link font-color">
+                <b><?php echo $username ?></b>
               </span>
             </div>
-          </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <a href="<?php echo base_url('index.php/cLogout') ?>" class="nav-link">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>

@@ -11,7 +11,7 @@ class MMahasiswa extends MY_Model
 
 	public function tambah_data($object)
 	{
-		return $this->db->insert('data_mahasiswa',$object);
+		return $this->db->insert($this->data['table_name'] ,$object);
 	}
 
 	public function tambah_data_ta($object)

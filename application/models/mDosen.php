@@ -14,13 +14,13 @@ class MDosen extends MY_Model
 		return $query->result();
 	}
 
-	public function getDatabyNim($nip){
+	public function getDatabyNIP($nip){
 		$this->db->where($this->data['primary_key'], $nip);
 		$query = $this->db->get($this->data['table_name']);
 		return $query->row();
 	}
 
-   	public function insertByNim($data, $nip){
+   	public function insertByNIP($data, $nip){
    		$this->db->where($this->data['primary_key'],$nip);
 		$query = $this->db->insert($this->data['table_name'], $data);
 		return $query;
@@ -28,6 +28,7 @@ class MDosen extends MY_Model
 
 	public function insert($data){
 		$query = $this->db->insert($this->data['table_name'], $data);
+		return $query;
 	}
 
    	public function update($nip, $data){

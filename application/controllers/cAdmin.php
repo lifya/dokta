@@ -9,7 +9,16 @@ class CAdmin extends MY_Controller
 	public function __construct()
 	{
 		parent::__construct();
-        //$this->data['username']     = $this->session->userdata('username');
+        $this->data['username']     = $this->session->userdata('username');
+        $this->data['role']         = $this->session->userdata('role');
+        
+        if (!isset($this->data['username'], $this->data['role']) or $this->data['role'] != "Admin")
+        {
+            $this->session->sess_destroy();
+            redirect('index.php/cLogin');
+            exit;
+        }
+        
 		$this->load->model('mTandaTerimaTA');
         $this->load->model('mDosen');
 	}
@@ -29,6 +38,23 @@ class CAdmin extends MY_Controller
         $this->template($this->data, 'vAdmin');
 	}
 
+    // Tanda Terima TA
+
+    public function tugasAkhir() {
+        $this->data['title']        = 'Tugas Akhir';
+        $this->data['content']      = 'Admin/vTugasAkhir';
+        $this->template($this->data, 'vAdmin');
+    }
+
+
+    // Data Dosen
+    public function dataDosen() {
+        $this->data['title']        = 'Data Dosen';
+        $this->data['content']      = 'Admin/vDataDosen';
+        $this->data['data_dosen'] = $this->mDosen->get_data_dosen();
+        $this->template($this->data, 'vAdmin');
+    }
+
 
     //Tanda Terima TA
 
@@ -45,14 +71,14 @@ class CAdmin extends MY_Controller
 
     function simpan_TandaTerimaTA(){
         if ($this->POST('simpan')) {
-            $nipus = $this->session->userdata('username');
+            $nipus =$this->data['username'];
             $nimTTTA=$this->input->post('nimTTTA');
             $namaTTTA=$this->input->post('namaTTTA');
             $tglTTTA=$this->input->post('tglTTTA');
 
             $cekNim = $this->mTandaTerimaTA->getDataByNim($nimTTTA);
             if(count($cekNim)>0){
-                $this->flashmsg('Nim telah ada', 'danger');
+                $this->flashmsg('Nim telah ada','danger');
                 redirect('index.php/cAdmin/tandaTerimaTA');
             }
             else{
@@ -63,10 +89,38 @@ class CAdmin extends MY_Controller
                         'nama'  => $namaTTTA
                 );
                 $this->mTandaTerimaTA->simpan_TandaTerimaTA($data);
-                $this->flashmsg('Berhasil','success');
+                $this->flashmsg('Berhasil');
                 redirect('index.php/cAdmin/tandaTerimaTA');
             } 
         }
+    }
+
+    function simpan_DataDosen(){
+        if ($this->POST('save')) {
+            
+            $nipDosen=$this->input->post('nipDosen');
+            $namaDosen=$this->input->post('namaDosen');
+            $emailDosen=$this->input->post('emailDosen');
+            $alamatDosen=$this->input->post('alamatDosen');
+            $cekNIP = $this->mDosen->getDataByNIP($nipDosen);
+
+            if(count($cekNIP)>0){
+                $this->flashmsg('Nip telah ada', 'danger');
+                redirect('index.php/cAdmin/dataDosen');
+            } else {
+                $data = array(
+                        'nip' => $nipDosen,
+                        'nama' => $namaDosen,
+                        'email' => $emailDosen,
+                        'alamat'  => $alamatDosen
+                );
+
+                $this->mDosen->insert($data);
+                $this->flashmsg('Berhasil','success');
+                redirect('index.php/cAdmin/dataDosen');
+            }
+        }
+            
     }
 
     function update_TandaTerimaTA(){
@@ -84,25 +138,8 @@ class CAdmin extends MY_Controller
 
     }
 
-    // Tanda Terima TA
-
-	public function tugasAkhir() {
-		$this->data['title']        = 'Tugas Akhir';
-		$this->data['content']      = 'Admin/vTugasAkhir';
-        $this->template($this->data, 'vAdmin');
-	}
-
-
-    // Data Dosen
-	public function dataDosen() {
-		$this->data['title']        = 'Data Dosen';
-		$this->data['content']      = 'Admin/vDataDosen';
-        $this->data['data_dosen'] = $this->mDosen->get_data_dosen();
-        $this->template($this->data, 'vAdmin');
-	}
-
     // Hapus Data Dosen
-    public function hapus_data_dosen($nip)
+    function hapus_data_dosen($nip)
     {
         $query = $this->mDosen->hapus_dosen($nip);
 
@@ -118,7 +155,7 @@ class CAdmin extends MY_Controller
     }
 
     //Edit Data Dosen
-    public function edit_data_dosen()
+    function edit_data_dosen()
     {
         $this->data['title']        = 'Edit Data Dosen';
         $this->data['content']      = 'Admin/vEditDosen';
@@ -137,15 +174,6 @@ class CAdmin extends MY_Controller
         echo json_encode($data);
     }
 
-    function simpan_DataDosen(){
-        $nipDosen=$this->input->post('nipDosen');
-        $namaDosen=$this->input->post('namaDosen');
-        $emailDosen=$this->input->post('emailDosen');
-        $alamatDosen=$this->input->post('alamatDosen');
-        $data=$this->mDosen->simpan_DataDosen($nipDosen,$namaDosen,$emailDosen,$alamatDosen);
-        echo json_encode($data);
-    }
-
     function update_DataDosen(){
         $nipDosen=$this->input->post('nipDosen');
         $namaDosen=$this->input->post('namaDosen');
@@ -160,10 +188,4 @@ class CAdmin extends MY_Controller
         $data=$this->mDosen->hapus_DataDosen($nipDosen);
         echo json_encode($data);
     }
-
-    // Data Dosen
-	
 }
-
-
-?>

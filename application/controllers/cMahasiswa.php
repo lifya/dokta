@@ -9,10 +9,16 @@ class CMahasiswa extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->data['username']     = $this->session->userdata('username');
+        $this->data['role']     = $this->session->userdata('role');
+
         
-        // if($this->session->userdata('status') != "login"){
-        //     redirect(base_url("index.php/CLogin"));
-        // }
+        if (!isset($this->data['username'], $this->data['role']) or $this->data['role'] != "Mahasiswa")
+        {
+            $this->session->sess_destroy();
+            redirect('index.php/cLogin');
+            exit;
+        }
 
 
         $this->load->model('mMahasiswa');
@@ -24,6 +30,7 @@ class CMahasiswa extends MY_Controller
             $this->data['title']        = 'Publikasi Tugas Akhir'.$this->title;;
             $this->data['content']      = 'Mahasiswa/vMahasiswa';
             $this->template($this->data, 'vMahasiswa'); 
+
     }
 
     public function dataDiri() {
@@ -99,7 +106,7 @@ class CMahasiswa extends MY_Controller
                     redirect('index.php/cMahasiswa/detilTA');
                 }else
                 {
-                    echo "GAGAL";
+                    $this->flashmsg('Data Gagal Ditambahkan !','danger');
                 }
         }
         else
