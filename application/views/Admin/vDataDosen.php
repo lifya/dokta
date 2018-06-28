@@ -10,12 +10,12 @@
       <div class="pull-right">
         <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#ModalaAdd" style="background-color: #07294e"><i class="fa fa-plus"></i> Tambah </a>
       </div>
+      <br><br>
       <div>
         <?= $this->session->flashdata('msg') ?>
       </div>
-      <br><br>
       <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;" id="mydata">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" id="mydata">
           <thead>
             <tr >
               <th>NIP</th>
@@ -35,8 +35,8 @@
               <td><?= $d->email; ?></td>
               <td><?= $d->alamat; ?></td>
               <td>
-                <?php echo anchor('index.php/cAdmin/edit_data_dosen/'.$d->nip, 'Edit', array('class' => 'btn btn-success')) ?>
-                <?php echo anchor('index.php/cAdmin/hapus_data_dosen/'.$d->nip, 'Hapus', array('class' => 'btn btn-danger')) ?>
+                <button class="btn btn-success" data-toggle="modal" data-target="#ModalaEdit" onclick="get_data('<?= $d->nip ?>')">Edit</button>
+                <a href="<?= base_url('index.php/cAdmin/hapus_DataDosen/'."$d->nip") ?>" class="btn btn-danger">Hapus</a>
               </td>
             </tr>
             <?php } ?>
@@ -50,44 +50,64 @@
             <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h3 class="modal-title" id="myModalLabel" style="font-color : #07294e">Tambah Data Dosen</h3>
+                <div class="pull-right">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
             </div>
-            <form class="form-horizontal">
-                <?= form_open_multipart('index.php/cAdmin/simpan_DataDosen') ?>
+
+            <?= form_open_multipart('index.php/cAdmin/simpan_DataDosen') ?>
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label class="control-label col-xs-3">NIP </label>
-                        <div class="col-xs-9">
-                            <input name="nipDosen" id="Dosen_nip" class="form-control" type="text" placeholder="NIP" style="width:335px;" required>
+                    <div class="form-group" style="margin-bottom: 50px">
+                        <div class="pull-left">
+                            <label class="control-label col-md-4">NIP </label>
+                        </div>
+                        <div class="pull-right">
+                        <div class="col-md-4">
+                            <input name="nipDosen" id="Dosen_nip" class="form-control" type="numeric" placeholder="NIP" style="width:335px;" required>
+                        </div>
                         </div>
                     </div>   
 
-                    <div class="form-group">
-                        <label class="control-label col-xs-3" >Nama </label>
-                        <div class="col-xs-9">
+                    <div class="form-group" style="margin-bottom: 100px">
+                        <div class="pull-left">
+                            <label class="control-label col-md-4" >Nama </label>
+                        </div>
+                        <div class="pull-right">
+                        <div class="col-md-4">
                             <input name="namaDosen" id="Dosen_nama" class="form-control" type="text" placeholder="Nama" style="width:335px;" required>
                         </div>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="control-label col-xs-3" >Email </label>
-                        <div class="col-xs-9">
+                    <div class="form-group" style="margin-bottom: 150px">
+                        <div class="pull-left">
+                            <label class="control-label col-md-4" >Email </label>
+                        </div>
+                        <div class="pull-right">
+                        <div class="col-md-4">
                             <input name="emailDosen" id="Dosen_email" class="form-control" type="text" placeholder="Email" style="width:335px;" required>
+                        </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-xs-3" >Alamat </label>
+                        <div class="pull-left">
+                            <label class="control-label col-xs-3" >Alamat </label>
+                        </div>
+                        <div class="pull-right">
                         <div class="col-xs-9">
                             <input name="alamatDosen" id="Dosen_alamat" class="form-control" type="text" placeholder="Alamat" style="width:335px;" required>
+                        </div>
                         </div>
                     </div>
                 </div>
 
+                <div class="pull-right">
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                    <button class="btn btn-info" id="btn_simpan" name="save">Simpan</button>
+                    <input type="submit" class="btn btn-info" name="save" value="Simpan">
+                </div>
                 </div>
                 <?= form_close() ?>
             </form>
@@ -104,13 +124,13 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h3 class="modal-title" id="myModalLabel" style="font-color : #07294e">Edit Data Dosen</h3>
             </div>
-            <form class="form-horizontal">
+            <?= form_open_multipart('index.php/cAdmin/update_DataDosen') ?>
                 <div class="modal-body">
-
+                    <input type="hidden" name="nip" id="Dosen_nip2_edit">
                     <div class="form-group">
                         <label class="control-label col-xs-3" >NIP </label>
                         <div class="col-xs-9">
-                            <input name="nipDosen_edit" id="Dosen_nip2" class="form-control" type="text" placeholder="NIP" style="width:335px;" required>
+                            <input name="nipDosen_edit" id="Dosen_nip2" class="form-control" type="text" placeholder="NIP" style="width:335px;" disabled>
                         </div>
                     </div>
 
@@ -124,23 +144,23 @@
                      <div class="form-group">
                         <label class="control-label col-xs-3" >Email </label>
                         <div class="col-xs-9">
-                            <input name="emailDosen_edit" id="Dosen_email2" class="form-control" type="text" placeholder="Email" style="width:335px;" readonly>
+                            <input name="emailDosen_edit" id="Dosen_email2" class="form-control" type="text" placeholder="Email" style="width:335px;" required="">
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label class="control-label col-xs-3" >Alamat </label>
                         <div class="col-xs-9">
-                            <input name="alamatDosen_edit" id="Dosen_alamat2" class="form-control" type="text" placeholder="Alamat" style="width:335px;" readonly>
+                            <input name="alamatDosen_edit" id="Dosen_alamat2" class="form-control" type="text" placeholder="Alamat" style="width:335px;" required>
                         </div>
                     </div>
                 </div>
 
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                    <button class="btn btn-info" id="btn_update">Update</button>
+                    <input type="submit" name="save" value="Simpan">
                 </div>
-            </form>
+            <?= form_close() ?>
             </div>
             </div>
         </div>
@@ -171,134 +191,47 @@
         </div>
         <!--END MODAL HAPUS-->
     </div>
-<script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.js'?>"></script>
-<script type="text/javascript" src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
-<script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.dataTables.js'?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'assets/vendor/jquery/jquery.js'?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'assets/bootstrap/js/bootstrap.js'?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'assets/vendor/datatables/jquery.dataTables.js'?>"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        tampil_data_Dosen();   //pemanggilan fungsi tampil Data dosen.
-        
-        $('#mydata').dataTable();
-         
-        //fungsi tampil TTTA
-        function tampil_data_Dosen(){
-            $.ajax({
-                type  : 'ajax',
-                url   : '<?php echo base_url()?>index.php/cAdmin/data_Dosen',
-                async : false,
-                dataType : 'json',
-                success : function(data){
-                    var html = '';
-                    var i;
-                    for(i=0; i<data.length; i++){
-                        html += '<tr>'+
-                                '<td>'+data[i].nip+'</td>'+
-                                '<td>'+data[i].nama+'</td>'+
-                                '<td>'+data[i].email+'</td>'+
-                                '<td>'+data[i].alamat+'</td>'+
-                                '<td style="text-align:right;">'+
-                                    '<a href="javascript:;" class="btn btn-info btn-xs item_edit" style="background-color : #07294e" data-toggle="modal" data-target="#ModalaEdit" data="'+data[i].nip+'">Edit</a>'+' '+
-                                    '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" style="background-color : #07294e" data-toggle="modal" data-target="#ModalHapus" data="'+data[i].nip+'">Hapus</a>'+
-                                '</td>'+
-                                '</tr>';
-                    }
-                    $('#show_data').html(html);
-                }
+        $(document).ready(function() {
+            $('#mydata').DataTable({
+                responsive: true
+            });
+        });
 
+        function get_data(username) {
+            $.ajax({
+                url: '<?= base_url('index.php/cAdmin/dataDosen') ?>',
+                type: 'POST',
+                data: {
+                    username: username,
+                    get: true
+                },
+                success: function(response){
+                    console.log(response);
+                    response = JSON.parse(response);
+                    $('#Dosen_nip2, #Dosen_nip2_edit').val(response.nip);
+                    $('#Dosen_nama2').val(response.nama);
+                    $('#Dosen_email2').val(response.email);
+                    $('#Dosen_alamat2').val(response.alamat);
+                    },
+                error: function(e) {console.log(e.responseText);}
             });
         }
 
-        //GET UPDATE
-        $('#show_data').on('click','.item_edit',function(){
-            var id=$(this).attr('data');
-            $.ajax({
-                type : "GET",
-                url  : "<?php echo base_url('index.php/cAdmin/get_DataDosen')?>",
-                dataType : "JSON",
-                data : {id:id},
-                success: function(data){
-                    $.each(data,function(nip, nama, email, alamat){
-                        $('#ModalaEdit').modal('show');
-                        $('[name="nipDosen_edit"]').val(data.nip);
-                        $('[name="namaDosen_edit"]').val(data.nama);
-                        $('[name="emailDosen_edit"]').val(data.email);
-                        $('[name="alamatDosen_edit"]').val(data.alamat);
-                    });
-                }
-            });
-            return false;
-        });
-
-
-        //GET HAPUS
-        $('#show_data').on('click','.item_hapus',function(){
-            var id=$(this).attr('data');
-            $('#ModalHapus').modal('show');
-            $('[name="nip"]').val(id);
-        });
-
-        //Simpan Barang
-        $('#btn_simpan').on('click',function(){
-            var nipDosen=$('#Dosen_nip').val();
-            var namaDosen=$('#Dosen_nama').val();
-            var emailDosen=$('#Dosen_email').val();
-            var alamatDosen=$('#Dosen_alamat').val();
-            $.ajax({
-                type : "POST",
-                url  : "<?php echo base_url('index.php/cAdmin/simpan_DataDosen')?>",
-                dataType : "JSON",
-                data : {nipDosen:nipDosen , namaDosen:namaDosen , emailDosen:emailDosen , alamatDosen:alamatDosen},
-                success: function(data){
-                    $('[name="nipDosen"]').val("");
-                    $('[name="namaDosen]').val("");
-                    $('[name="emailDosen"]').val("");
-                    $('[name="alamatDosen"]').val("");
-                    $('#ModalaAdd').modal('hide');
-                    tampil_data_Dosen();
-                }
-            });
-            return false;
-        });
-
-        //Update Barang
-        $('#btn_update').on('click',function(){
-            var nipDosen=$('#Dosen_nip2').val();
-            var namaDosen=$('#Dosen_nama2').val();
-            var emailDosen=$('#Dosen_email2').val();
-            var alamatDosen=$('#Dosen_alamat2').val();
-            $.ajax({
-                type : "POST",
-                url  : "<?php echo base_url('index.php/cAdmin/update_DataDosen')?>",
-                dataType : "JSON",
-                data : {nipDosen:nipDosen , namaDosen:namaDosen , emailDosen:emailDosen , alamatDosen:alamatDosen },
-                success: function(data){
-                    $('[name="nipDosen_edit"]').val("");
-                    $('[name="namaDosen_edit"]').val("");
-                    $('[name="emailDosen_edit"]').val("");
-                    $('[name="alamatDosen_edit"]').val("");
-                    $('#ModalaEdit').modal('hide');
-                    tampil_data_Dosen();
-                }
-            });
-            return false;
-        });
-
-        //Hapus Barang
-        $('#btn_hapus').on('click',function(){
-            var nipDosen=$('#textkode').val();
-            $.ajax({
-            type : "POST",
-            url  : "<?php echo base_url('index.php/cAdmin/hapus_DataDosen')?>",
-            dataType : "JSON",
-                    data : {nipDosen: nipDosen},
-                    success: function(data){
-                            $('#ModalHapus').modal('hide');
-                            tampil_data_Dosen();
-                    }
-                });
-                return false;
-            });
-
-    });
-
+        // function delete_data(username) {
+        //             $.ajax({
+        //                 url: '<?= base_url('index.php/cAdmin/hapus_DataDosen') ?>',
+        //                 type: 'POST',
+        //                 data: {
+        //                     username: username,
+        //                     delete: true
+        //                 },
+        //                 success: function() {
+        //                     window.location = '<?= base_url('index.php/cAdmin/hapus_DataDosen') ?>';
+        //                 }
+        //             });
+        //         }
 </script>

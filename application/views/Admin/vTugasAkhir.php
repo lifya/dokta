@@ -12,6 +12,7 @@
                 <thead style="text-align: center;">
                   <tr>
                   <th>NIM</th>
+                  <th>Nama</th>
                   <th>Judul TA</th>
                   <th>Aksi</th>
                   </tr>
@@ -19,16 +20,30 @@
                 <tbody id="show_data">
                   <?php foreach ($dataTA as $key) {?>
                   <tr>
+<<<<<<< HEAD
                   <td width="30px"><?= $key->nim ?></td>
                   <td width="650px"><?= $key->judul ?></td>
                   <td id="btn-<?= $key->nim?>" style="text-align: center;">
                     <button class="btn btn-sm btn-success" style="background-color: #07294e;"> Edit </button>
+=======
+                  <td><?= $key->nim ?></td>
+                  <td><?= $key->nama ?></td>
+                  <td><?= $key->judul ?></td>
+                  <td id="btn-<?= $key->nim?>">
+
+                    <?php if($key->status == 'delivered'): ?>
+                    <button class="btn btn-sm btn-danger" onclick="changeStatus('<?= $key->nim ?>')">Tolak</button>
+                    <?php elseif($key->status == 'rejected'): ?>
+                    <button class="btn btn-sm btn-info" onclick="changeStatus('<?= $key->nim ?>')">Ditolak</button>
+                    <?php endif; ?>
+>>>>>>> 9f64c521d28d81f3eb87acf54445280a21a8920f
 
                     <?php if ($key->status == 'delivered'): ?>
-                    <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-danger"></i> Konfirmasi </button>
+                    <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-success"></i> Konfirmasi </button>
                     <?php elseif ($key->status == 'confirmed'): ?>
-                    <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-success">Terkonfirmasi </button>
+                    <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-info">Terkonfirmasi </button>
                     <?php endif; ?>
+
                   </td>
                   </tr>
                   <?php } ?>
