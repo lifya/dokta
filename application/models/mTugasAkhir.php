@@ -16,6 +16,12 @@ class MTugasAkhir extends MY_Model
 		return $query->result();
 	}
 
+	public function update($nim, $data){
+   		$this->db->where($this->data['primary_key'], $nim);
+   		$query = $this->db->update($this->data['table_name'], $data);
+   		return $query;
+   	}
+
 
    	public function get_detail_ta($nim)
 	{

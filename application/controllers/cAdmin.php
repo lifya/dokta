@@ -132,10 +132,37 @@ class CAdmin extends MY_Controller
             exit;
         }
 
+        if($this->POST('delete') && $this->POST('nim')){
+            $edit_data = [
+                'nim'           => NULL,
+                'idSubjek'       => NULL,
+                'judul'           => NULL,
+                'tahun'            => NULL,
+                'dosenPembimbing1'   => NULL,
+                'dosenPembimbing2' => NULL,
+                'abstrak' => NULL,
+                'status' => NULL
+
+            ];
+            $this->mTugasAkhir->update($this->POST('nim'), $edit_data);
+            $this->flashmsg('<i class="fa fa-check"></i> Data tugas akhir berhasil dihapus');
+            exit;
+        }
+
         $this->data['title']        = 'Tugas Akhir';
         $this->data['content']      = 'Admin/vTugasAkhir';
         $this->data['dataTA'] = $this->mTugasAkhir->get_delivered_ta();
         $this->template($this->data, 'vAdmin');
+    }
+
+    public function detilTA() {
+
+        $nim = $this->data['nim'];
+        $this->data['title']        = 'Pratinjau';
+        $this->data['content']      = 'Admin/vDetilTA';
+        $this->data['pratinjau'] = $this->mTugasAkhir->get_pratinjau_ta($nim);
+        $this->template($this->data, 'vAdmin');
+
     }
 
     // Data Dosen

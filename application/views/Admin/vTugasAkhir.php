@@ -13,36 +13,34 @@
                   <tr>
                   <th>NIM</th>
                   <th>Nama</th>
-                  <th>Judul TA</th>
+                  <th>Judul Tugas Akhir</th>
                   <th>Aksi</th>
+                  <th>Aksi</th>
+                  <th>Detail</th>
                   </tr>
                 </thead>
                 <tbody id="show_data">
                   <?php foreach ($dataTA as $key) {?>
                   <tr>
-                  <td><?= $key->nim ?></td>
-                  <td><?= $key->nama ?></td>
-                  <td><?= $key->judul ?></td>
-                  <td id="btn-<?= $key->nim?>">
-                    <?= form_open_multipart('index.php/cAdmin/ubahStatus') ?>
-                    <?php if($key->status == 'delivered' || $key->status == 'confirmed'): ?>
-                    <!-- <button class="btn btn-sm btn-danger" onclick="changeStatus('<?= $key->nim ?>')">Tolak</button> -->
-                    <input type="hidden" name="">
-                    <input class="btn btn-danger" type="submit" name="b_delivered" value="Tolak">
-                    <?php elseif($key->status == 'rejected'): ?>
-                    <!-- <button class="btn btn-sm btn-info" onclick="changeStatus('<?= $key->nim ?>')">Ditolak</button> -->
-                    <input class="btn btn-warning" type="submit" name="b_rejected" value="Ditolak">
-                    <?php endif; ?>
+                    <td><?= $key->nim ?></td>
+                    <td><?= $key->nama ?></td>
+                    <td width="500px"><?= $key->judul ?></td>
+                    <td id="btn-<?= $key->nim?>">
 
-                    <?php if ($key->status == 'delivered' || $key->status == 'rejected'): ?>
-                    <!-- <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-success"></i> Konfirmasi </button> -->
-                    <input class="btn btn-success" type="submit" name="b_delivered2" value="Konfirmasi">
-                    <?php elseif ($key->status == 'confirmed'): ?>
-                    <!-- <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-info">Terkonfirmasi </button> -->
-                    <input class="btn btn-warning" type="submit" name="b_confirmed" value="Terkonfirmasi">
-                    <?php endif; ?>
 
-                  </td>
+                      <?php if ($key->status == 'delivered'): ?>
+                      <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm button color"></i> Konfirmasi </button>
+                      <?php elseif ($key->status == 'confirmed'): ?>
+                      <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-color">Terkonfirmasi </button>
+                      <?php endif; ?>
+
+                    </td>
+                    <td>
+                      <button class="btn btn-danger" onclick="delete_data('<?= $key->nim ?>')">Tolak</i></button>
+                    </td>
+                    <td>
+                      <a href="<?= base_url('index.php/cAdmin/detailTA/'.$key->nim) ?>" class="btn btn-info">Lihat</a> 
+                    </td>
                   </tr>
                   <?php } ?>
                       
@@ -56,6 +54,20 @@
          responsive: true
         });
       });
+
+      function delete_data(nim) {
+        $.ajax({
+          url: '<?= base_url('index.php/cAdmin/tugasAkhir') ?>',
+          type: 'POST',
+          data: {
+            nim: nim,
+            delete: true
+          },
+            success: function() {
+            window.location = '<?= base_url('index.php/cAdmin/tugasAkhir') ?>';
+          }
+        });
+      }
 
       function changeStatus(nim) {
         $.ajax({
