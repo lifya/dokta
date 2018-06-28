@@ -17,7 +17,7 @@
         <?= $this->session->flashdata('msg') ?>
       </div>
         <div class="table-responsive">
-          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" id="mydata">
+          <table class="table table-bordered" id="dataTable" style="text-align: center;" width="100%" cellspacing="0" id="mydata">
             <thead>
               <tr>
               <th>NIM</th>
