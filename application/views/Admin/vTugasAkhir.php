@@ -9,7 +9,7 @@
 
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: justify;" id="mydata">
-                <thead>
+                <thead style="text-align: center;">
                   <tr>
                   <th>NIM</th>
                   <th>Judul TA</th>
@@ -19,9 +19,9 @@
                 <tbody id="show_data">
                   <?php foreach ($dataTA as $key) {?>
                   <tr>
-                  <td><?= $key->nim ?></td>
-                  <td><?= $key->judul ?></td>
-                  <td id="btn-<?= $key->nim?>">
+                  <td width="30px"><?= $key->nim ?></td>
+                  <td width="650px"><?= $key->judul ?></td>
+                  <td id="btn-<?= $key->nim?>" style="text-align: center;">
                     <button class="btn btn-sm btn-success" style="background-color: #07294e;"> Edit </button>
 
                     <?php if ($key->status == 'delivered'): ?>

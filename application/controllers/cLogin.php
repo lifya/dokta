@@ -54,6 +54,7 @@ class CLogin extends MY_Controller
 				$data_session = array(
 					'username' => $username,
 					'dataMember' => $dataMember,
+					'status' => 'login',
 					'role' => $dataMember[0]['role']
 					);
 	 
