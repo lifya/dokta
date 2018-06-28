@@ -20,12 +20,6 @@
                 <tbody id="show_data">
                   <?php foreach ($dataTA as $key) {?>
                   <tr>
-<<<<<<< HEAD
-                  <td width="30px"><?= $key->nim ?></td>
-                  <td width="650px"><?= $key->judul ?></td>
-                  <td id="btn-<?= $key->nim?>" style="text-align: center;">
-                    <button class="btn btn-sm btn-success" style="background-color: #07294e;"> Edit </button>
-=======
                   <td><?= $key->nim ?></td>
                   <td><?= $key->nama ?></td>
                   <td><?= $key->judul ?></td>
@@ -39,7 +33,6 @@
                     <!-- <button class="btn btn-sm btn-info" onclick="changeStatus('<?= $key->nim ?>')">Ditolak</button> -->
                     <input class="btn btn-warning" type="submit" name="b_rejected" value="Ditolak">
                     <?php endif; ?>
->>>>>>> 9f64c521d28d81f3eb87acf54445280a21a8920f
 
                     <?php if ($key->status == 'delivered' || $key->status == 'rejected'): ?>
                     <!-- <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-success"></i> Konfirmasi </button> -->
