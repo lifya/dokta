@@ -93,10 +93,10 @@
 
                     <div class="form-group">
                         <div class="pull-left">
-                            <label class="control-label col-xs-3" >Alamat </label>
+                            <label class="control-label col-md-4" >Alamat </label>
                         </div>
                         <div class="pull-right">
-                        <div class="col-xs-9">
+                        <div class="col-md-4">
                             <input name="alamatDosen" id="Dosen_alamat" class="form-control" type="text" placeholder="Alamat" style="width:335px;" required>
                         </div>
                         </div>
@@ -121,44 +121,67 @@
             <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
+                <div class="pull-left">
+                    <h3 class="modal-title" id="myModalLabel" style="font-color : #07294e">Edit Data Dosen</h3>
+                </div>
+                <div class="pull-right">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 class="modal-title" id="myModalLabel" style="font-color : #07294e">Edit Data Dosen</h3>
+                </div>
             </div>
             <?= form_open_multipart('index.php/cAdmin/update_DataDosen') ?>
                 <div class="modal-body">
                     <input type="hidden" name="nip" id="Dosen_nip2_edit">
-                    <div class="form-group">
-                        <label class="control-label col-xs-3" >NIP </label>
-                        <div class="col-xs-9">
+
+                    <div class="form-group" style="margin-bottom: 50px">
+                        <div class="pull-left">
+                            <label class="control-label col-md-4" >NIP </label>
+                        </div>
+                        <div class="pull-right">
+                        <div class="col-md-4">
                             <input name="nipDosen_edit" id="Dosen_nip2" class="form-control" type="text" placeholder="NIP" style="width:335px;" disabled>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-xs-3" >Nama </label>
-                        <div class="col-xs-9">
-                            <input name="namaDosen_edit" id="Dosen_nama2" class="form-control" type="text" placeholder="Nama" style="width:335px;" required>
                         </div>
                     </div>
 
-                     <div class="form-group">
-                        <label class="control-label col-xs-3" >Email </label>
-                        <div class="col-xs-9">
+                    <div class="form-group" style="margin-bottom: 100px">
+                        <div class="pull-left">
+                            <label class="control-label col-md-4" >Nama </label>
+                        </div>
+                        <div class="pull-right">
+                        <div class="col-md-4">
+                            <input name="namaDosen_edit" id="Dosen_nama2" class="form-control" type="text" placeholder="Nama" style="width:335px;" required>
+                        </div>
+                        </div>
+                    </div>
+
+                     <div class="form-group" style="margin-bottom: 150px">
+                        <div class="pull-left">
+                            <label class="control-label col-md-4" >Email </label>
+                        </div>
+                        <div class="pull-right">
+                        <div class="col-md-4">
                             <input name="emailDosen_edit" id="Dosen_email2" class="form-control" type="text" placeholder="Email" style="width:335px;" required="">
+                        </div>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label class="control-label col-xs-3" >Alamat </label>
-                        <div class="col-xs-9">
+                        <div class="pull-left">
+                            <label class="control-label col-md-4" >Alamat </label>
+                        </div>
+                        <div class="pull-right">
+                        <div class="col-md-4">
                             <input name="alamatDosen_edit" id="Dosen_alamat2" class="form-control" type="text" placeholder="Alamat" style="width:335px;" required>
+                        </div>
                         </div>
                     </div>
                 </div>
 
+                <div class="pull-right">
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                    <input type="submit" name="save" value="Simpan">
+                    <input class="btn btn-success" type="submit" name="save" value="Simpan">
+                </div>
                 </div>
             <?= form_close() ?>
             </div>

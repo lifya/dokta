@@ -24,17 +24,22 @@
                   <td><?= $key->nama ?></td>
                   <td><?= $key->judul ?></td>
                   <td id="btn-<?= $key->nim?>">
-
-                    <?php if($key->status == 'delivered'): ?>
-                    <button class="btn btn-sm btn-danger" onclick="changeStatus('<?= $key->nim ?>')">Tolak</button>
+                    <?= form_open_multipart('index.php/cAdmin/ubahStatus') ?>
+                    <?php if($key->status == 'delivered' || $key->status == 'confirmed'): ?>
+                    <!-- <button class="btn btn-sm btn-danger" onclick="changeStatus('<?= $key->nim ?>')">Tolak</button> -->
+                    <input type="hidden" name="">
+                    <input class="btn btn-danger" type="submit" name="b_delivered" value="Tolak">
                     <?php elseif($key->status == 'rejected'): ?>
-                    <button class="btn btn-sm btn-info" onclick="changeStatus('<?= $key->nim ?>')">Ditolak</button>
+                    <!-- <button class="btn btn-sm btn-info" onclick="changeStatus('<?= $key->nim ?>')">Ditolak</button> -->
+                    <input class="btn btn-warning" type="submit" name="b_rejected" value="Ditolak">
                     <?php endif; ?>
 
-                    <?php if ($key->status == 'delivered'): ?>
-                    <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-success"></i> Konfirmasi </button>
+                    <?php if ($key->status == 'delivered' || $key->status == 'rejected'): ?>
+                    <!-- <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-success"></i> Konfirmasi </button> -->
+                    <input class="btn btn-success" type="submit" name="b_delivered2" value="Konfirmasi">
                     <?php elseif ($key->status == 'confirmed'): ?>
-                    <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-info">Terkonfirmasi </button>
+                    <!-- <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-info">Terkonfirmasi </button> -->
+                    <input class="btn btn-warning" type="submit" name="b_confirmed" value="Terkonfirmasi">
                     <?php endif; ?>
 
                   </td>
