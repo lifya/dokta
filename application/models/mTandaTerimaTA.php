@@ -32,6 +32,13 @@ class MTandaTerimaTA extends CI_Model{
 		$query = $this->db->delete('tanda_terima_ta');
 		return $query;
 	}
+
+	public function update_TandaTerima($nim, $data){
+   		$this->db->where('nim', $nim);
+   		$query = $this->db->update('tanda_terima_ta', $data);
+   		return $query;
+   	}
+   	
 //-----------------------------------------------------------------------------
 
 	function get_TandaTerimaTA_by_kode($nimTTTA){
@@ -47,10 +54,10 @@ class MTandaTerimaTA extends CI_Model{
 		}
 		return $hasil;
 	}
-	function update_TandaTerimaTA($nimTTTA,$data){
-		$this->db->WHERE('NIM', $nimTTA);
-		$hasil=$this->db->update($this->data['table_name'], $data);
-		return $hasil;
-	}
+	// function update_TandaTerimaTA($nimTTTA,$data){
+	// 	$this->db->WHERE('NIM', $nimTTA);
+	// 	$hasil=$this->db->update($this->data['table_name'], $data);
+	// 	return $hasil;
+	// }
 	
 }

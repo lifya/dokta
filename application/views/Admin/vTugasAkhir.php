@@ -12,6 +12,7 @@
                 <thead>
                   <tr>
                   <th>NIM</th>
+                  <th>Nama</th>
                   <th>Judul TA</th>
                   <th>Aksi</th>
                   </tr>
@@ -20,15 +21,22 @@
                   <?php foreach ($dataTA as $key) {?>
                   <tr>
                   <td><?= $key->nim ?></td>
+                  <td><?= $key->nama ?></td>
                   <td><?= $key->judul ?></td>
                   <td id="btn-<?= $key->nim?>">
-                    <button class="btn btn-sm btn-success" style="background-color: #07294e;"> Edit </button>
+
+                    <?php if($key->status == 'delivered'): ?>
+                    <button class="btn btn-sm btn-danger" onclick="changeStatus('<?= $key->nim ?>')">Tolak</button>
+                    <?php elseif($key->status == 'rejected'): ?>
+                    <button class="btn btn-sm btn-info" onclick="changeStatus('<?= $key->nim ?>')">Ditolak</button>
+                    <?php endif; ?>
 
                     <?php if ($key->status == 'delivered'): ?>
-                    <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-danger"></i> Konfirmasi </button>
+                    <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-success"></i> Konfirmasi </button>
                     <?php elseif ($key->status == 'confirmed'): ?>
-                    <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-success">Terkonfirmasi </button>
+                    <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-info">Terkonfirmasi </button>
                     <?php endif; ?>
+
                   </td>
                   </tr>
                   <?php } ?>
