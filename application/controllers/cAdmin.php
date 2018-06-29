@@ -138,7 +138,7 @@ class CAdmin extends MY_Controller
 
         $this->data['title']        = 'Tugas Akhir';
         $this->data['content']      = 'Admin/vTugasAkhir';
-        $this->data['dataTA']       = $this->mTugasAkhir->get_ta();
+        $this->data['dataTA']       = $this->mTugasAkhir->get_delivered_ta();
         $this->template($this->data, 'vAdmin');
     }
 
