@@ -11,8 +11,8 @@ class MTugasAkhir extends MY_Model
 
 	public function get_data($nim)
 	{
-		$this->db->where('nim',$nim);
-		$query = $this->db->get('tugas_akhir');
+		$this->db->where($this->data['primary_key'],$nim);
+		$query = $this->db->get($this->data['table_name']);
 		return $query->result();
 	}
 
@@ -21,6 +21,12 @@ class MTugasAkhir extends MY_Model
    		$query = $this->db->update($this->data['table_name'], $data);
    		return $query;
    	}
+
+   	function hapus_tugas_akhir($nim){
+   		$this->db->where($this->data['primary_key'], $nim);
+   		$query = $this->db->delete($this->data['table_name']);
+   		return $query;
+	}
 
 
    	public function get_detail_ta($nim)

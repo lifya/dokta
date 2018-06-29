@@ -122,30 +122,13 @@ class CAdmin extends MY_Controller
 
                 if ($dokumen->status == 'delivered'){
                     $this->mTugasAkhir->update($nim, ['status' => 'confirmed']);
-                    echo "<button class='btn btn-sm btn-success btn-color' onclick=\"changeStatus('".$nim."')\"><b>Terkonfirmasi</b></button>";
+                    echo "<button class='btn btn-sm btn-success' onclick=\"changeStatus('".$nim."')\"><b>Terkonfirmasi</b></button>";
                 }
                 else {
                     $this->mTugasAkhir->update($nim, ['status' => 'delivered']);
-                    echo "<button class='btn btn-sm btn-success button-color' onclick=\"changeStatus('".$nim."')\"><b>Konfirmasi</b></button>";   
+                    echo "<button class='btn btn-sm btn-secondary' onclick=\"changeStatus('".$nim."')\"><b>Konfirmasi</b></button>";   
                 }
             }
-            exit;
-        }
-
-        if($this->POST('delete') && $this->POST('nim')){
-            $edit_data = [
-                'nim'           => NULL,
-                'idSubjek'       => NULL,
-                'judul'           => NULL,
-                'tahun'            => NULL,
-                'dosenPembimbing1'   => NULL,
-                'dosenPembimbing2' => NULL,
-                'abstrak' => NULL,
-                'status' => NULL
-
-            ];
-            $this->mTugasAkhir->update($this->POST('nim'), $edit_data);
-            $this->flashmsg('<i class="fa fa-check"></i> Data tugas akhir berhasil dihapus');
             exit;
         }
 
@@ -155,12 +138,19 @@ class CAdmin extends MY_Controller
         $this->template($this->data, 'vAdmin');
     }
 
+    function hapus_tugasAkhir($nim){
+        $this->mTugasAkhir->hapus_tugas_akhir($nim);
+        $this->flashmsg('Data tugas akhir ditolak', 'success');
+        redirect('index.php/cAdmin/tugasAkhir');
+
+    }
+
     public function detilTA() {
 
-        $nim = $this->data['nim'];
-        $this->data['title']        = 'Pratinjau';
+        $nim = $this->uri->segment(3);
+        $this->data['title']        = 'Detil Tugas Akhir';
         $this->data['content']      = 'Admin/vDetilTA';
-        $this->data['pratinjau'] = $this->mTugasAkhir->get_pratinjau_ta($nim);
+        $this->data['detilTA'] = $this->mTugasAkhir->get_pratinjau_ta($nim);
         $this->template($this->data, 'vAdmin');
 
     }

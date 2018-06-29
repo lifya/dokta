@@ -57,14 +57,11 @@ class CTugasAkhir extends MY_Controller
 
 		$keyword = $this->input->post('keyword');
 
-	    $this->data['title']        = 'Daftar Tugas Akhir';
+	  $this->data['title']        = 'Daftar Tugas Akhir';
 		$this->data['content']      = 'Main/vHasilPencarian';
 
-        $this->data['search'] = $this->mTugasAkhir->search_ta($keyword);
-
-	      
-
-        $this->template($this->data, 'vDaftarTA');
+    $this->data['search'] = $this->mTugasAkhir->search_ta($keyword);
+    $this->template($this->data, 'vDaftarTA');
 	}
 
 	public function tampilPDF($getNim)

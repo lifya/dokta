@@ -1,4 +1,11 @@
-<!-- Footer -->
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="<?php echo base_url();?>assets/vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+  <!-- Footer -->
     <footer class="footer bg-light">
       <div class="container">
           <div class=" text-center">
@@ -6,11 +13,5 @@
           </div>
       </div>
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="<?php echo base_url();?>assets/vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  </body>
 
 </html>

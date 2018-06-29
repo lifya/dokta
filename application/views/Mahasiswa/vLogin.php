@@ -34,12 +34,12 @@
                     
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                           <strong><h1 style="color: #07294E; margin-top: -70px;">Publikasikan Tugas Akhir Kamu di Sini !!!</h1></strong> 
+                           <strong><h1 style="color: #07294E;">Publikasikan Tugas Akhir Kamu di Sini !!!</h1></strong> 
                         </div>
                     </div>
                     
                     <div class="row" >
-                        <div class="col-sm-5" style="margin-top: -50px;">
+                        <div class="col-sm-5">
                             
                             <div class="form-box">
                                 <div class="form-top" style="background-color: #07294E; color: #ffc600;">
@@ -91,6 +91,7 @@
                                 <div class="form-bottom">
                                 <?= form_open_multipart('index.php/cLogin/aksi_login') ?>
                                     <div>
+                                        <?= $this->session->flashdata('msg') ?>
                                         
                                     </div>
                                         <div class="form-group">

@@ -6,7 +6,7 @@
             </li>
             <li class="breadcrumb-item active">Tugas Akhir</li>
           </ol>
-
+          <?= $this->session->flashdata('msg') ?>
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: justify;" id="mydata">
                 <thead style="text-align: center;">
@@ -29,17 +29,17 @@
 
 
                       <?php if ($key->status == 'delivered'): ?>
-                      <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm button color"></i> Konfirmasi </button>
+                      <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-secondary"></i> <b>Konfirmasi</b> </button>
                       <?php elseif ($key->status == 'confirmed'): ?>
-                      <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-color">Terkonfirmasi </button>
+                      <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-success"><b>Terkonfirmasi</b> </button>
                       <?php endif; ?>
 
                     </td>
                     <td>
-                      <button class="btn btn-danger" onclick="delete_data('<?= $key->nim ?>')">Tolak</i></button>
+                      <a href="<?= base_url('index.php/cAdmin/hapus_tugasAkhir/'.$key->nim) ?>" class="btn btn-sm btn-danger">Tolak</a> 
                     </td>
                     <td>
-                      <a href="<?= base_url('index.php/cAdmin/detailTA/'.$key->nim) ?>" class="btn btn-info">Lihat</a> 
+                      <a href="<?= base_url('index.php/cAdmin/detilTA/'.$key->nim) ?>" class="btn btn-sm btn-info">Lihat</a> 
                     </td>
                   </tr>
                   <?php } ?>

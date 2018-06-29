@@ -3,10 +3,10 @@
       <div class="container-fluid container-custom"> 
         <ul class="nav justify-content-start">
           <li class="nav-item">
-            <i class="fa fa-envelope icon-custom"> achiaprilia.aa@gmail.com </i>
+            <i class="fa fa-envelope icon-custom"> bluecloning@gmail.com </i>
           </li>
           <li>
-            <i class="fa fa-phone icon-custom"> 089666878989 </i>
+            <i class="fa fa-phone icon-custom"> 021-89765423 </i>
           </li>
         </ul>
         <ul class="nav justify-content-end">

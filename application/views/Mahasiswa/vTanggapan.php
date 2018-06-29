@@ -7,6 +7,6 @@
         <li class="breadcrumb-item active">Tanggapan</li>
       </ol>
       <div class="container-tab-nav">
-      	<p>Tugas Akhir Kamu Sudah Dipublikasi</p>
+      	<?= $this->session->flashdata('msg') ?>
       </div>
     </div>

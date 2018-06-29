@@ -69,7 +69,8 @@ class CLogin extends MY_Controller
 				
 
 			} else {
-				echo "<script>alert('Username atau Password salah');history.go(-1);</script>";
+				$this->flashmsg('Username atau Password Salah !','danger');
+				redirect(base_url("index.php/CLogin"));
 
 			}
 	}

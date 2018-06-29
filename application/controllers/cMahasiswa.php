@@ -58,12 +58,12 @@ class CMahasiswa extends MY_Controller
 
             if($query)
                 {
-                     $this->flashmsg('Data berhasil di tambahkan !','danger');
+                     $this->flashmsg('Data berhasil di tambahkan !','success');
 
                     redirect('index.php/cMahasiswa/dataDiri');
                 }else
                 {
-                    echo "GAGAL";
+                    $this->flashmsg('Data gagal di tambahkan !','danger');
                 }
         }
         else
@@ -140,7 +140,7 @@ class CMahasiswa extends MY_Controller
                     redirect('index.php/cMahasiswa/unggah');
                 }else
                 {
-                    echo "GAGAL";
+                    $this->session->set_flashdata('msg','<div class="alert alert-success" style="text-align:center;">Data Gagal Ditambahkan</div>');
                 }
         }
         else
@@ -181,8 +181,15 @@ class CMahasiswa extends MY_Controller
     }
 
     public function tanggapan() {
+        $nim = $this->data['username'] ;
         $this->data['title']        = 'Tanggapan';
         $this->data['content']      = 'Mahasiswa/vTanggapan';
+        // $this->data['dokumen']  = $this->mTugasAkhir->get_data($nim);
+
+        // if($dok->status == 'confirmed') {
+        //     $this->flashmsg('Tugas Akhir Kamu Sudah Dipublikasi', 'success');
+        // }
+
         $this->template($this->data, 'vMahasiswa');
 
     }
