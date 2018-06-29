@@ -8,6 +8,11 @@ class MDosen extends MY_Model
 		$this->data['table_name'] 	= 'dosen';
 		$this->data['primary_key']	= 'nip';
 	}
+	
+	public function getAll(){
+		$query = $this->db->get($this->data['table_name']);
+		return $query->result();
+	}
 
 	public function getData(){
 		$query = $this->db->query('Select username, password From user Inner Join mahasiswa on dosen.nip = user.username; ');
