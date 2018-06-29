@@ -90,11 +90,6 @@
                                 </div>
                                 <div class="form-bottom">
                                 <?= form_open_multipart('index.php/cLogin/aksi_login') ?>
-                                    <div>
-                                        <?= $this->session->flashdata('msg') ?>
-                                        <?= $this->session->userdata('msg') ?>
-                                        
-                                    </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="form-nim">NIM</label>
                                             <input type="text" name="username" placeholder="NIM..." class="form-nim form-control" required>

@@ -94,8 +94,13 @@ class CLogin extends MY_Controller
 			'password' => md5($password),
 			'role' => 'Mahasiswa'
 		);
+		$data2 = array(
+			'nim' => $username
+		);
 		
 		$query = $this->mUser->tambah_data_user($data,'user');
+		$query = $this->mMahasiswa->tambah_data_user($data2,'mahasiswa');
+		
 
 		if($query)
             {

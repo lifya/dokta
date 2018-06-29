@@ -63,13 +63,13 @@ class CMahasiswa extends MY_Controller
                     'numeric'   => 'Angkatan harus angka'
                 ));
 
-            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email', array(
+            $this->form_validation->set_rules('email', 'Email', 'trim|required', array(
                     'trim'      => 'Email tidak boleh kosong',
                     'required'  => 'Email tidak boleh kosong',
                     'valid_email' => 'Email tidak valid'
                 ));
 
-            $this->form_validation->set_rules('nohp', 'Email', 'trim|required|valid_email', array(
+            $this->form_validation->set_rules('nohp', 'Email', 'trim|required|numeric', array(
                     'trim'      => 'NoHp tidak boleh kosong',
                     'required'  => 'NoHp tidak boleh kosong',
                     'numeric'   => 'NoHp harus angka'
@@ -78,7 +78,7 @@ class CMahasiswa extends MY_Controller
             if ($this->form_validation->run() == FALSE) {
 
                 $this->flashmsg(validation_errors(),'danger');
-                redirect('index.php/Mahasiswa/dataDiri');
+                redirect('index.php/cMahasiswa/dataDiri');
                 exit;
             }
 
@@ -87,7 +87,7 @@ class CMahasiswa extends MY_Controller
             $jurusan    = $this->POST('jurusan');
             $angkatan   = $this->POST('angkatan');
             $email      = $this->POST('email');
-            $nohp   = $this->POST('nohp');
+            $nohp       = $this->POST('nohp');
             
 
             $dataInd = array(

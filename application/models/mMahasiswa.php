@@ -20,7 +20,7 @@ class MMahasiswa extends MY_Model
 	}
 	public function tambah_data_user($object)
 	{
-		return $this->db->insert('user',$object);
+		return $this->db->insert('mahasiswa',$object);
 	}
 	public function tambah_data_pdf($object)
 	{
