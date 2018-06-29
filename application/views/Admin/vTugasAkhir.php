@@ -27,9 +27,9 @@
                     <td width="500px"><?= $key->judul ?></td>
                     <td id="btn-<?= $key->nim?>">
                       <?php if ($key->status == 'delivered'): ?>
-                      <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-secondary"></i> <b>Konfirmasi</b> </button>
+                      <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-secondary"></i> Konfirmasi</button>
                       <?php elseif ($key->status == 'confirmed'): ?>
-                      <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-success"><b>Terkonfirmasi</b> </button>
+                      <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-success">Terkonfirmasi</button>
                       <?php endif; ?>
                     </td>
                     <td>
