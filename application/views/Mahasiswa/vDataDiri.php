@@ -64,7 +64,7 @@
                         <td>NoHP</td>
                         <td width="600px" height="50px">
                           <div class="form-group">
-                            <input type="text" name="nohp" placeholder="NoHP..." class="form-control" value="<?= $individu->nohp ?>" required>
+                            <input type="text" name="nohp" placeholder="NoHP..." class="form-control" value="<?= $individu->noHp ?>" required>
                           </div>
                         </td>
                       </tr>

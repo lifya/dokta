@@ -40,9 +40,9 @@ class CMahasiswa extends MY_Controller
 
         $this->data['title'] = "Mengisi Informasi Data Diri" ;
         $this->data['content'] = 'Mahasiswa/vDataDiri' ;
-        $this->template($this->data, 'vMahasiswa');
         $this->data['ta'] = $this->mTugasAkhir->getDatabyNim($this->data['username']);
         $this->data['individu'] = $this->mMahasiswa->getDatabyNim($this->data['username']);
+        $this->template($this->data, 'vMahasiswa');
 
         if ($this->POST('simpan')) 
         {
