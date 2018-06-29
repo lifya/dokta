@@ -26,17 +26,18 @@
                     <td><?= $key->nama ?></td>
                     <td width="500px"><?= $key->judul ?></td>
                     <td id="btn-<?= $key->nim?>">
-
-
                       <?php if ($key->status == 'delivered'): ?>
                       <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-secondary"></i> <b>Konfirmasi</b> </button>
                       <?php elseif ($key->status == 'confirmed'): ?>
                       <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-success"><b>Terkonfirmasi</b> </button>
                       <?php endif; ?>
-
                     </td>
                     <td>
-                      <a href="<?= base_url('index.php/cAdmin/hapus_tugasAkhir/'.$key->nim) ?>" class="btn btn-sm btn-danger">Tolak</a> 
+                      <?php if($key->status == 'confirmed'): ?>
+                        <button class="btn btn-sm btn-danger" disabled>Tolak</button>
+                      <?php else : ?>
+                        <a href="<?= base_url('index.php/cAdmin/hapus_tugasAkhir/'.$key->nim) ?>" class="btn btn-sm btn-danger">Tolak</a>
+                      <?php endif; ?>
                     </td>
                     <td>
                       <a href="<?= base_url('index.php/cAdmin/detilTA/'.$key->nim) ?>" class="btn btn-sm btn-info">Lihat</a> 

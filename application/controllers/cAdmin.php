@@ -28,6 +28,10 @@ class CAdmin extends MY_Controller
 
 		$this->data['title']        = 'Dashbord';
         $this->data['content']      = 'Admin/vAdmin';
+        $this->data['dataTADelivered']  = $this->mTugasAkhir->getDataByStatus('delivered');
+        $this->data['dataTAConfirm']    = $this->mTugasAkhir->getDataByStatus('confirmed');
+        $this->data['dataTandaTerima']  = $this->mTandaTerimaTA->getAll();
+        $this->data['dataDosen']    = $this->mDosen->DataDosen_list();
         $this->template($this->data, 'vAdmin');
     
 	}
@@ -134,7 +138,7 @@ class CAdmin extends MY_Controller
 
         $this->data['title']        = 'Tugas Akhir';
         $this->data['content']      = 'Admin/vTugasAkhir';
-        $this->data['dataTA'] = $this->mTugasAkhir->get_delivered_ta();
+        $this->data['dataTA']       = $this->mTugasAkhir->get_ta();
         $this->template($this->data, 'vAdmin');
     }
 
