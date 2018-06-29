@@ -35,43 +35,81 @@ class CMahasiswa extends MY_Controller
     }
 
 
+
     public function dataDiri() {
 
-        if ($this->input->post('simpan')) {
+        $this->data['title'] = "Mengisi Informasi Data Diri" ;
+        $this->data['content'] = 'Mahasiswa/vDataDiri' ;
+        $this->template($this->data, 'vMahasiswa');
+        $this->data['ta'] = $this->mTugasAkhir->getDatabyNim($this->data['username']);
+        $this->data['individu'] = $this->mMahasiswa->getDatabyNim($this->data['username']);
 
-            $nim = $this->input->post('nim');
-            $nama = $this->input->post('nama'); 
-            $jurusan = $this->input->post('jurusan');    
-            $angkatan = $this->input->post('angkatan'); 
-            $email = $this->input->post('email'); 
-            $nohp = $this->input->post('nohp'); 
-
-            $object = array('nama' => $nama, 
-                        'nim' => $nim,
-                        'jurusan' => $jurusan,
-                        'angkatan' => $angkatan,
-                        'email' => $email,
-                        'nohp' => $nohp,
-                        );
-
-            $query = $this->mMahasiswa->tambah_data($object);
-
-            if($query)
-                {
-                     $this->flashmsg('Data berhasil di tambahkan !','success');
-
-                    redirect('index.php/cMahasiswa/dataDiri');
-                }else
-                {
-                    $this->flashmsg('Data gagal di tambahkan !','danger');
-                }
-        }
-        else
+        if ($this->POST('simpan')) 
         {
-            $this->data['title']        = 'Data Diri';
-            $this->data['content']      = 'Mahasiswa/vDataDiri';
+           $this->form_validation->set_rules('nama', 'Nama', 'trim|required|alpha_spaces', array(
+                    'trim'      => 'Nama tidak boleh kosong',
+                    'required'  => 'Nama tidak boleh kosong',
+                    'alpha_spaces'     => 'Nama hanya boleh karakter'
+                ));
+
+           $this->form_validation->set_rules('jurusan', 'Jurusan', 'trim|required', array(
+                    'trim'      => 'Jurusan tidak boleh kosong',
+                    'required'  => 'Jurusan tidak boleh kosong'
+                ));
+
+            $this->form_validation->set_rules('angkatan', 'Angkatan', 'trim|required|numeric', array(
+                    'trim'      => 'Angkatan tidak boleh kosong',
+                    'required'  => 'Angkatan tidak boleh kosong',
+                    'numeric'   => 'Angkatan harus angka'
+                ));
+
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email', array(
+                    'trim'      => 'Email tidak boleh kosong',
+                    'required'  => 'Email tidak boleh kosong',
+                    'valid_email' => 'Email tidak valid'
+                ));
+
+            $this->form_validation->set_rules('nohp', 'Email', 'trim|required|valid_email', array(
+                    'trim'      => 'NoHp tidak boleh kosong',
+                    'required'  => 'NoHp tidak boleh kosong',
+                    'numeric'   => 'NoHp harus angka'
+                ));
+
+            if ($this->form_validation->run() == FALSE) {
+
+                $this->flashmsg(validation_errors(),'danger');
+                redirect('index.php/Mahasiswa/dataDiri');
+                exit;
+            }
+
+            $nim        = $this->data['username'];
+            $nama       = $this->POST('nama');
+            $jurusan    = $this->POST('jurusan');
+            $angkatan   = $this->POST('angkatan');
+            $email      = $this->POST('email');
+            $nohp   = $this->POST('nohp');
+            
+
+            $dataInd = array(
+                            'nama'  => $nama,
+                            'jurusan' => $jurusan,
+                            'angkatan' => $angkatan,
+                            'email' => $email,  
+                            'nohp'    => $nohp
+                        );
+            $cekNIM_TA = $this->mTugasAkhir->getDatabyNim($nim);
+            $cekNIM_Individu = $this->mMahasiswa->getDatabyNim($nim);
+
+            if (count($cekNIM_Individu) > 0 && count($cekNIM_TA) > 0) {
+                    $this->mMahasiswa->update($nim, $dataInd);
+                    $this->mTugasAkhir->update($nim, $dataTA);
+                    $this->flashmsg('Data Diri berhasil disimpan!');
+                    redirect('index.php/cMahasiswa/dataDiri');
+                    exit;
+            }
             $this->template($this->data, 'vMahasiswa');
         }
+
     }
 
     public function detilTA() {
