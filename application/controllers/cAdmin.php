@@ -5,10 +5,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class CAdmin extends MY_Controller
 {
-	
-	public function __construct()
-	{
-		parent::__construct();
+    
+    public function __construct()
+    {
+        parent::__construct();
         $this->data['username']     = $this->session->userdata('username');
         $this->data['role']         = $this->session->userdata('role');
         
@@ -19,14 +19,14 @@ class CAdmin extends MY_Controller
             exit;
         }
         
-		$this->load->model('mTandaTerimaTA');
+        $this->load->model('mTandaTerimaTA');
         $this->load->model('mTugasAkhir');
         $this->load->model('mDosen');
-	}
+    }
 
-	public function index() {
+    public function index() {
 
-		$this->data['title']        = 'Dashbord';
+        $this->data['title']        = 'Dashbord';
         $this->data['content']      = 'Admin/vAdmin';
         $this->data['dataTADelivered']  = $this->mTugasAkhir->getDataByStatus('delivered');
         $this->data['dataTAConfirm']    = $this->mTugasAkhir->getDataByStatus('confirmed');
@@ -34,10 +34,10 @@ class CAdmin extends MY_Controller
         $this->data['dataDosen']    = $this->mDosen->DataDosen_list();
         $this->template($this->data, 'vAdmin');
     
-	}
+    }
 
-	public function tandaTerimaTA() {
-		if($this->POST('username') && $this->POST('get')){
+    public function tandaTerimaTA() {
+        if($this->POST('username') && $this->POST('get')){
             $nim = $this->POST('username');
             $this->data['tandaTerimaTA'] = $this->mTandaTerimaTA->getDatabyNim($nim);
             $dataTerimaTA = array(
@@ -53,7 +53,7 @@ class CAdmin extends MY_Controller
         $this->data['content']      = 'Admin/vTandaTerimaTA';
         $this->data['dataTA']       = $this->mTandaTerimaTA->getAll();
         $this->template($this->data, 'vAdmin');
-	}
+    }
 
     //Tanda Terima TA
     function data_TandaTerimaTA(){
@@ -126,11 +126,11 @@ class CAdmin extends MY_Controller
 
                 if ($dokumen->status == 'delivered'){
                     $this->mTugasAkhir->update($nim, ['status' => 'confirmed']);
-                    echo "<button class='btn btn-sm btn-success' onclick=\"changeStatus('".$nim."')\"><b>Terkonfirmasi</b></button>";
+                    echo "<button class='btn btn-sm btn-success' onclick=\"changeStatus('".$nim."')\">Terkonfirmasi</button>";
                 }
                 else {
                     $this->mTugasAkhir->update($nim, ['status' => 'delivered']);
-                    echo "<button class='btn btn-sm btn-secondary' onclick=\"changeStatus('".$nim."')\"><b>Konfirmasi</b></button>";   
+                    echo "<button class='btn btn-sm btn-secondary' onclick=\"changeStatus('".$nim."')\">Konfirmasi</button>";   
                 }
             }
             exit;

@@ -10,14 +10,22 @@
         foreach ($pratinjau as $key ) {
       ?>
       <div class="pull-right" id="btn-<?= $key->nim?>">
+          <div>
+             <?php if ($key->status == 'delivered'): ?>
+              <button class="btn btn-sm btn-success" disabled>Edit</button>
+              <?php else :?>
+              <button class="btn btn-sm btn-success">Edit</button>
+              <?php endif ?> 
+              
+             <?php if ($key->status == 'none'): ?>
+              <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-secondary"></i>Kirim  </button>
+              <?php elseif ($key->status == 'delivered'): ?>
+              <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-success">Terkirim</button>
+              <?php elseif ($key->status == 'confirmed'): ?>
+              <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-success" disabled>Sudah Dikonfirmasi </button>
+              <?php endif; ?> 
+          </div>
           
-          <button class="btn btn-sm btn-success" style="background-color: #07294e;"> Edit </button>
-
-          <?php if ($key->status == 'none'): ?>
-          <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-success" style="background-color: #07294e"></i> Kirim </button>
-          <?php elseif ($key->status == 'delivered'): ?>
-          <button onclick="changeStatus('<?= $key->nim ?>')" class="btn btn-sm btn-success" style="background-color: #07294e">Terkirim </button>
-          <?php endif; ?>
       </div>
       <br><br>
       <div class="container-tab-nav">

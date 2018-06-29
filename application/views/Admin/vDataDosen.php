@@ -35,8 +35,8 @@
               <td><?= $d->email; ?></td>
               <td><?= $d->alamat; ?></td>
               <td>
-                <button class="btn btn-success" data-toggle="modal" data-target="#ModalaEdit" onclick="get_data('<?= $d->nip ?>')">Edit</button>
-                <a href="<?= base_url('index.php/cAdmin/hapus_DataDosen/'."$d->nip") ?>" class="btn btn-danger">Hapus</a>
+                <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#ModalaEdit" onclick="get_data('<?= $d->nip ?>')">Edit</button>
+                <a href="<?= base_url('index.php/cAdmin/hapus_DataDosen/'."$d->nip") ?>" class="btn btn-sm btn-danger">Hapus</a>
               </td>
             </tr>
             <?php } ?>
@@ -105,8 +105,8 @@
 
                 <div class="pull-right">
                 <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                    <input type="submit" class="btn btn-info" name="save" value="Simpan">
+                    <button class="btn btn-sm" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                    <input type="submit" class="btn btn-sm btn-info" name="save" value="Simpan">
                 </div>
                 </div>
                 <?= form_close() ?>
@@ -179,8 +179,8 @@
 
                 <div class="pull-right">
                 <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                    <input class="btn btn-success" type="submit" name="save" value="Simpan">
+                    <button class="btn btn-sm" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                    <input class="btn btn-sm btn-success" type="submit" name="save" value="Simpan">
                 </div>
                 </div>
             <?= form_close() ?>
@@ -205,8 +205,8 @@
                                         
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                        <button class="btn_hapus btn btn-danger" id="btn_hapus">Hapus</button>
+                        <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Tutup</button>
+                        <button class="btn_hapus btn btn-sm btn-danger" id="btn_hapus">Hapus</button>
                     </div>
                     </form>
                 </div>

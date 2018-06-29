@@ -162,11 +162,11 @@ class CMahasiswa extends MY_Controller
 
                 if ($dokumen->status == 'none'){
                     $this->mTugasAkhir->update($nim, ['status' => 'delivered']);
-                    echo "<button class='btn btn-sm btn-success btn-color' onclick=\"changeStatus('".$nim."')\"><b>Terkirim</b></button>";
+                    echo "<button class='btn btn-sm btn-success' onclick=\"changeStatus('".$nim."')\">Terkirim</button>";
                 }
                 else {
                     $this->mTugasAkhir->update($nim, ['status' => 'none']);
-                    echo "<button class='btn btn-sm btn-success button-color' onclick=\"changeStatus('".$nim."')\"><b>Kirim</b></button>";   
+                    echo "<button class='btn btn-sm btn-secondary' onclick=\"changeStatus('".$nim."')\">Kirim</button>";   
                 }
             }
             exit;

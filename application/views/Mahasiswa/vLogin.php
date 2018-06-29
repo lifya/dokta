@@ -74,7 +74,7 @@
                             
                         </div>
                         
-                        <div class="col-sm-1 middle-border"></div>
+                        <!-- <div class="col-sm-1 middle-border"></div> -->
                         <div class="col-sm-1"></div>
                             
                           <div class="col-sm-5">
@@ -92,6 +92,7 @@
                                 <?= form_open_multipart('index.php/cLogin/aksi_login') ?>
                                     <div>
                                         <?= $this->session->flashdata('msg') ?>
+                                        <?= $this->session->userdata('msg') ?>
                                         
                                     </div>
                                         <div class="form-group">

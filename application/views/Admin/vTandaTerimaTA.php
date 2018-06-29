@@ -33,8 +33,8 @@
               <td><?= $key->nama ?></td>
               <td><?= $key->tanggal ?></td>
               <td>
-                <button class="btn btn-success" data-toggle="modal" data-target="#ModalaEdit" onclick="get_data('<?php echo $key->nim ?>')">Edit</button>
-                <a href="<?= base_url('index.php/cAdmin/hapus_TandaTerimaTA/'."$key->nim") ?>" class="btn btn-danger">Hapus</a>
+                <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#ModalaEdit" onclick="get_data('<?php echo $key->nim ?>')">Edit</button>
+                <a href="<?= base_url('index.php/cAdmin/hapus_TandaTerimaTA/'."$key->nim") ?>" class="btn btn-sm btn-danger">Hapus</a>
               </td>
               </tr>
               <?php } ?>
