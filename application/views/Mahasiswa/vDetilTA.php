@@ -34,7 +34,7 @@
                                                   <?php  
                                                   $opt = [];
                                                   foreach ( $datasubjek as $row ) $opt[$row->idSubjek] = $row->namaSubjek;
-                                                  echo form_dropdown( 'subjek', $opt, $datasubjek->subjek, [ 'id' => 'datasubjek1', 'class' => 'form-control' ] );
+                                                  echo form_dropdown( 'subjek', $opt, $ta->idSubjek, [ 'id' => 'datasubjek1', 'class' => 'form-control' ] );
                                                   ?>
                                                   </div>
                                                   </td>
@@ -60,7 +60,7 @@
                                                   <?php  
                                                   $opt = [];
                                                   foreach ( $dosen as $row ) $opt[$row->nip] = $row->nama;
-                                                  echo form_dropdown( 'dosenPembimbing2', $opt, $ta->dosenPembimbing2, [ 'id' => 'dosenPembimbing2', 'class' => 'form-control' ] );
+                                                  echo form_dropdown( 'dosenPembimbing2', $opt, $ta->dosenPembimbing2, [ 'id' => 'dosen2', 'class' => 'form-control' ] );
                                                   ?>
                                                 </div></td>
                                               </tr>

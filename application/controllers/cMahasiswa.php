@@ -144,13 +144,13 @@ class CMahasiswa extends MY_Controller
             ));
 
            $this->form_validation->set_rules('dosenPembimbing1', 'Dosen Pembimbing1', 'trim|required', array(
-            'trim'      => 'Dosen_pembimbing1 tidak boleh kosong',
-            'required'  => 'Dosen_pembimbing1 tidak boleh kosong',
+            'trim'      => 'Dosen Pembimbing1 tidak boleh kosong',
+            'required'  => 'Dosen Pembimbing1 tidak boleh kosong',
             ));
 
             $this->form_validation->set_rules('dosenPembimbing2', 'Dosen Pembimbing2', 'trim|required', array(
-            'trim'      => 'Dosen_pembimbing2 tidak boleh kosong',
-            'required'  => 'Dosen_pembimbing2 tidak boleh kosong',
+            'trim'      => 'Dosen Pembimbing2 tidak boleh kosong',
+            'required'  => 'Dosen Pembimbing2 tidak boleh kosong',
             ));
 
             $this->form_validation->set_rules('abstrak', 'Abstrak', 'trim|required', array(
@@ -166,27 +166,26 @@ class CMahasiswa extends MY_Controller
             }
 
             $judul              = $this->POST('judul');
-            $subjek             = $this->POST('subjek');
+            $subjek             = $this->POST('idSubjek');
             $tahun              = $this->POST('tahun');
             $dosenPembimbing1   = $this->POST('dosenPembimbing1');
             $dosenPembimbing2   = $this->POST('dosenPembimbing2');
             $abstrak            = $this->POST('abstrak');
-            $status             = $this->POST('status');
+            $status             = 'none';
 
             $dataTA     = array(
-                            'judul'             => $judul,
-                            'subjek'            => $subjek,
-                            'tahun'             => $tahun,
-                            'dosenPembimbing1'  => $dosenPembimbing1,
-                            'dosenPembimbing2'  => $dosenPembimbing2,
-                            'abstrak'           => $abstrak,
-                            'status'            => $status
+                            'judul'               => $judul,
+                            'idSubjek'            => $subjek,
+                            'tahun'               => $tahun,
+                            'dosenPembimbing1'    => $dosenPembimbing1,
+                            'dosenPembimbing2'    => $dosenPembimbing2,
+                            'abstrak'             => $abstrak
             );
 
-            $cekNIM_TA  = $this->mTugasAkhir->getDatabyNim($nim);
+            $cekNIM_TA  = $this->mTugasAkhir->getDatabyNim($this->data['username']);
 
             if (count($cekNIM_TA) > 0 ) {
-                    $this->mTugasAkhir->update($nim, $dataTA);
+                    $this->mTugasAkhir->update($this->data['username'], $dataTA);
                     $this->flashmsg('Data Diri berhasil disimpan!');
                     redirect('index.php/cMahasiswa/detilTA');
                     exit;
@@ -199,11 +198,37 @@ class CMahasiswa extends MY_Controller
     public function unggah() 
     {
 
-        $this->data['title'] = 'Unggah File TA';
-        $this->data['content'] = 'Mahasiswa/vUnggah' ;
-        $this->data['ta'] = $this->mTugasAkhir->getDatabyNim($this->data['username']);
+        $this->data['title']        = 'Unggah File TA';
+        $this->data['content']      = 'Mahasiswa/vUnggah' ;
+        $this->data['ta']           = $this->mTugasAkhir->getDatabyNim($this->data['username']);
         $this->template($this->data, 'vMahasiswa');
 
+        if ($this->POST('simpan')) 
+        {
+
+                $file_name = $_FILES['upload']['name'];
+                $exe = substr($file_name, -4);
+                $exe2 = substr($file_name, 0);
+
+                    if($exe != '.pdf'){
+                        $this->flashmsg($file_name, 'danger');
+                        redirect('index.php/cMahasiswa/unggah');
+                        exit;
+                    }
+
+                $file       = $this->POST('upload');
+                $cekNIM_TA  = $this->mTugasAkhir->getDatabyNim($this->data['username']);
+
+            if (count($cekNIM_TA) > 0 ) {
+                    if($exe == '.pdf')
+                    $this->uploadPDF($this->data['username'], 'upload');
+
+                    $this->flashmsg('Dokumen tugas akhir berhasil disimpan!', 'success');
+                    redirect('index.php/cMahasiswa/unggah');
+                    exit;
+            }
+            $this->template($this->data, 'vMahasiswa');
+        }
 
     }
     
