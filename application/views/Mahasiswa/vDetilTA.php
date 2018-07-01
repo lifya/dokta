@@ -2,7 +2,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="<?=base_url('index.php/cMahasiswa')?>">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Mengisi Detil Tugas Akhir</li>
       </ol>
@@ -34,7 +34,7 @@
                                                   <?php  
                                                   $opt = [];
                                                   foreach ( $datasubjek as $row ) $opt[$row->idSubjek] = $row->namaSubjek;
-                                                  echo form_dropdown( 'subjek', $opt, $ta->idSubjek, [ 'id' => 'datasubjek1', 'class' => 'form-control' ] );
+                                                  echo form_dropdown( 'idSubjek', $opt, $ta->idSubjek, [ 'id' => 'datasubjek1', 'class' => 'form-control' ] );
                                                   ?>
                                                   </div>
                                                   </td>

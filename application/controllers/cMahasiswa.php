@@ -132,7 +132,7 @@ class CMahasiswa extends MY_Controller
             'alpha_spaces'     => 'Judul hanya boleh karakter'
             ));
 
-           $this->form_validation->set_rules('subjek', 'Subjek', 'trim|required', array(
+           $this->form_validation->set_rules('idSubjek', 'Subjek', 'trim|required', array(
             'trim'             => 'Subjek tidak boleh kosong',
             'required'         => 'Subjek tidak boleh kosong'
             ));
@@ -171,7 +171,6 @@ class CMahasiswa extends MY_Controller
             $dosenPembimbing1   = $this->POST('dosenPembimbing1');
             $dosenPembimbing2   = $this->POST('dosenPembimbing2');
             $abstrak            = $this->POST('abstrak');
-            $status             = 'none';
 
             $dataTA     = array(
                             'judul'               => $judul,
@@ -179,7 +178,8 @@ class CMahasiswa extends MY_Controller
                             'tahun'               => $tahun,
                             'dosenPembimbing1'    => $dosenPembimbing1,
                             'dosenPembimbing2'    => $dosenPembimbing2,
-                            'abstrak'             => $abstrak
+                            'abstrak'             => $abstrak,
+                            'status'                => 'none'
             );
 
             $cekNIM_TA  = $this->mTugasAkhir->getDatabyNim($this->data['username']);
@@ -207,22 +207,19 @@ class CMahasiswa extends MY_Controller
         {
 
                 $file_name = $_FILES['upload']['name'];
-                $exe = substr($file_name, -4);
-                $exe2 = substr($file_name, 0);
 
-                    if($exe != '.pdf'){
+                if($file_name != ".pdf"){
                         $this->flashmsg($file_name, 'danger');
                         redirect('index.php/cMahasiswa/unggah');
                         exit;
                     }
-
                 $file       = $this->POST('upload');
+
                 $cekNIM_TA  = $this->mTugasAkhir->getDatabyNim($this->data['username']);
 
             if (count($cekNIM_TA) > 0 ) {
-                    if($exe == '.pdf')
+                    if($file_name == '.pdf')
                     $this->uploadPDF($this->data['username'], 'upload');
-
                     $this->flashmsg('Dokumen tugas akhir berhasil disimpan!', 'success');
                     redirect('index.php/cMahasiswa/unggah');
                     exit;
@@ -261,14 +258,18 @@ class CMahasiswa extends MY_Controller
     }
 
     public function tanggapan() {
-        $nim = $this->data['username'] ;
+        $nim = $this->data['username'];
         $this->data['title']        = 'Tanggapan';
         $this->data['content']      = 'Mahasiswa/vTanggapan';
-        // $this->data['dokumen']  = $this->mTugasAkhir->get_data($nim);
 
-        // if($dok->status == 'confirmed') {
-        //     $this->flashmsg('Tugas Akhir Kamu Sudah Dipublikasi', 'success');
-        // }
+        $dokumen = $this->mTugasAkhir->get_row(['nim' => $this->data['username']]);
+
+        if ($dokumen->status == 'confirmed'){
+                   $this->flashmsg('Tugas Akhir anda sudah dipublikasi', 'success');
+         }
+        elseif ($dokumen->status == 'rejected') {
+            $this->flashmsg('Tugas akhir anda ditolak, tolong diperiksa kembali', 'danger');
+        }
 
         $this->template($this->data, 'vMahasiswa');
 

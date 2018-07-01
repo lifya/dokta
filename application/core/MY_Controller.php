@@ -76,7 +76,7 @@ class MY_Controller extends CI_Controller
 	{
 		if ($_FILES[$tag_name])
 		{
-			$upload_path = realpath(APPPATH . '../assets/File_TugasAkhir/');
+			$upload_path = realpath(APPPATH . '../assets/dokumenTA/');
 			@unlink($upload_path . '/' . $id . '.pdf');
 			$config = [
 				'file_name'			=> $id . '.pdf',

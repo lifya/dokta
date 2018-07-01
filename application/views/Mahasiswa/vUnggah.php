@@ -2,7 +2,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="<?=base_url('index.php/cMahasiswa')?>">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Mengisi Detil Tugas Akhir</li>
       </ol>
@@ -22,16 +22,10 @@
 
                                 <?= form_open('index.php/cMahasiswa/Unggah') ?>
                                     <?php echo $this->session->flashdata('msg'); ?>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <input type="file" name="upload" required>
-                                            </td>
-                                            <td>
-                                                <input type="submit" name="simpan" class="btn btn-info" value="Simpan" style="background: #07294e ; border-color: #ffc600;">
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <div class="form-group">
+                                        <input type="file" name="upload" required>
+                                    </div>
+                                    <input type="submit" name="simpan" class="btn btn-info" value="Simpan" style="background: #07294e ; border-color: #ffc600;">
                                 
                                 <?= form_close() ?>
 

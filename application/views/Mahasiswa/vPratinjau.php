@@ -2,7 +2,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="<?=base_url('index.php/cMahasiswa')?>">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Pratinjau</li>
       </ol>
@@ -11,12 +11,6 @@
       ?>
       <div class="pull-right" id="btn-<?= $key->nim?>">
           <div>
-             <?php if ($key->status == 'delivered'): ?>
-              <button class="btn btn-sm btn-success" disabled>Edit</button>
-              <?php else :?>
-              <button class="btn btn-sm btn-success">Edit</button>
-              <?php endif ?> 
-              
              <?php if ($key->status == 'none'): ?>
               <button onclick="changeStatus('<?= $key->nim ?>')" class=" btn btn-sm btn-secondary"></i>Kirim  </button>
               <?php elseif ($key->status == 'delivered'): ?>
