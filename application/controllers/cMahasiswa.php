@@ -23,6 +23,8 @@ class CMahasiswa extends MY_Controller
 
         $this->load->model('mMahasiswa');
         $this->load->model('mTugasAkhir');
+        $this->load->model('mDosen');
+        $this->load->model('mSubjek');
     }
     
 
@@ -40,7 +42,6 @@ class CMahasiswa extends MY_Controller
 
         $this->data['title'] = "Mengisi Informasi Data Diri" ;
         $this->data['content'] = 'Mahasiswa/vDataDiri' ;
-        $this->data['ta'] = $this->mTugasAkhir->getDatabyNim($this->data['username']);
         $this->data['individu'] = $this->mMahasiswa->getDatabyNim($this->data['username']);
         $this->template($this->data, 'vMahasiswa');
 
@@ -63,7 +64,7 @@ class CMahasiswa extends MY_Controller
                     'numeric'   => 'Angkatan harus angka'
                 ));
 
-            $this->form_validation->set_rules('email', 'Email', 'trim|required', array(
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email', array(
                     'trim'      => 'Email tidak boleh kosong',
                     'required'  => 'Email tidak boleh kosong',
                     'valid_email' => 'Email tidak valid'
@@ -97,12 +98,10 @@ class CMahasiswa extends MY_Controller
                             'email' => $email,  
                             'nohp'    => $nohp
                         );
-            $cekNIM_TA = $this->mTugasAkhir->getDatabyNim($nim);
             $cekNIM_Individu = $this->mMahasiswa->getDatabyNim($nim);
 
-            if (count($cekNIM_Individu) > 0 && count($cekNIM_TA) > 0) {
+            if (count($cekNIM_Individu) > 0 ) {
                     $this->mMahasiswa->update($nim, $dataInd);
-                    $this->mTugasAkhir->update($nim, $dataTA);
                     $this->flashmsg('Data Diri berhasil disimpan!');
                     redirect('index.php/cMahasiswa/dataDiri');
                     exit;
@@ -112,81 +111,99 @@ class CMahasiswa extends MY_Controller
 
     }
 
-    public function detilTA() {
+    public function detilTA() 
+    {
 
-         if ($this->input->post('simpan')) {
+        $this->data['title']        = 'Mengisi Informasi Data TA';
+        $this->data['content']      = 'Mahasiswa/vDetilTA' ;
+        $this->data['ta']           = $this->mTugasAkhir->getDatabyNim($this->data['username']);
+        $this->data['datasubjek']   = $this->mSubjek->getAll();
+        $this->data['datasubjek1']   = $this->mSubjek->getSubjek();
+        $this->data['dosen']        = $this->mDosen->getAll();
+        $this->data['dosen1']       = $this->mDosen->getDosen1();
+        $this->data['dosen2']       = $this->mDosen->getDosen2();
+        $this->template($this->data, 'vMahasiswa');
 
-            $subjek = $this->input->post('subjek'); 
-            $bidangilmu = $this->input->post('bidangilmu'); 
-            $judul = $this->input->post('judul');    
-            $tahun = $this->input->post('tahun'); 
-            $dosenpembimbing1 = $this->input->post('dosenpembimbing1'); 
-            $dosenpembimbing2 = $this->input->post('dosenpembimbing2');
-            $abstrak = $this->input->post('abstrak'); 
-            //$dokumenPDF = $this->input->post('dokumenPDF'); 
-            //$status = $this->input->post('status'); 
-
-            $object = array('Subjek' => $subjek,
-                        'bidangilmu' => $bidangilmu,
-                        'judul' => $judul,
-                        'tahun' => $tahun,
-                        'dosenpembimbing1' => $dosenpembimbing1,
-                        'dosenpembimbing2' => $dosenpembimbing2,
-                        'abstrak' => $abstrak,
-                        //'dokumenPDF' => $dokumenPDF,
-                        //'status' => $status,
-                        );
-
-            $query = $this->mMahasiswa->tambah_data_ta($object);
-
-            if($query)
-                {
-                    $this->session->set_flashdata('msg','<div class="alert alert-success" style="text-align:center;">Data Berhasil Ditambahkan</div>');
-
-                    redirect('index.php/cMahasiswa/detilTA');
-                }else
-                {
-                    $this->flashmsg('Data Gagal Ditambahkan !','danger');
-                }
-        }
-        else
+        if ($this->POST('simpan'))
         {
-            $this->data['title']        = 'Detil Tugas Akhir';
-            $this->data['content']      = 'Mahasiswa/vDetilTA';
+           $this->form_validation->set_rules('judul', 'Judul', 'trim|required|alpha_spaces', array(
+            'trim'             => 'Judul tidak boleh kosong',
+            'required'         => 'Judul tidak boleh kosong',
+            'alpha_spaces'     => 'Judul hanya boleh karakter'
+            ));
+
+           $this->form_validation->set_rules('subjek', 'Subjek', 'trim|required', array(
+            'trim'             => 'Subjek tidak boleh kosong',
+            'required'         => 'Subjek tidak boleh kosong'
+            ));
+
+           $this->form_validation->set_rules('tahun', 'Tahun', 'trim|required|numeric', array(
+            'trim'      => 'Tahun tidak boleh kosong',
+            'required'  => 'Tahun tidak boleh kosong',
+            'numeric'     => 'Tahun harus angka'
+            ));
+
+           $this->form_validation->set_rules('dosenPembimbing1', 'Dosen Pembimbing1', 'trim|required', array(
+            'trim'      => 'Dosen_pembimbing1 tidak boleh kosong',
+            'required'  => 'Dosen_pembimbing1 tidak boleh kosong',
+            ));
+
+            $this->form_validation->set_rules('dosenPembimbing2', 'Dosen Pembimbing2', 'trim|required', array(
+            'trim'      => 'Dosen_pembimbing2 tidak boleh kosong',
+            'required'  => 'Dosen_pembimbing2 tidak boleh kosong',
+            ));
+
+            $this->form_validation->set_rules('abstrak', 'Abstrak', 'trim|required', array(
+            'trim'      => 'Abstrak tidak boleh kosong',
+            'required'  => 'Abstrak tidak boleh kosong'
+                ));
+
+            if ($this->form_validation->run() == FALSE) 
+            {
+                $this->flashmsg(validation_errors(), 'danger');
+                redirect('index.php/cMahasiswa/detilTA');
+                exit;
+            }
+
+            $judul              = $this->POST('judul');
+            $subjek             = $this->POST('subjek');
+            $tahun              = $this->POST('tahun');
+            $dosenPembimbing1   = $this->POST('dosenPembimbing1');
+            $dosenPembimbing2   = $this->POST('dosenPembimbing2');
+            $abstrak            = $this->POST('abstrak');
+            $status             = $this->POST('status');
+
+            $dataTA     = array(
+                            'judul'             => $judul,
+                            'subjek'            => $subjek,
+                            'tahun'             => $tahun,
+                            'dosenPembimbing1'  => $dosenPembimbing1,
+                            'dosenPembimbing2'  => $dosenPembimbing2,
+                            'abstrak'           => $abstrak,
+                            'status'            => $status
+            );
+
+            $cekNIM_TA  = $this->mTugasAkhir->getDatabyNim($nim);
+
+            if (count($cekNIM_TA) > 0 ) {
+                    $this->mTugasAkhir->update($nim, $dataTA);
+                    $this->flashmsg('Data Diri berhasil disimpan!');
+                    redirect('index.php/cMahasiswa/detilTA');
+                    exit;
+            }
             $this->template($this->data, 'vMahasiswa');
         }
     }
 
 
     public function unggah() 
-        {
+    {
 
-        if ($this->input->post('simpan')) {
+        $this->data['title'] = 'Unggah File TA';
+        $this->data['content'] = 'Mahasiswa/vUnggah' ;
+        $this->data['ta'] = $this->mTugasAkhir->getDatabyNim($this->data['username']);
+        $this->template($this->data, 'vMahasiswa');
 
-            $dokumenPDF = $this->input->post('dokumenPDF');
-
-
-            $object = array('dokumenPDF' => $dokumenPDF, 
-                        );
-
-            $query = $this->mMahasiswa->tambah_data_pdf($object);
-
-            if($query)
-                {
-                    $this->session->set_flashdata('msg','<div class="alert alert-success" style="text-align:center;">Data Berhasil Ditambahkan</div>');
-
-                    redirect('index.php/cMahasiswa/unggah');
-                }else
-                {
-                    $this->session->set_flashdata('msg','<div class="alert alert-success" style="text-align:center;">Data Gagal Ditambahkan</div>');
-                }
-        }
-        else
-        {
-            $this->data['title']        = 'Pratinjau';
-            $this->data['content']      = 'Mahasiswa/vUnggah';
-            $this->template($this->data, 'vMahasiswa');
-        }
 
     }
     

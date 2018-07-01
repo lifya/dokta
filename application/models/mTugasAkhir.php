@@ -16,6 +16,11 @@ class MTugasAkhir extends MY_Model
 		return $query->result();
 	}
 
+	public function tambah_data_user($object)
+	{
+		return $this->db->insert('tugas_akhir',$object);
+	}
+
 	public function getDatabyNim($nim)
 	{
 		$this->db->where($this->data['primary_key'], $nim);

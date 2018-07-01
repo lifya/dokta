@@ -14,6 +14,32 @@ class MDosen extends MY_Model
 		return $query->result();
 	}
 
+	public function getDosen1(){
+		$query = $this->db->query('select distinct dosen.nama, dosen.nip from dosen inner join tugas_akhir on dosen.nip = tugas_akhir.dosenPembimbing1 where dosen.nip != tugas_akhir.dosenPembimbing2;');
+		return $query->result();
+	}
+
+	public function getDosen2(){
+		$query = $this->db->query('select distinct dosen.nama, dosen.nip from dosen inner join tugas_akhir on dosen.nip = tugas_akhir.dosenPembimbing2 where dosen.nip != tugas_akhir.dosenPembimbing1;');
+		return $query->result();
+	}
+
+	public function getNamaDosen1($nip){
+		$query = $this->db->query('SELECT dosen.nama FROM dosen INNER JOIN
+					tugas_akhir ON dosen.nip = tugas_akhir.dosenPembimbing1
+   					WHERE dosen.nip = "'.$nip.'"
+   				');
+   		return $query->row();
+	}
+
+	public function getNamaDosen2($nip){
+		$query = $this->db->query('SELECT dosen.nama FROM dosen INNER JOIN
+					tugas_akhir ON dosen.nip = tugas_akhir.dosenPembimbing2
+   					WHERE dosen.nip = "'.$nip.'"
+   				');
+   		return $query->row();
+	}
+
 	public function getData(){
 		$query = $this->db->query('Select username, password From user Inner Join mahasiswa on dosen.nip = user.username; ');
 		return $query->result();
@@ -42,21 +68,6 @@ class MDosen extends MY_Model
    		return $query;
    	}
 
-   	public function getNamaDosen1($nip){
-		$query = $this->db->query('SELECT dosen.nama FROM dosen INNER JOIN
-					tugas_akhir ON dosen.nip = tugas_akhir.dosenPembimbing1
-   					WHERE dosen.nip = "'.$nip.'"
-   				');
-   		return $query->row();
-	}
-
-	public function getNamaDosen2($nip){
-		$query = $this->db->query('SELECT dosen.nama FROM dosen INNER JOIN
-					tugas_akhir ON dosen.nip = tugas_akhir.dosenPembimbing2
-   					WHERE dosen.nip = "'.$nip.'"
-   				');
-   		return $query->row();
-	}
 
 	//Data Dosen
 

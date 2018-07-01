@@ -26,6 +26,7 @@ class CLogin extends MY_Controller
 	     // load form_validation library
         //$this->load->library('form_validation');
         $this->load->model('mMahasiswa');
+        $this->load->model('mTugasAkhir');
         $this->load->model('mAdmin');
         $this->load->model('mUser');
 	}
@@ -97,10 +98,13 @@ class CLogin extends MY_Controller
 		$data2 = array(
 			'nim' => $username
 		);
+		$data3 = array(
+			'nim' => $username
+		);
 		
 		$query = $this->mUser->tambah_data_user($data,'user');
 		$query = $this->mMahasiswa->tambah_data_user($data2,'mahasiswa');
-		
+		$query = $this->mTugasAkhir->tambah_data_user($data3,'tugas_akhir');			
 
 		if($query)
             {

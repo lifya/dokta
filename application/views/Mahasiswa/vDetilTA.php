@@ -25,48 +25,50 @@
                                               <tr>
                                                   <td width="600px" >Judul</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="judul" placeholder="Judul..." class="form-judul form-control" id="form-judul"></div>
-                                                  </td>
-                                              </tr>
-                                              <tr>
-                                                  <td>Bidang Ilmu</td>
-                                                  <td width="600px" height="50px"><div class="form-group">
-                                                  <select id="Bidang-ilmu" name="bidangilmu">
-                                                  <option value="basis_data">Basis Data</option>
-                                                  <option value="kecerdasan_buatan">Kecerdasan Buatan</option>
-                                                  <option value="jaringan">Jaringan</option>
-                                                  </select></div>
+                                                  <input type="text" name="judul" placeholder="Judul..." class="form-control" value="<?= $ta->judul ?>" required></div>
                                                   </td>
                                               </tr>
                                               <tr>
                                                   <td>Subjek</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <select id="subjek" name="subjek">
-                                                  <option value="nlp">Pemrosesan Bahasa Alami</option>
-                                                  <option value="citra" >Pengolahan Citra</option>
-                                                  <option value="game">Oemrograman Game</option>
-                                                  </select></div>
+                                                  <?php  
+                                                  $opt = [];
+                                                  foreach ( $datasubjek as $row ) $opt[$row->idSubjek] = $row->namaSubjek;
+                                                  echo form_dropdown( 'subjek', $opt, $datasubjek->subjek, [ 'id' => 'datasubjek1', 'class' => 'form-control' ] );
+                                                  ?>
+                                                  </div>
                                                   </td>
                                               </tr>
                                               <tr>
                                                   <td>Tahun</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="tahun" placeholder="Tahun..." class="form-tahun form-control" id="form-tahun"></div></td>
+                                                  <input type="text" name="tahun" placeholder="Tahun..." class="form-control"  value="<?= $ta->tahun ?>" required></div></td>
                                               </tr>
                                               <tr>
                                                   <td>Dosen Pembimbing 1</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="dosenpembimbing1" placeholder="nama Pembimbing1..." class="form-nama-pembimbing form-control" id="  form-nama-pembimbing"></div></td>
+                                                  <?php  
+                                                  $opt = [];
+                                                  foreach ( $dosen as $row ) $opt[$row->nip] = $row->nama;
+                                                  echo form_dropdown( 'dosenPembimbing1', $opt, $ta->dosenPembimbing1, [ 'id' => 'dosen1', 'class' => 'form-control' ] );
+                                                  ?>
+                                                </div></td>
                                               </tr>
                                               <tr>
                                                   <td>Dosen Pembimbing 2</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="dosenpembimbing2" placeholder="nama Pembimbing2..." class="form-nama-pembimbing form-control" id="  form-nama-pembimbing"></div></td>
+                                                  <?php  
+                                                  $opt = [];
+                                                  foreach ( $dosen as $row ) $opt[$row->nip] = $row->nama;
+                                                  echo form_dropdown( 'dosenPembimbing2', $opt, $ta->dosenPembimbing2, [ 'id' => 'dosenPembimbing2', 'class' => 'form-control' ] );
+                                                  ?>
+                                                </div></td>
                                               </tr>
                                               <tr>
                                                   <td>Abstrak</td>
                                                   <td width="600px" height="50px"><div class="form-group">
-                                                  <input type="text" name="abstrak" placeholder="Abstrak..." class="form-abstrak form-control" id="form-abstrak"></div></td>
+                                                  <textarea class="form-control" placeholder="Abstrak..." name="abstrak" required><?= $ta->abstrak ?></textarea>
+                                                </div></td>
                                               </tr>
                                           </table>
                                        

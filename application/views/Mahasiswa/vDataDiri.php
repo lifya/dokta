@@ -26,7 +26,7 @@
                         <td width="600px" height="50px"><div class="form-group">
                         <input type="text" name="nim" placeholder="NIM..." class="form-nim form-control" id="  form-nim" value="<?= $this->session->userdata('username') ?>" disabled></div></td>
                       </tr>
-                                                
+                                              
                       <tr>
                         <td width="300px" >Nama</td>
                         <td width="1000px" height="50px">
