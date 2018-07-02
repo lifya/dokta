@@ -61,7 +61,6 @@ class CLogin extends MY_Controller
 	 
 				$this->session->set_userdata($data_session);
 	 			if($dataMember[0]['role']=='Mahasiswa'){
-
 					redirect(base_url("index.php/CMahasiswa"));
 	 			} else if($dataMember[0]['role']=='Admin'){
 	 				

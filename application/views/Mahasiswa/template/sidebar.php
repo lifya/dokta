@@ -24,7 +24,7 @@
               <a href="<?=base_url('index.php/cMahasiswa/detilTA')?>">Mengisi Detil Tugas Akhir</a>
             </li>
             <li>
-              <a href="<?=base_url('index.php/cMahasiswa/unggah')?>">Mengunggah Dokumen PDF</a>
+              <a href="<?=base_url('index.php/cMahasiswa/unggahPDF')?>">Mengunggah Dokumen PDF</a>
             </li>
           </ul>
         </li>

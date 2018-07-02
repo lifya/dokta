@@ -194,39 +194,55 @@ class CMahasiswa extends MY_Controller
         }
     }
 
+    public function unggahPDF(){
+        if($this->POST('simpan')){
 
-    public function unggah() 
-    {
+            $file_name = $_FILES['upload']['name'];
+            $this->flashmsg($file_name);
+            redirect('index.php/cMahasiswa/unggahPDF');
+            exit;
+        }
 
         $this->data['title']        = 'Unggah File TA';
         $this->data['content']      = 'Mahasiswa/vUnggah' ;
         $this->data['ta']           = $this->mTugasAkhir->getDatabyNim($this->data['username']);
         $this->template($this->data, 'vMahasiswa');
+    }
+
+
+    public function unggah() 
+    {
+
 
         if ($this->POST('simpan')) 
         {
 
-                $file_name = $_FILES['upload']['name'];
+                $file_name = $_FILES['upload_file']['name'];
+                $exe = substr($file_name, -4);
 
-                if($file_name != ".pdf"){
-                        $this->flashmsg($file_name, 'danger');
+
+                if($exe != ".pdf"){
+                        $this->flashmsg('Pilih PDF !', 'danger');
                         redirect('index.php/cMahasiswa/unggah');
                         exit;
-                    }
-                $file       = $this->POST('upload');
-
+                }
+                
+                $dok        = $this->POST('upload_file');
                 $cekNIM_TA  = $this->mTugasAkhir->getDatabyNim($this->data['username']);
 
             if (count($cekNIM_TA) > 0 ) {
-                    if($file_name == '.pdf')
-                    $this->uploadPDF($this->data['username'], 'upload');
+                    $this->uploadPDF($this->data['username'], 'upload_file');
                     $this->flashmsg('Dokumen tugas akhir berhasil disimpan!', 'success');
                     redirect('index.php/cMahasiswa/unggah');
                     exit;
             }
+
             $this->template($this->data, 'vMahasiswa');
         }
-
+        $this->data['title']        = 'Unggah File TA';
+        $this->data['content']      = 'Mahasiswa/vUnggah' ;
+        $this->data['ta']           = $this->mTugasAkhir->getDatabyNim($this->data['username']);
+        $this->template($this->data, 'vMahasiswa');
     }
     
 

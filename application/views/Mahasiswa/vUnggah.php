@@ -19,11 +19,13 @@
                                         <label for="Upload Dokumen">Unggah Dokumen <span class="required">* .pdf</span></label>
                                     </div>
                                 </div>
-
-                                <?= form_open('index.php/cMahasiswa/Unggah') ?>
+                                <div>
                                     <?php echo $this->session->flashdata('msg'); ?>
+                                </div>
+                                <?= form_open_multipart('index.php/cMahasiswa/unggah') ?>
+                                    
                                     <div class="form-group">
-                                        <input type="file" name="upload" required>
+                                        <input type="file" name="upload_file" required>
                                     </div>
                                     <input type="submit" name="simpan" class="btn btn-info" value="Simpan" style="background: #07294e ; border-color: #ffc600;">
                                 
