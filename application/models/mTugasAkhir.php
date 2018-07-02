@@ -28,7 +28,7 @@ class MTugasAkhir extends MY_Model
 		return $query->row();
 	}
 
-	public function update($nim, $data){
+	public function updateReject($nim, $data){
    		$this->db->where($this->data['primary_key'], $nim);
    		$query = $this->db->update($this->data['table_name'], $data);
    		return $query;

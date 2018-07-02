@@ -142,8 +142,18 @@ class CAdmin extends MY_Controller
         $this->template($this->data, 'vAdmin');
     }
 
-    function hapus_tugasAkhir($nim){
-        $this->mTugasAkhir->hapus_tugas_akhir($nim);
+    function reject_tugasAkhir($nim){
+        $data = array(
+            'idSubjek' => null,
+            'judul' => null,
+            'tahun' => null,
+            'dosenPembimbing1' => null,
+            'dosenPembimbing2' => null,
+            'abstrak' => null,
+            'status' => 'rejected'
+        );
+
+        $this->mTugasAkhir->updateReject($nim, $data);
         $this->flashmsg('Data tugas akhir ditolak', 'success');
         redirect('index.php/cAdmin/tugasAkhir');
 

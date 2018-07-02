@@ -33,8 +33,17 @@ class CLogin extends MY_Controller
 
 	public function index()
 	{
-		$this->load->view('Mahasiswa/vLogin',$this->data);
+		$this->data['title']  = 'Login'.$this->title;
+        $this->data['content']  = 'Login/vLogin';
+        $this->template($this->data, 'vLogin');
 		
+	}
+
+	public function register()
+	{
+		$this->data['title']  = 'Register'.$this->title;
+        $this->data['content']  = 'Login/vRegister';
+        $this->template($this->data, 'vLogin');
 	}
 
 	public	function aksi_login()

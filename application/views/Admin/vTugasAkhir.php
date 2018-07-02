@@ -36,7 +36,7 @@
                       <?php if($key->status == 'confirmed'): ?>
                         <button class="btn btn-sm btn-danger" disabled>Tolak</button>
                       <?php else : ?>
-                        <a href="<?= base_url('index.php/cAdmin/hapus_tugasAkhir/'.$key->nim) ?>" class="btn btn-sm btn-danger">Tolak</a>
+                        <a href="<?= base_url('index.php/cAdmin/reject_tugasAkhir/'.$key->nim) ?>" class="btn btn-sm btn-danger">Tolak</a>
                       <?php endif; ?>
                     </td>
                     <td>

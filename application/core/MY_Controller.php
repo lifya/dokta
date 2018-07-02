@@ -23,6 +23,9 @@ class MY_Controller extends CI_Controller
 	    else if ($template == 'vDaftarTA') {
 	      return $this->load->view('Main/template/sub/layout', $data);
 	    }
+	    else if ($template == 'vLogin') {
+	      return $this->load->view('Login/template/layout', $data);
+	    }
 	}
 
 	public function POST($name)
